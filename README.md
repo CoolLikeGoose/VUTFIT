@@ -9,9 +9,15 @@ Program implementujte ve zdrojovém souboru ''t9search.c''. Vstupní data budou 
 # Implementační detaily
 ## Vstupní telefonní seznam
 Telefonní seznam jsou ASCII textová data. Každý záznam o kontaktu obsahuje dva řádky: jméno osoby a jeho telefonní číslo. Každý řádek obsahuje maximálně 100 znaků, jinak se jedná o neplatná data. Seznam kontaktů je neuspořádaný. U všech dat nezáleží na velikosti písmen (tzv. case insensitive). Program musí podporovat alespoň 42 kontaktů.
+> Petr Dvorak \
+603123456 \
+Jana Novotna\
+777987654\
+Bedrich Smetana ml. \
+541141120 
 
 ## Kritérium nalezení kontaktu
-Pro zjednodušení budeme v tomto projektu uvažovat hledání '''nepřerušené posloupnosti''' zadaných znaků/číslic v telefonním kontaktu. Nepřerušenou posloupností znaků se myslí takový podřetězec, u kterého se na každé pozici vyskytuje znak, který odpovídá jednomu ze znaků, které reprezentuje číslice na stejné pozici v zadaném řetězci. Každá číslice kromě sebe sama reprezentuje ještě následující znaky: 2 (abc), 3 (def), 4 (ghi), 5 (jkl), 6 (mno), 7 (pqrs), 8 (tuv), 9 (wxyz), 0 (+).
+Pro zjednodušení budeme v tomto projektu uvažovat hledání '''nepřerušené posloupnosti''' zadaných znaků/číslic v telefonním kontaktu. Nepřerušenou posloupností znaků se myslí takový podřetězec, u kterého se na každé pozici vyskytuje znak, který odpovídá jednomu ze znaků, které reprezentuje číslice na stejné pozici v zadaném řetězci. **Každá číslice kromě sebe sama reprezentuje ještě následující znaky: 2 (abc), 3 (def), 4 (ghi), 5 (jkl), 6 (mno), 7 (pqrs), 8 (tuv), 9 (wxyz), 0 (+)**.
 
 ## Výstup programu
 ### Výstup programu může být dvojího druhu:
@@ -26,6 +32,22 @@ Pokud v telefonním seznamu neexistuje kontakt, u něhož by nějaká část odp
 
 ### Kontakt(y) nalezen(y)
 Každý kontakt, který odpovídá hledanému kritériu, program vytiskne na jeden řádek ve formátu "JMENO, TELCISLO", kde JMENO je jméno kontaktu z telefonního seznamu a TELCISLO je záznam o telefonním čísle. Program tiskne všechny kontakty, které kritériu odpovídají. Na pořadí řádků nezáleží. Stejně tak nezáleží ani na velikosti písmen.
+
+### Příklad hledání (pro demonstraci jsou nalezená písmena ve jméně jako velká):
+>./t9search <seznam.txt
+- petr dvorak, 603123456 
+- jana novotna, 777987654 
+- bedrich smetana ml., 541141120 
+> ./t9search 12 <seznam.txt 
+- petr dvorak, 603***12***3456 
+- bedrich smetana ml., 541141***12***0 
+> ./t9search 686 <seznam.txt 
+- jana n***OVO***tna, 777987654 
+> ./t9search 38 <seznam.txt 
+- p***ET***r ***DV***orak, 603123456 
+- bedrich sm***ET***ana ml., 541141120 
+> ./t9search 111 <seznam.txt 
+- Not found
 
 ## Omezení v projektu
  - Je ***zakázané*** použít následující funkce:

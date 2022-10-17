@@ -8,7 +8,7 @@ Program implementujte ve zdrojovém souboru ''t9search.c''. Vstupní data budou 
 
 # Implementační detaily
 ## Vstupní telefonní seznam
-Telefonní seznam jsou ASCII textová data. Každý záznam o kontaktu obsahuje dva řádky: jméno osoby a jeho telefonní číslo. Každý řádek obsahuje maximálně 100 znaků, jinak se jedná o neplatná data. Seznam kontaktů je neuspořádaný. U všech dat nezáleží na velikosti písmen (tzv. case insensitive). Program musí podporovat alespoň 42 kontaktů.
+Telefonní seznam jsou ASCII textová data. Každý záznam o kontaktu obsahuje dva řádky: jméno osoby a jeho telefonní číslo. Každý ***řádek obsahuje maximálně 100 znaků***, jinak se jedná o neplatná data. Seznam kontaktů je neuspořádaný. U všech dat nezáleží na velikosti písmen (tzv. case insensitive). Program musí ***podporovat alespoň 42 kontaktů***.
 > Petr Dvorak \
 603123456 \
 Jana Novotna\

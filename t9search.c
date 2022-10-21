@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #define MAX_CONTACTS 42
 #define MAX_SYMB 100
@@ -34,39 +35,24 @@ void print_contact_cell(char arr[]) {
 // debug
 
 int main(int argc, char *argv[]) {
-    printf("Program started\n");
     if (argc != 2) {
         fprintf(stderr, "Bad input! Number of arguments:%d", argc);
         exit(-1);
     }
 
-    //*2 because we contain NUMBER and NAME for each contact
-    char contacts[MAX_CONTACTS*2][MAX_SYMB];
-    int numOfContacts = 0;
-    numOfContacts = SaveContacts(contacts);
-
+    //Define the sequence for the search
     char *sequence = argv[1];
-}
+    int seqlen = strlen(argv[1]);
 
-//Get contacts from stdin in contacts array
-int SaveContacts(char contacts[MAX_CONTACTS*2][MAX_SYMB]) {
+    char contactName[MAX_SYMB];
+    char contactTel[MAX_SYMB];
+
     char ch;
-    int subindex = 0;
-    int numOfContacts = 0;
-    while ((ch = getchar()) != EOF) {
-        if (ch == '\n') {
-
-            contacts[numOfContacts][subindex] = '\0'; //Define end of line
-
-            numOfContacts++;
-            subindex = 0;
-            continue;
-        } 
-        contacts[numOfContacts][subindex] = ch;
-        subindex++;
+    int cursymb;    
+    while ((ch = getchar()) != EOF)
+    {
+        //compare method
     }
-    numOfContacts++;
-    return numOfContacts/2;
 }
 
 //Get num representation of char
@@ -74,7 +60,7 @@ int SaveContacts(char contacts[MAX_CONTACTS*2][MAX_SYMB]) {
 char CharToNum(char ch) {
     switch (tolower(ch))
     {
-    case 'a': case 'b': case 'c':
+    case 'a': case 'b': case 'c':   
         return '2';
     case 'd': case 'e': case 'f':
         return '3';

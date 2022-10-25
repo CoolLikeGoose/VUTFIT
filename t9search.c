@@ -2,37 +2,14 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX_CONTACTS 42
 #define MAX_SYMB 100
 
 char CharToNum(char);
 int SaveContacts(char[MAX_CONTACTS*2][MAX_SYMB]);
-
-// debug
-void print_arr(char arr[], int length) {
-    printf(">");
-    for (int i = 0; i < length; i++) {
-        printf("%c", arr[i]);
-    }
-    printf("\n");
-}
-
-// for (int i = 0; i < numOfContacts*2; i++) {
-//     print_contact_cell(contacts[i]);
-// }
-void print_contact_cell(char arr[]) {
-    printf(">");
-
-    int i = 0;
-    while (arr[i] != '\0') {
-        printf("%c", arr[i]);
-        i++;
-    }
-
-    printf("\n");
-}
-// debug
+void CompareCurContant(char[2][MAX_SYMB], char*, int);
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -41,19 +18,73 @@ int main(int argc, char *argv[]) {
     }
 
     //Define the sequence for the search
-    char *sequence = argv[1];
+    char *searchSequence = argv[1];
     int seqlen = strlen(argv[1]);
 
-    char contactName[MAX_SYMB];
-    char contactTel[MAX_SYMB];
+    //1 - name; 2 - number
+    char contact[2][MAX_SYMB];
+
+    int curLen = 0;
+    int dataBias = 0;
 
     char ch;
-    int cursymb;    
     while ((ch = getchar()) != EOF)
     {
-        //compare method
+        if (ch == '\n') { //pizdec novy radek
+            contact[dataBias][curLen] = '\0';
+
+            //Compare with searchSequence 
+            //if number of contact is already saved
+            if (dataBias == 1) {
+                CompareCurContant(contact, searchSequence, seqlen);
+            }
+
+            curLen = 0;
+            dataBias = dataBias == 0 ? 1 : 0;
+            continue;
+        }
+        contact[dataBias][curLen] = ch; //tolower(ch);
+        curLen++;
     }
 }
+
+void PrintContact(char contact[2][MAX_SYMB]) {
+    int i = 0;
+    while (contact[0][i] != '\0') {
+        printf("%c", contact[0][i]);
+        i++;
+    }
+    printf(", ");
+    i = 0;
+    while (contact[1][i] != '\0') {
+        printf("%c", contact[1][i]);
+        i++;
+    }
+    printf("\n");
+}
+
+void CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
+    //Searching for compliance with desired sequence in contact number
+    int searchInd = 0;
+    int i = 0;
+    while ((contact[1][i]) != '\0') {
+        if (contact[1][i] == sequence[searchInd]) {
+            searchInd++;
+            if (searchInd == seqLen) {
+                PrintContact(contact);
+                return;
+            }
+        } else if (searchInd != 0) {
+            searchInd = 0;
+        }
+        i++;
+    }
+
+    //Searching for compliance with desired sequence in contact name
+
+    
+}
+
 
 //Get num representation of char
 //2 (abc), 3 (def), 4 (ghi), 5 (jkl), 6 (mno), 7 (pqrs), 8 (tuv), 9 (wxyz), 0 (+).

@@ -9,34 +9,39 @@
 
 char CharToNum(char);
 int SaveContacts(char[MAX_CONTACTS*2][MAX_SYMB]);
-void CompareCurContant(char[2][MAX_SYMB], char*, int);
+int CompareCurContant(char[2][MAX_SYMB], char*, int);
+void PrintEverything();
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    if (argc > 2) {
         fprintf(stderr, "Bad input! Number of arguments:%d", argc);
         exit(-1);
+    } else if (argc == 1) {
+        PrintEverything();
+        exit(0);
     }
 
     //Define the sequence for the search
     char *searchSequence = argv[1];
     int seqlen = strlen(argv[1]);
 
-    //1 - name; 2 - number
+    //0 - name array; 1 - number array
     char contact[2][MAX_SYMB];
 
     int curLen = 0;
     int dataBias = 0;
 
     char ch;
+    int finded = 0;
     while ((ch = getchar()) != EOF)
     {
-        if (ch == '\n') { //pizdec novy radek
+        if (ch == '\n') {
             contact[dataBias][curLen] = '\0';
 
             //Compare with searchSequence 
             //if number of contact is already saved
             if (dataBias == 1) {
-                CompareCurContant(contact, searchSequence, seqlen);
+                finded += CompareCurContant(contact, searchSequence, seqlen);
             }
 
             curLen = 0;
@@ -45,6 +50,21 @@ int main(int argc, char *argv[]) {
         }
         contact[dataBias][curLen] = ch; //tolower(ch);
         curLen++;
+    }
+    contact[dataBias][curLen] = '\0';
+    if (dataBias == 1) {
+        CompareCurContant(contact, searchSequence, seqlen);
+    }
+
+    //In case when no contact is equal to a sequence
+    if (finded == 0) 
+        printf("Not found\n");
+}
+
+void PrintEverything() {
+    char ch;
+    while ((ch = getchar()) != EOF) {
+        printf("%c", ch);
     }
 }
 
@@ -63,7 +83,7 @@ void PrintContact(char contact[2][MAX_SYMB]) {
     printf("\n");
 }
 
-void CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
+int CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
     //Searching for compliance with desired sequence in contact number
     int searchInd = 0;
     int i = 0;
@@ -72,7 +92,7 @@ void CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
             searchInd++;
             if (searchInd == seqLen) {
                 PrintContact(contact);
-                return;
+                return 1;
             }
         } else if (searchInd != 0) {
             searchInd = 0;
@@ -89,13 +109,15 @@ void CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
             searchInd++;
             if (searchInd == seqLen) {
                 PrintContact(contact);
-                return;
+                return 1;
             }
         } else if (searchInd != 0) {
             searchInd = 0;
         }
         i++;
     }
+
+    return 0;
 }
 
 

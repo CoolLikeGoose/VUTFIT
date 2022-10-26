@@ -82,7 +82,20 @@ void CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
 
     //Searching for compliance with desired sequence in contact name
 
-    
+    searchInd = 0;
+    i = 0;
+    while ((contact[0][i]) != '\0') {
+        if (CharToNum(contact[0][i]) == sequence[searchInd]) {
+            searchInd++;
+            if (searchInd == seqLen) {
+                PrintContact(contact);
+                return;
+            }
+        } else if (searchInd != 0) {
+            searchInd = 0;
+        }
+        i++;
+    }
 }
 
 
@@ -109,8 +122,10 @@ char CharToNum(char ch) {
         return '9';
     case '+':
         return '0';
+    case ' ': case '.':
+        return 'N';
     default:
-        printf("Bad char!\n");
+        printf("Bad char! --->%c\n", ch);
         return '\0';
     }
 }

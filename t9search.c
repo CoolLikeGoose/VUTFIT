@@ -9,13 +9,13 @@
 
 char CharToNum(char);
 int SaveContacts(char[MAX_CONTACTS*2][MAX_SYMB]);
-int CompareCurContant(char[2][MAX_SYMB], char*, int);
+int CompareContant(char[2][MAX_SYMB], char*, int);
 void PrintEverything();
 
 int main(int argc, char *argv[]) {
     if (argc > 2) {
-        fprintf(stderr, "Bad input! Number of arguments:%d", argc);
-        exit(-1);
+        printf("Bad input! Number of arguments:%d", argc);
+        exit(-1); //change later
     } else if (argc == 1) {
         PrintEverything();
         exit(0);
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
             //Compare with searchSequence 
             //if number of contact is already saved
             if (dataBias == 1) {
-                finded += CompareCurContant(contact, searchSequence, seqlen);
+                finded += CompareContant(contact, searchSequence, seqlen);
             }
 
             curLen = 0;
@@ -53,12 +53,14 @@ int main(int argc, char *argv[]) {
     }
     contact[dataBias][curLen] = '\0';
     if (dataBias == 1) {
-        CompareCurContant(contact, searchSequence, seqlen);
+        CompareContant(contact, searchSequence, seqlen);
     }
 
     //In case when no contact is equal to a sequence
     if (finded == 0) 
         printf("Not found\n");
+
+    return 0;
 }
 
 void PrintEverything() {
@@ -83,7 +85,7 @@ void PrintContact(char contact[2][MAX_SYMB]) {
     printf("\n");
 }
 
-int CompareCurContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
+int CompareContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
     //Searching for compliance with desired sequence in contact number
     int searchInd = 0;
     int i = 0;

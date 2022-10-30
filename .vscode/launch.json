@@ -36,7 +36,7 @@
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [
-                "54",
+                "023",
                 "<",
                 "${workspaceFolder}/seznam.txt"
             ],

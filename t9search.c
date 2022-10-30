@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define MAX_CONTACTS 42
-#define MAX_SYMB 100
+#define MAX_SYMB 101 
 
 char CharToNum(char);
 int SaveContacts(char[MAX_CONTACTS*2][MAX_SYMB]);
@@ -15,10 +15,10 @@ void PrintEverything();
 int main(int argc, char *argv[]) {
     if (argc > 2) {
         printf("Bad input! Number of arguments:%d", argc);
-        exit(-1); //change later
+        return 0;
     } else if (argc == 1) {
         PrintEverything();
-        exit(0);
+        return 0;
     }
 
     //Define the sequence for the search
@@ -32,14 +32,15 @@ int main(int argc, char *argv[]) {
     int dataBias = 0;
 
     char ch;
-    int finded = 0;
+    int finded = 0; //We can print the number of finded contacts or print "Not finded" 
     while ((ch = getchar()) != EOF)
     {
-        if (ch == '\n') {
+        //Max symbols == 100 & 101 symbol is \0
+        if (ch == '\n' || curLen == 101) {
             contact[dataBias][curLen] = '\0';
 
             //Compare with searchSequence 
-            //if number of contact is already saved
+            //if name & number of the contact is already saved
             if (dataBias == 1) {
                 finded += CompareContant(contact, searchSequence, seqlen);
             }
@@ -48,12 +49,13 @@ int main(int argc, char *argv[]) {
             dataBias = dataBias == 0 ? 1 : 0;
             continue;
         }
-        contact[dataBias][curLen] = ch; //tolower(ch);
+        contact[dataBias][curLen] = ch;
         curLen++;
     }
-    contact[dataBias][curLen] = '\0';
+    //Check for the last contact because
+    contact[dataBias][curLen] = '\0'; 
     if (dataBias == 1) {
-        CompareContant(contact, searchSequence, seqlen);
+        finded += CompareContant(contact, searchSequence, seqlen);
     }
 
     //In case when no contact is equal to a sequence
@@ -85,12 +87,17 @@ void PrintContact(char contact[2][MAX_SYMB]) {
     printf("\n");
 }
 
+int CheckForPlus(char ch) {
+    if (ch == '+') return '0';
+    return ch;
+}
+
 int CompareContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
     //Searching for compliance with desired sequence in contact number
     int searchInd = 0;
     int i = 0;
     while ((contact[1][i]) != '\0') {
-        if (contact[1][i] == sequence[searchInd]) {
+        if (CheckForPlus(contact[1][i]) == sequence[searchInd]) {
             searchInd++;
             if (searchInd == seqLen) {
                 PrintContact(contact);
@@ -146,10 +153,7 @@ char CharToNum(char ch) {
         return '9';
     case '+':
         return '0';
-    case ' ': case '.':
-        return 'N';
     default:
-        printf("Bad char! --->%c\n", ch);
-        return '\0';
+        return 'N';
     }
 }

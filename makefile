@@ -27,3 +27,7 @@ tests: t9search.exe
 	@echo 6.
 	@echo ---Testing for Found Everything---
 	t9search.exe <seznam.txt
+
+	@echo 6.
+	@echo ---Testing for + in number---
+	t9search.exe 023 <seznam.txt

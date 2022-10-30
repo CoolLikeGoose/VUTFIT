@@ -68,9 +68,31 @@ int main(int argc, char *argv[]) {
 
 //If argc == 1 -> Print everything from stdin
 void PrintEverything() {
+    char contact[2][MAX_SYMB];
     char ch;
+    int bias = 0;
+    int i = 0;
     while ((ch = getchar()) != EOF) {
-        printf("%c", ch);
+        if (ch == '\n' || i == 101) {
+            if (i == 101) while ((ch = getchar()) != '\n');
+            contact[bias][i] = '\0';
+
+            //Compare with searchSequence 
+            //if name & number of the contact is already saved
+            if (bias == 1) {
+                printf("%s, %s\n", contact[0], contact[1]);
+            }
+
+            i = 0;
+            bias = bias == 0 ? 1 : 0;
+            continue;
+        }
+        contact[bias][i] = ch;
+        i++;
+    }
+    contact[bias][i] = '\0'; 
+    if (bias == 1) {
+        printf("%s, %s\n", contact[0], contact[1]);
     }
 }
 

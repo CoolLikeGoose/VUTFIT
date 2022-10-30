@@ -3,17 +3,19 @@
 #include <ctype.h>
 #include <string.h>
 
-#define MAX_CONTACTS 42
+//#define MAX_CONTACTS 42
 #define MAX_SYMB 101 
 
 char CharToNum(char);
-int SaveContacts(char[MAX_CONTACTS*2][MAX_SYMB]);
 int CompareContant(char[2][MAX_SYMB], char*, int);
 void PrintEverything();
 
+//The program can support an unlimited number of contacts 
+//because the comparison and output is done directly while reading the data, 
+//but the limit of 100 characters per line is still applicable
 int main(int argc, char *argv[]) {
     if (argc > 2) {
-        printf("Bad input! Number of arguments:%d", argc);
+        printf("ERROR: Bad input! Number of arguments: %d\n", argc);
         return 0;
     } else if (argc == 1) {
         PrintEverything();
@@ -26,7 +28,6 @@ int main(int argc, char *argv[]) {
 
     //0 - name array; 1 - number array
     char contact[2][MAX_SYMB];
-
     int curLen = 0;
     int dataBias = 0;
 
@@ -53,10 +54,13 @@ int main(int argc, char *argv[]) {
         contact[dataBias][curLen] = ch;
         curLen++;
     }
-    //Check for the last contact because
+    //Check for the last contact
     contact[dataBias][curLen] = '\0'; 
     if (dataBias == 1) {
         finded += CompareContant(contact, searchSequence, seqlen);
+    } else {
+        printf("ERROR: Incorrect data\n");
+        printf("Maybe one of the contacts does not contain the number or name\n");
     }
 
     //In case when no contact is equal to a sequence
@@ -66,6 +70,8 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+//We can get rid of this function by adding an additional bool variable to main, 
+//but this makes the code less readable, so I decided to keep it
 //If argc == 1 -> Print everything from stdin
 void PrintEverything() {
     char contact[2][MAX_SYMB];
@@ -77,8 +83,6 @@ void PrintEverything() {
             if (i == 101) while ((ch = getchar()) != '\n');
             contact[bias][i] = '\0';
 
-            //Compare with searchSequence 
-            //if name & number of the contact is already saved
             if (bias == 1) {
                 printf("%s, %s\n", contact[0], contact[1]);
             }
@@ -93,22 +97,10 @@ void PrintEverything() {
     contact[bias][i] = '\0'; 
     if (bias == 1) {
         printf("%s, %s\n", contact[0], contact[1]);
+    } else {
+        printf("ERROR: Incorrect data\n");
+        printf("Maybe one of the contacts does not contain the number or name\n");
     }
-}
-
-void PrintContact(char contact[2][MAX_SYMB]) {
-    int i = 0;
-    while (contact[0][i] != '\0') {
-        printf("%c", contact[0][i]);
-        i++;
-    }
-    printf(", ");
-    i = 0;
-    while (contact[1][i] != '\0') {
-        printf("%c", contact[1][i]);
-        i++;
-    }
-    printf("\n");
 }
 
 int CheckForPlus(char ch) {
@@ -124,7 +116,7 @@ int CompareContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
         if (CheckForPlus(contact[1][i]) == sequence[searchInd]) {
             searchInd++;
             if (searchInd == seqLen) {
-                PrintContact(contact);
+                printf("%s, %s\n", contact[0], contact[1]);
                 return 1;
             }
         } else if (searchInd != 0) {
@@ -134,14 +126,13 @@ int CompareContant(char contact[2][MAX_SYMB], char *sequence, int seqLen) {
     }
 
     //Searching for compliance with desired sequence in contact name
-
     searchInd = 0;
     i = 0;
     while ((contact[0][i]) != '\0') {
         if (CharToNum(contact[0][i]) == sequence[searchInd]) {
             searchInd++;
             if (searchInd == seqLen) {
-                PrintContact(contact);
+                printf("%s, %s\n", contact[0], contact[1]);
                 return 1;
             }
         } else if (searchInd != 0) {
@@ -178,6 +169,6 @@ char CharToNum(char ch) {
     case '+':
         return '0';
     default:
-        return 'N';
+        return 'N'; //For characters not supported by the keyboard (e.g. dot)
     }
 }

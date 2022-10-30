@@ -1,5 +1,3 @@
-define NEW_LINE
-endef
 compile: t9search.c
 	gcc -std=c99 -Wall -Wextra -Werror t9search.c -o t9search
 	t9search.exe 1234 <seznam.txt
@@ -31,3 +29,8 @@ tests: t9search.exe
 	@echo 6.
 	@echo ---Testing for + in number---
 	t9search.exe 023 <seznam.txt
+
+error: t9search.exe
+	@echo 1.
+	@echo ---Testing for bad argument count---
+	t9search.exe 1234 213 123 <seznam.txt

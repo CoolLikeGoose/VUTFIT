@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <stdbool.h>
 
 #define MAX_CONTACTS 42
 #define MAX_SYMB 101 
@@ -37,6 +36,8 @@ int main(int argc, char *argv[]) {
     {
         //Max symbols == 100 & 101 symbol is \0
         if (ch == '\n' || curLen == 101) {
+            //clear stdin if string is bigger than 100 symbols
+            if (curLen == 101) while ((ch = getchar()) != '\n');
             contact[dataBias][curLen] = '\0';
 
             //Compare with searchSequence 
@@ -65,6 +66,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+//If argc == 1 -> Print everything from stdin
 void PrintEverything() {
     char ch;
     while ((ch = getchar()) != EOF) {

@@ -1,0 +1,68 @@
+\section{Příklad 4}
+% Jako parametr zadejte skupinu (A-H)
+\ctvrtyZadani{D}
+
+\subsection{Metoda smyčkových proudů}
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (-2,4) to[sV=U\textsubscript{1}] (6,4)
+		(-2,4) to[R, l=R\textsubscript{1}] (-2,2)
+		(6,4) -- (6,2)
+		(-2,2) node[circ]{} (-2,2)
+		(6,2) node[circ]{} (6,2)
+            (-2,2) to[cute inductor, l=L\textsubscript{1}] (0,2)
+		(0,2) to[R, l=R\textsubscript{2}] (3,2)
+		(3,2) node[circ] {}
+		(3,2) to[cute inductor, l=L\textsubscript{2}] (6,2)
+		(6,2) to[sV=U\textsubscript{2}] (6,0)
+		(3,0) -- (6,0)
+		(3,0) node[circ]{} (3,0)
+		(3,2) to[C, l=C\textsubscript{1}] (3,0)
+		(-2,2) -- (-2,0)
+		(-2,0) to[C, l=C\textsubscript{2}] (3,0)
+		(3,3) node[circulator,scale=0.6]{} (3,3)
+		(1.5,1.1) node[circulator,scale=0.6]{} (1.5,1.1)
+		(4.5,1.1) node[circulator,scale=0.6]{} (4.5,1.1)
+		{[anchor=south west] (3,3) node{I\textsubscript{A}} (1.5,1.1) node{I\textsubscript{B}} (4.5,1.1) node {I\textsubscript{C}}}
+		;
+	\end{circuitikz}
+\end{figure}
+
+\begin{align*}
+    I\textsubscript{A}: U\textsubscript{1} + U\textsubscript{R1} + U\textsubscript{L1} + U\textsubscript{R2} + U\textsubscript{L2} = 0 \\
+    I\textsubscript{B}: U\textsubscript{L1} + U\textsubscript{C1} + U\textsubscript{C2} = 0 \\
+    I\textsubscript{C}: U\textsubscript{L2} + U\textsubscript{L1} + U\textsubscript{2} = 0
+\end{align*}
+
+\begin{align*}
+    U = I \times Z \\
+    I\textsubscript{A}: I\textsubscript{A}(Z\textsubscript{R1} + Z\textsubscript{L1} + Z\textsubscript{R2} + Z\textsubscript{L2}) - I\textsubscript{B}(Z\textsubscript{L1} + Z\textsubscript{R2}) - I\textsubscript{C}Z\textsubscript{L2} = -U\textsubscript{1} \\
+    I\textsubscript{B}: -I\textsubscript{A}(Z\textsubscript{L1} + Z\textsubscript{R1}) + I\textsubscript{B}(Z\textsubscript{L1} + Z\textsubscript{R1} + Z\textsubscript{C1} + Z\textsubscript{C2}) - I\textsubscript{C}Z\textsubscript{C1} = 0 \\
+    I\textsubscript{C}: -I\textsubscript{A}Z\textsubscript{L2} - I\textsubscript{B}Z\textsubscript{C1} + I\textsubscript{C}(Z\textsubscript{C1} + Z\textsubscript{L2}) = -U\textsubscript{2}
+\end{align*}
+
+\begin{align*}
+\begin{pmatrix}
+    Z\textsubscript{R1} + Z\textsubscript{L1} + Z\textsubscript{R2} + Z\textsubscript{L2}&Z\textsubscript{L1} + Z\textsubscript{R2}&Z\textsubscript{L2}\\
+    Z\textsubscript{L1} + Z\textsubscript{R1}&Z\textsubscript{L1} + Z\textsubscript{R1} + Z\textsubscript{C1} + Z\textsubscript{C2}&Z\textsubscript{C1}\\
+    Z\textsubscript{L2}&Z\textsubscript{C1}&Z\textsubscript{C1} + Z\textsubscript{L2}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+	I_A\\ I_B\\ I_C
+\end{pmatrix}
+\begin{pmatrix}
+    -U_1\\ 0\\ -U_2
+\end{pmatrix}
+\end{align*}
+
+\subsection{Výpočet $\varphi_{C2}$ a |U\textsubscript{C2}|}
+
+\begin{align*}
+	U\textsubscript{C2} &= I\textsubscript{B} \times \frac{-j}{\omega C\textsubscript{2}} \\
+	|U\textsubscript{C2}| &= \sqrt{Re(U\textsubscript{C2})^2 + Im(U\textsubscript{C2})^2} \\
+	\varphi_{C2}&= arctan(\frac{Im(U\textsubscript{C2})}{Re(U\textsubscript{C2})}) \times \frac{\pi}{180} + \pi
+\end{align*}
+
+\subsection{Dosazení}

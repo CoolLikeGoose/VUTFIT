@@ -1,0 +1,165 @@
+\section{Příklad 3}
+% Jako parametr zadejte skupinu (A-H)
+\tretiZadani{C}
+
+\subsection{Nahrazení napěťového zdroje za proudový}
+Pro náhradu použijme I\textsubscript{n} = G\textsubscript{1}U (pro snazší počítání vodivosti)
+%to[R, l^=R\textsubscript{1}]
+%node[circ]{} (2,4)
+%to[dcvsource, v^<=U]
+% to[ioosource, i=\I{n}]
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (-1,0) to[ioosource, i=I\textsubscript{n}] (-1,2)
+    (-1,2) -- (2,2)
+    (0,2) node[circ]{} (0,2)
+    (0,2) to[R, l^=G\textsubscript{1}] (0,0)
+    (0,0) node[circ]{} (0,0)
+    (2,2) node[circ]{} (2,2)
+    (2,2) to[R, l^=G\textsubscript{2}] (4,2)
+    (4,2) node[circ]{} (4,2)
+    (4,2) to[R, l^=G\textsubscript{4}] (4,0)
+    (4,0) node[circ]{} (4,0)
+    -- (5,0)
+    (4,2) -- (5,2)
+    (5,2) to[ioosource, i=I\textsubscript{2}] (5,0)
+    (4,0) -- (4,-1)
+    (4,-1) to[ioosource, i=I\textsubscript{1}] (2,-1)
+    -- (2,0)
+    (2,0) node[circ]{} (2,0)
+    -- (-1,0)
+    (2,0) to[R, l^=G\textsubscript{5}] (4,0)
+    (2,0) to[R, l^=G\textsubscript{3}] (2,2)
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\subsection{Výpočet uzlových napětí}
+Použijme metodu uzlových napětí a vypočítáme U\textsubscript{A}, U\textsubscript{B}, U\textsubscript{C}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (-1,0) to[ioosource, i=I\textsubscript{n}] (-1,2)
+    (-1,2) -- (2,2)
+    (0,2) node[circ]{} (0,2)
+    (0,2) to[R, l^=G\textsubscript{1}] (0,0)
+    (0,0) node[circ]{} (0,0)
+    (2,2) node[circ]{} (2,2)
+    (2,2) to[R, l^=G\textsubscript{2}] (4,2)
+    (4,2) node[circ]{} (4,2)
+    (4,2) to[R, l^=G\textsubscript{4}] (4,0)
+    (4,0) node[circ]{} (4,0)
+    -- (5,0)
+    (4,2) -- (5,2)
+    (5,2) to[ioosource, i=I\textsubscript{2}] (5,0)
+    (4,0) -- (4,-1)
+    (4,-1) to[ioosource, i=I\textsubscript{1}] (2,-1)
+    -- (2,0)
+    (2,0) node[circ]{} (2,0)
+    -- (-1,0)
+    (2,0) to[R, l^=G\textsubscript{5}] (4,0)
+    (2,0) to[R, l^=G\textsubscript{3}] (2,2)
+    {[anchor=south] (2,2) node {A} (4,2) node {B}}
+    {[anchor=north west] (4,0) node {C}}
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\begin{align*}
+    I\textsubscript{R1} - I\textsubscript{R2} - I\textsubscript{R3} = 0 \\
+    I\textsubscript{R2} - I\textsubscript{R4} - I\textsubscript{2} = 0\\
+    I\textsubscript{R4} + I\textsubscript{2} - I\textsubscript{R5} - I\textsubscript{1} = 0
+\end{align*}
+
+\begin{align*}
+    G\textsubscript{1}(U - U\textsubscript{A}) - G\textsubscript{2}(U\textsubscript{A} - U\textsubscript{B} - U\textsubscript{C}) - G\textsubscript{3}U\textsubscript{A} = 0 \\
+    G\textsubscript{2}(U\textsubscript{A} - U\textsubscript{B} - U\textsubscript{C}) - G\textsubscript{4}(U\textsubscript{B} - U\textsubscript{C}) = I\textsubscript{2} \\
+    G\textsubscript{4}(U\textsubscript{B} - U\textsubscript{C}) - G\textsubscript{5}U\textsubscript{C} = I\textsubscript{1} - I\textsubscript{2}
+\end{align*}
+
+\begin{align*}
+    (G\textsubscript{1} + G\textsubscript{2} + G\textsubscript{3})U\textsubscript{A} - G\textsubscript{2}U\textsubscript{B} - G\textsubscript{2}U\textsubscript{C} = G\textsubscript{1}U \\
+    G\textsubscript{2}U\textsubscript{A} - (G\textsubscript{2} + G\textsubscript{4})U\textsubscript{B} - (G\textsubscript{2} - G\textsubscript{4})U\textsubscript{C} = I\textsubscript{2} \\
+    G\textsubscript{4}U\textsubscript{B} - (G\textsubscript{4} + G\textsubscript{5})U\textsubscript{C} = I\textsubscript{1} - I\textsubscript{2}
+\end{align*}    
+
+Teď převedeme soustavu na matice (A je matice vodivosti, x je matice napětí, B je matice proudu). A pak najdeme matici x pomocí $Ax = B$ => $x = A^{-1}B$ (To už bude při dosazováni)
+
+\begin{figure}[H]
+\begin{align*}
+\begin{pmatrix}
+	G_1+G_2+G_3&-G_2&-G_2\\
+	G_2&-G_2-G_4&G_4-G_2\\
+	0&G_4&-G_4-G_5
+\end{pmatrix}\times 
+\begin{pmatrix}
+	U_A\\
+	U_B\\
+	U_C
+\end{pmatrix}=
+\begin{pmatrix}
+	G_1U\\
+	I_2\\
+	I_1-I_2
+\end{pmatrix}
+\end{align*}
+\end{figure}
+
+\subsection{Výpočet U\textsubscript{R4} a I\textsubscript{R4}}
+Nyní zbývá jen vypočítat napětí na odporu R\textsubscript{4} a pak už stačí jen použít Ohmův zákon k určení proudu.
+
+\begin{align*}
+    U\textsubscript{R4} = U\textsubscript{B} - U\textsubscript{C} \\
+    I\textsubscript{R4} = \frac{U\textsubscript{R4}}{R\textsubscript{4}}
+\end{align*}
+
+\subsection{Dosazení}
+\begin{figure}[H]
+\begin{align*}
+\begin{pmatrix}
+	0.0728&-0.03223&-0.0323\\
+	0.0323&-0.08223&0.0177\\
+	0&0.05&-0.3833
+\end{pmatrix}\times 
+\begin{pmatrix}
+	U_A\\
+	U_B\\
+	U_C
+\end{pmatrix}=
+\begin{pmatrix}
+	2.5\\
+	0.75\\
+	0.1
+\end{pmatrix}
+\end{align*}
+\begin{align*}
+\begin{pmatrix}
+	U_A\\
+	U_B\\
+	U_C
+\end{pmatrix}=
+\begin{pmatrix}
+	19.97&-14.8259&-10.1943\\
+	9.5829&-20.4602&-7.8726\\
+	5.7437&-12.3361&-16.1216
+\end{pmatrix}\times
+\begin{pmatrix}
+	2.5\\
+	0.75\\
+	0.1
+\end{pmatrix}
+\end{align*}
+\end{figure}
+
+\begin{align*}
+    U\textsubscript{A} = \SI{37.786}{\volt} \\
+    U\textsubscript{B} = \SI{7.8248}{\volt} \\
+    U\textsubscript{C} = \SI{3.495}{\volt}
+\end{align*}
+
+\begin{align*}
+    U\textsubscript{R4} = U\textsubscript{B} - U\textsubscript{C} = 7.8248 - 3.495 = \SI{4.3298}{\volt} \\
+    U\textsubscript{R4} = \frac{U\textsubscript{R4}}{R\textsubscript{4}} = \frac{4.3298}{20} = \SI{216.4859}{\milli\ampere}
+\end{align*}

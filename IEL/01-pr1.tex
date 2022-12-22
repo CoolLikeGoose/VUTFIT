@@ -1,0 +1,198 @@
+\section{Příklad 1}
+% Jako parametr zadejte skupinu (A-H)
+\prvniZadani{D}
+
+\subsection{Výpočet R\textsubscript{ekv}}
+\begin{figure}[H]
+Sečtení sériově zapojených napěťových zdrojů: $U = U\textsubscript{1} +U\textsubscript{2}$
+
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4) --
+    (2,4) node[circ]{} (2,4)
+    -- (2,5)
+    (2,4) -- (2,2)
+    (2,5) to[R, l^=R\textsubscript{2}] (5,5)
+    -- (5,4)
+    (5,4) node[circ]{} (5,4)
+    (2,4) to[R, l^=R\textsubscript{3}] (5,4)
+    (2,2) to[R, l^=R\textsubscript{4}] (5,2)
+    (5,2) node[circ]{} (5,2)
+    (5,2) to[R, l^=R\textsubscript{5}] (5,4)
+    (5,4) to[R, l^=R\textsubscript{6}] (8,4)
+    (8,4) to[R, l^=R\textsubscript{8}] (8,2)
+    (8,2) node[circ]{} (8,2)
+    (5,2) to[R, l^=R\textsubscript{7}] (8,2)
+    -- (8,0) --  (0,0);
+    \end{circuitikz}
+\end{figure}
+
+\begin{figure}[H]
+Zjednodušení rezistorů: \\R\textsubscript{2}, R\textsubscript{3} na R\textsubscript{23}: $R\textsubscript{23} = \frac{R\textsubscript{2}\times R\textsubscript{3}}{R\textsubscript{2}+R\textsubscript{3}}$ \\
+R\textsubscript{6}, R\textsubscript{8} na R\textsubscript{68}: $R\textsubscript{68} = R\textsubscript{6}+R\textsubscript{8}$
+
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4) --
+    (2,4) node[circ]{} (2,4)
+    (5,4) node[circ]{} (5,4)
+    (2,4) to[R, l^=R\textsubscript{23}] (5,4)
+    (2,4) -- (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (5,2)
+    (5,2) node[circ]{} (5,2)
+    (5,2) to[R, l^=R\textsubscript{5}] (5,4)
+    (5,4) to[R, l^=R\textsubscript{68}] (8,2)
+    (8,2) node[circ]{} (8,2)
+    (5,2) to[R, l^=R\textsubscript{7}] (8,2)
+    -- (8,0) --  (0,0);
+    \end{circuitikz}
+\end{figure}
+
+\begin{figure}[H]
+Transfigurace trojůhelník $\rightarrow$ hvězda.  % existuje i \textrightarrow ale $\rightarrow$ dává i mezery
+
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4) --
+    (2,4) node[circ]{} (2,4)
+    (5,4) node[circ]{} (5,4)
+    (2,4) to[R, l^=R\textsubscript{23}] (5,4)
+    (2,4) -- (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (5,2)
+    (5,2) node[circ]{} (5,2)
+    (5,2) to[R, l^=R\textsubscript{5}] (5,4)
+    (5,4) to[R, l^=R\textsubscript{68}] (8,2)
+    (8,2) node[circ]{} (8,2)
+    (5,2) to[R, l^=R\textsubscript{7}] (8,2)
+    -- (8,0) --  (0,0)
+    {[anchor=south] (5,4) node {B}}
+    {[anchor=north] (5,2) node {C}}
+    {[anchor=west] (8,2) node {A}}
+    ;
+    \end{circuitikz}
+
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,3)
+    (0,3) to[R, l^=R\textsubscript{1}] (2,3)
+    (2,3) node[circ]{} (2,3)
+    -- (2,4)
+    (2,4) to[R, l^=R\textsubscript{23}] (4,4)
+    (2,3) -- (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (4,2)
+    (4,4) node[circ]{} (4,4)
+    (4,2) node[circ]{} (4,2)
+    (4,4) to[R, l^=R\textsubscript{B}] (6,3)
+    (6,3) node[circ]{} (6,3)
+    (4,2) to[R, l^=R\textsubscript{C}] (6,3)
+    (6,3) to[R, l^=R\textsubscript{A}] (8,3)
+    (8,3) node[circ]{} (8,3)
+    -- (8,0) --  (0,0)
+    {[anchor=south] (8,3) node {A} (4,4) node {B} (4,2) node {C}}
+    ;
+    \end{circuitikz}
+    
+    \begin{align*}
+		R\textsubscript{A} = \frac{R\textsubscript{68}\times R\textsubscript{7}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}} \\
+		R\textsubscript{B} = \frac{R\textsubscript{5}\times R\textsubscript{68}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}} \\
+		R\textsubscript{C} = \frac{R\textsubscript{5}\times R\textsubscript{7}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}}
+    \end{align*}
+\end{figure}
+
+\begin{figure}[H]
+Zjednodušení rezistorů: \\
+R\textsubscript{23}, R\textsubscript{B} na R\textsubscript{B23}: $R\textsubscript{B23} = R\textsubscript{B} + R\textsubscript{23}$ \\
+R\textsubscript{4}, R\textsubscript{C} na R\textsubscript{C4}: $R\textsubscript{C4} = R\textsubscript{C} + R\textsubscript{4}$ 
+
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,3)
+    (0,3) to[R, l^=R\textsubscript{1}] (2,3)
+    (2,3) node[circ]{} (2,3)
+    (2,3) -- (2,4) 
+    (2,4) to[R, l^=R\textsubscript{B23}] (4,4)
+    -- (4,3)
+    (2,3) -- (2,2)
+    (2,2) to[R, l^=R\textsubscript{C4}] (4,2)
+    -- (4,3)
+    (4,3) node[circ]{} (4,3)
+    (4,3) to[R, l^=R\textsubscript{A}] (6,3)
+    -- (6,3) -- (6,0) -- (0,0)
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\begin{figure}[H]
+Zjednodušení rezistorů: \\
+R\textsubscript{B23}, R\textsubscript{C4} na R\textsubscript{BC234}: $R\textsubscript{BC234} = \frac{R\textsubscript{B23} \times R\textsubscript{C4}}{R\textsubscript{B23} + R\textsubscript{C4}}$ \\
+R\textsubscript{1}, R\textsubscript{A}, R\textsubscript{BC234} na R\textsubscript{ekv}: $R\textsubscript{ekv} = R\textsubscript{1} + R\textsubscript{A} + R\textsubscript{BC234}$ \\
+
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,3)
+    -- (2,3)
+    (2,3) to[R, l^=R\textsubscript{ekv}] (2,0)
+    -- (0,0)
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\newpage
+\subsection{Výpočet U\textsubscript{R2} a I\textsubscript{R2}}
+Rozložíme obvod zpětně pokud R\textsubscript{2} se neobjeví, a s tohoto vypočítáme U\textsubscript{2} a I\textsubscript{2}. Můžeme upozornit že v tomto obvodě tyto hodnoty se budou rovnat: I = I\textsubscript{BC234}, U\textsubscript{BC234} = U\textsubscript{B23}, I\textsubscript{B23} = I\textsubscript{23}, U\textsubscript{23} = U\textsubscript{2} \\
+\\
+$\frac{U}{R\textsubscript{ekv}} = I$\\ \\
+$I\textsubscript{BC234} \times R\textsubscript{BC234} = U\textsubscript{BC234}$\\ \\
+$\frac{U\textsubscript{B23}}{R\textsubscript{B23}} = I\textsubscript{B23}$\\ \\
+$I\textsubscript{23} \times R\textsubscript{23} = U\textsubscript{23}$\\ \\
+$\frac{U\textsubscript{2}}{R\textsubscript{2}} = I\textsubscript{2}$\\ \\
+A z tohoto získáme: \\ \\
+$\frac{R\textsubscript{23} \times \frac{R\textsubscript{BC234} \times \frac{U}{R\textsubscript{ekv}}}{R\textsubscript{B23}}}{R\textsubscript{2}} = I\textsubscript{2}$ \\ \\
+Pak vypočítáme U\textsubscript{2}:\\ \\
+$U\textsubscript{2} = I\textsubscript{2} \times R\textsubscript{2}$
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (-2,0) to[dcvsource, v^<=U] (-2,3)
+    (-2,3) to[R, l^=R\textsubscript{1}] (0,3)
+    (0,3) node[circ]{} (0,3)
+    -- (0,4) -- (1,4) -- (1,5)
+    (1,4) -- (1,3)
+    (1,4) node[circ]{} (1,4)
+    (0,3) -- (0,2)
+    (1,5) to[R, l^=R\textsubscript{2}] (3,5) 
+    -- (3,4)
+    (1,3) to[R, l^=R\textsubscript{3}] (3,3)
+    -- (3,4)
+    (3,4) node[circ]{} (3,4)
+    (0,2) to[R, l^=R\textsubscript{4}] (3,2)
+    (3,4) to[R, l^=R\textsubscript{B}] (6,4)
+    -- (6,3)
+    (3,2) to[R, l^=R\textsubscript{C}] (6,2) 
+    -- (6,3)
+    (6,3) node[circ]{} (6,3)
+    (6,3) to[R, l^=R\textsubscript{A}] (8,3)
+    (8,3) node[circ]{} (8,3)
+    -- (8,0) --  (-2,0)
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\subsection{Dosazení}
+\begin{align*}
+    U = U\textsubscript{1} + U\textsubscript{2} = 105 + 85 = \SI{190}{\volt} \\ \\
+    R\textsubscript{23} = \frac{R\textsubscript{2} \times R\textsubscript{3}}{R\textsubscript{2} + R\textsubscript{3}} = \frac{980 \times 330}{980 + 330} = \SI{246.8702}{\ohm} \\ \\
+    R\textsubscript{68} = R\textsubscript{6}+R\textsubscript{8} = 710 + 200 = \SI{910}{\ohm} \\ \\
+    R\textsubscript{A} = \frac{R\textsubscript{68} \times R\textsubscript{7}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}} = \frac{910 \times 240}{310 + 910 + 240} = \SI{149.5890}{\ohm}\\ \\
+    R\textsubscript{B} = \frac{R\textsubscript{5} \times R\textsubscript{68}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}} = \frac{310 \times 910}{310 + 910 + 240} = \SI{193.2192}{\ohm}\\ \\
+    R\textsubscript{C} = \frac{R\textsubscript{5} \times R\textsubscript{7}}{R\textsubscript{5} + R\textsubscript{68} + R\textsubscript{7}} = \frac{310 \times 240}{310 + 910 + 240} = \SI{50.9589}{\ohm}\\ \\
+    R\textsubscript{B23} = R\textsubscript{B}+R\textsubscript{23} = 193.2192 + 246.8702 = \SI{440.0894}{\ohm} \\ \\
+    R\textsubscript{C4} = R\textsubscript{C}+R\textsubscript{4} = 50.9589 + 280 = \SI{330.9589}{\ohm} \\ \\
+    R\textsubscript{BC234} = \frac{R\textsubscript{B23} \times R\textsubscript{C4}}{R\textsubscript{B23} + R\textsubscript{C4}} = \frac{440.0894 \times 330.9589}{440.0894 + 330.9589} = \SI{188.9006}{\ohm}\\ \\
+    R\textsubscript{ekv} = R\textsubscript{1} + R\textsubscript{A} + R\textsubscript{BC234} = 420 + 149.5890 + 188.9006 = \SI{758.4896}{\ohm} \\ \\
+    I\textsubscript{2} = \frac{R\textsubscript{23} \times \frac{R\textsubscript{BC234} \times \frac{U}{R\textsubscript{ekv}}}{R\textsubscript{B23}}}{R\textsubscript{2}} = \frac{246.8702 \times \frac{188.9006 \times \frac{190}{758.4896}}{440.0894}}{980} = \SI{27.0856}{\milli\ampere}\\ \\
+    U\textsubscript{2} = I\textsubscript{2} \times R\textsubscript{2} = 0.0270856 \times 980 = \SI{26.5439}{\volt}
+\end{align*}

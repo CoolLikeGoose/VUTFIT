@@ -1,0 +1,124 @@
+\section{Příklad 2}
+% Jako parametr zadejte skupinu (A-H)
+\druhyZadani{G}
+
+\subsection{Výpočet R\textsubscript{i} (odpor náhradního obvodu)}
+Odpojíme řešený odpor R\textsubscript{5} a uzly, na které byl tento odpor připojen označíme jako $A$ a $B$. Mezi těmito dvěma body najdeme odpor R\textsubscript{i}
+%(0,4) to[R, l^=R\textsubscript{1}] (2,4) --
+%(2,4) node[circ]{} (2,4)]
+%(0,0) to[dcvsource, v^<=U] (0,4)
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) -- (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4)
+    (2,4) to[R, l^=R\textsubscript{3}] (2,2)
+    (2,2) node[circ]{} (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (2,0)
+    (2,0) node[circ]{} (2,0)
+    (0,0) to[R, l^=R\textsubscript{2}] (2,0)
+    -- (4,0)
+    (4,0) node[ocirc]{} (4,0)
+    (2,2) -- (4,2)
+    (4,2) node[ocirc]{} (4,2)
+    {[anchor=south] (4,2) node {A} (4,0) node {B}}
+    ;
+    \end{circuitikz}
+    \qquad
+    \begin{circuitikz}
+    \draw (0,0) node[ocirc]{} (0,0)
+    -- (1,0)
+    (1,0) node[circ]{} (1,0)
+    -- (1,1)
+    (1,1) to[R, l^=R\textsubscript{3}] (3,1)
+    (3,1) to[R, l^=R\textsubscript{1}] (5,1)
+    (5,1) to[R, l^=R\textsubscript{2}] (7,1)
+    -- (7,0)
+    (7,0) node[circ]{} (7,0)
+    -- (7,-1)
+    (7,-1) to[R, l^=R\textsubscript{4}] (1,-1)
+    -- (1,0)
+    (7,0) -- (8,0)
+    (8,0) node[ocirc]{} (8,0)
+    {[anchor=south] (0,0) node {A} (8,0) node {B}}
+    ;
+    \end{circuitikz}
+\end{figure}
+
+\begin{align*}
+    R\textsubscript{i} = \frac{(R\textsubscript{3}+R\textsubscript{1}+R\textsubscript{2}) \times R\textsubscript{4}}{R\textsubscript{3} + R\textsubscript{1} + R\textsubscript{2} + R\textsubscript{4}}
+\end{align*}
+
+\subsection{Výpočet U\textsubscript{i} (napětí náhradního obvodu)}
+Pro tento výpočet taky odstraníme součástku R\textsubscript{5} a nejdeme proud I\textsubscript{A}.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4)
+    (2,4) to[R, l^=R\textsubscript{3}] (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (2,0)
+    (0,0) to[R, l^=R\textsubscript{2}] (2,0)
+    ;
+    \end{circuitikz}
+    \begin{align*}
+        I\textsubscript{A} = \frac{U}{R\textsubscript{1} + R\textsubscript{3} + R\textsubscript{4} + R\textsubscript{2}}
+    \end{align*}
+\end{figure}
+
+Teď můžeme najít napětí U\textsubscript{i}, které můžeme spočítat mezi body A a B určené při vypočtu R\textsubscript{i} a použit I\textsubscript{A}. 
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U] (0,4)
+    (0,4) to[R, l^=R\textsubscript{1}] (2,4)
+    (2,4) to[R, l^=R\textsubscript{3}] (2,2)
+    (2,2) node[circ]{} (2,2)
+    (2,2) to[R, l^=R\textsubscript{4}] (2,0)
+    (2,0) node[circ]{} (2,0)
+    (0,0) to[R, l^=R\textsubscript{2}] (2,0)
+    -- (4,0)
+    (4,0) node[ocirc]{} (4,0)
+    (2,2) -- (4,2)
+    (4,2) node[ocirc]{} (4,2)
+    {[anchor=west] (4,2) node {A} (4,0) node {B}}
+    ;
+    \draw[solid,->](4,1.9)--(4,0.1)node[midway,right]{$U\textsubscript{i}$};
+    \end{circuitikz}
+    \begin{align*}
+        U\textsubscript{i} - U\textsubscript{4} = 0 \\
+        U\textsubscript{i} = U\textsubscript{4} \\
+        U\textsubscript{i} = I\textsubscript{A} \times R\textsubscript{4}
+    \end{align*}
+\end{figure}
+
+\subsection{Výpočet U\textsubscript{5} a I\textsubscript{5}}
+Teď máme U\textsubscript{i} a R\textsubscript{i}, a už můžeme vypočítat I\textsubscript{i} a pak zjistit hodnoty I\textsubscript{5} a U\textsubscript{5} pomoci náhradního obvodu.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \draw (0,0) to[dcvsource, v^<=U\textsubscript{i}] (0,2)
+    (0,2) to[R, l^=R\textsubscript{i}] (2,2)
+    (2,2) to[R, l^=R\textsubscript{5}] (2,0)
+    -- (0,0)
+    ;
+    \end{circuitikz}
+    \begin{align*}
+        I\textsubscript{i} = \frac{U\textsubscript{i}}{R\textsubscript{i}+R\textsubscript{5}}\\
+        U\textsubscript{5} = I\textsubscript{i} \times R\textsubscript{5} \\
+        I\textsubscript{5} = \frac{U\textsubscript{5}}{R\textsubscript{5}}
+    \end{align*}
+\end{figure}
+
+\subsection{Dosazení}
+\begin{align*}
+    R\textsubscript{i} = \frac{(R\textsubscript{3}+R\textsubscript{1}+R\textsubscript{2}) \times R\textsubscript{4}}{R\textsubscript{3} + R\textsubscript{1} + R\textsubscript{2} + R\textsubscript{4}} = \frac{(615+250+315) \times 180}{615+250+315+180} = \SI{156.1765}{\ohm} \\
+    I\textsubscript{A} = \frac{U}{R\textsubscript{1} + R\textsubscript{3} + R\textsubscript{4} + R\textsubscript{2}} = \frac{180}{250+615+180+315} = \SI{132.3529}{\milli\ampere} \\ \\
+    U\textsubscript{i} = I\textsubscript{A} \times R\textsubscript{4} = 0.1323529 \times 180 = \SI{23.8235}{\volt} \\
+    I\textsubscript{i} = \frac{U\textsubscript{i}}{R\textsubscript{i}+R\textsubscript{5}} = \frac{23.8235}{156.1765+460} = \SI{38.6634}{\milli\ampere} \\ \\
+    U\textsubscript{5} = I\textsubscript{i} \times R\textsubscript{5} = 0.0386634 \times 460 = \SI{17.7852}{\volt} \\
+    I\textsubscript{5} = \frac{U\textsubscript{5}}{R\textsubscript{5}} = \frac{17.7852}{460} = \SI{38.6635}{\milli\ampere}
+\end{align*}

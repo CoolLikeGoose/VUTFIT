@@ -1,0 +1,4 @@
+.IPPcode24
+DEFVAR GF@c
+OR GF@c bool@true bool@true
+WRITE GF@c

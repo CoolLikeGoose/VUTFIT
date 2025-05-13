@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Student"
+                       x:Class="StudIS.APP.Views.Student.StudentEditView"
+                       x:DataType="vm:StudentEditViewModel"
+                       x:Name="StudentEditViewRoot">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Subject Name -->
+            <Label Text="Student FirstName" />
+            <Entry Text="{Binding Student.FirstName}" Placeholder="First Name" />
+
+            <!-- Subject Abbreviation -->
+            <Label Text="Student LastName" Margin="0,10,0,0"/>
+            <Entry Text="{Binding Student.LastName}" Placeholder="Last Name" />
+            
+            <Label Text="Student Img" Margin="0,10,0,0"/>
+            <Entry Text="{Binding Student.ImageUrl}" Placeholder="Last Name" />
+
+            <!-- Save and Cancel Buttons -->
+            <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</views:ContentPageBase>

@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_assert.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_atomic.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_audio.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_bits.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_blendmode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_clipboard.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_copying.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_cpuinfo.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_egl.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_endian.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_error.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_events.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_filesystem.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_gamecontroller.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_gesture.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_guid.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_haptic.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_hidapi.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_hints.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_joystick.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_keyboard.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_keycode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_loadso.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_locale.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_log.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_main.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_messagebox.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_metal.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_misc.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_mouse.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_mutex.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_name.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengl.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengl_glext.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles2.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles2_gl2.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles2_gl2ext.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles2_gl2platform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_opengles2_khrplatform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_pixels.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_platform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_power.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_quit.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_rect.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_render.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_rwops.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_scancode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_sensor.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_shape.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_stdinc.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_surface.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_system.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_syswm.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_assert.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_common.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_compare.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_crc32.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_font.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_fuzzer.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_harness.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_images.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_log.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_md5.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_memory.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_test_random.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_thread.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_timer.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_touch.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_types.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_version.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_video.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\SDL_vulkan.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\begin_code.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\707e4022e6a536cf155f2d59217607db\close_code.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\build\CMakeFiles\6df80cf4c175e4c6dffe662ab6b428a6\sdl_headers_copy.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\thekr\Desktop\izg-lab-1\SDL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\thekr\Desktop\izg-lab-1\build\SDL\CMakeFiles\sdl_headers_copy" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{CC893C8D-DAFF-3FDB-9A56-D818FF4F1A4A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

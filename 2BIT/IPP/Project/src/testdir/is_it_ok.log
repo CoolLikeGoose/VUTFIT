@@ -1,0 +1,21 @@
+usage: parse.py [-v] [-h] [--stats FILE] [--loc] [--comments] [--labels]
+                [--jumps] [--fwjumps] [--backjumps] [--badjumps] [--frequent]
+                [--print STRING] [--eol]
+
+IPPcode24 to XML parser
+
+options:
+  -v, --verbose   Show debug infromation
+  -h, --help      show this help message and exit
+  --stats FILE    file to which the statistics will be saved(you must specify
+                  the following parameters)
+  --loc           Saves to statistic file count of instructions
+  --comments      Saves to statistic file count of comments
+  --labels        Saves to statistic file count of labels
+  --jumps         Saves to statistic file count of jumps
+  --fwjumps       Saves to statistic file count of forward jumps
+  --backjumps     Saves to statistic file count of back jumps
+  --badjumps      Saves to statistic file count of jumps to non-existing label
+  --frequent      Saves to statistic file most frequently used instructions
+  --print STRING  Prints STRING to statistic file
+  --eol           Adds an EOL symbol to statistic file

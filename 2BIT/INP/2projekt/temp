@@ -1,0 +1,104 @@
+; Autor reseni: Nikita Smirnov xsmirn02
+; Pocet cyklu k serazeni puvodniho retezce:         3792
+; Pocet cyklu razeni sestupne serazeneho retezce:   4733
+; Pocet cyklu razeni vzestupne serazeneho retezce:  288
+; Pocet cyklu razeni retezce s vasim loginem:       926
+; Implementovany radici algoritmus:                 Bubble sort
+; ------------------------------------------------
+
+; DATA SEGMENT
+                .data
+;login:          .asciiz "vitejte-v-inp-2023"    ; puvodni uvitaci retezec
+;login:          .asciiz "vvttpnjiiee3220---"  ; sestupne serazeny retezec
+;login:          .asciiz "---0223eeiijnpttvv"  ; vzestupne serazeny retezec
+login:          .asciiz "xsmirn02"            ; SEM DOPLNTE VLASTNI LOGIN
+                                                ; A POUZE S TIMTO ODEVZDEJTE
+
+params_sys5:    .space  8   ; misto pro ulozeni adresy pocatku
+                            ; retezce pro vypis pomoci syscall 5
+                            ; (viz nize - "funkce" print_string)
+
+new_line:       .asciiz "\n"
+
+; CODE SEGMENT
+                .text
+ main:
+     ; SEM DOPLNTE VASE RESENI
+    daddi   $t0, r0, login
+    daddi   $t1, r0, 0      ; s0 - array size
+loop_size:
+    lb      $t2, 0($t0)
+    beqz    $t2, end_loop_size
+    addi    $t1, $t1, 1
+    addi    $t0, $t0, 1
+    j       loop_size
+    
+end_loop_size:
+
+    daddi   $a0, r0, login
+    dadd    $a1, r0, $t1
+
+    jal quick_sort
+
+    daddi   r4, r0, login   ; vozrovy vypis: adresa login: do r4
+    jal     print_string    ; vypis pomoci print_string - viz nize
+
+    syscall 0   ; halt
+
+quick_sort:
+    daddi   $t7, r0, 1
+    beqz    $a1, sort_done          ; if length == (0 || 1) then done
+    beq     $a1, $t7, sort_done
+
+    srl     $t3, $a1, 1
+    dadd    $t3, $a0, $t3
+    lb      $t4, 0($t3)             ; Load pivot
+
+    dadd    $t0, r0, $a0
+    dadd    $t1, r0, $a1
+    daddi   $t7, r0, 1
+    dsub    $t1, $t1, $t7
+partition:
+    lb      $t5, 0($t0) 
+
+    dsub    $t7, $t5, $t4
+    bgez    $t7, sort_right         ;t5 >= t4
+    addi   $t0, $t0, 1  
+
+    ;daddi   $t7, r0, 1
+    ;dsub    $t1, $t1, $t7   
+    j partition
+
+sort_right:
+    lb      $t6, 0($t1)
+    
+    dsub    $t7, $t4, $t6
+    bgez    $t7, swap               ;t4 >= t6 
+
+    daddi   $t7, r0, 1
+    dsub    $t1, $t1, $t7
+    j sort_right
+
+swap:
+    sb      $t6, 0($t0)
+    sb      $t5, 0($t1)
+    addi   $t0, $t0, 1
+
+    daddi   $t7, r0, 1
+    dsub    $t1, $t1, $t7
+    j partition
+
+sort_done:
+    dsub    $t2, $t0, $a0
+    jal     quick_sort
+    dadd    $a0, $t0, $t2  
+    dsub    $a1, $a1, $t2
+    jal quick_sort  
+
+jr  r31
+
+print_string:   ; adresa retezce se ocekava v r4
+                sw      r4, params_sys5(r0)
+                daddi   r14, r0, params_sys5    ; adr pro syscall 5 musi do r14
+                syscall 5   ; systemova procedura - vypis retezce na terminal
+                jr      r31 ; return - r31 je urcen na return address

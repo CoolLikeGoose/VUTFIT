@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Subjects"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:models="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       x:Class="StudIS.APP.Views.Subjects.SubjectsDetailView"
+                       x:DataType="vm:SubjectsDetailViewModel"
+                       x:Name="SubjectsDetailViewRoot">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Subject Information Section -->
+            <Frame BorderColor="Black" Padding="10" Margin="0,10,0,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <BoxView WidthRequest="50" HeightRequest="50" BackgroundColor="LightGray" />
+                    <StackLayout Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Subject.Name}" FontSize="Large" FontAttributes="Bold" TextColor="Red"/>
+                        <Label Text="{Binding Subject.Abbreviation}" FontSize="Medium" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+                        <Button Text="Delete" Command="{Binding DeleteCommand}" Margin="0,0,5,0"/>
+                        <Button Text="Edit" Command="{Binding EditCommand}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Enrolled Entities Section -->
+            <Label Text="Enrolled Entities" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Button Text="Add" Command="{Binding GoToCreateActivityCommand}" HorizontalOptions="End" />
+
+            <!-- Activities Section -->
+            <Label Text="Activities" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <CollectionView ItemsSource="{Binding Activities}" VerticalOptions="FillAndExpand" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ActivityListModel">
+                        <Frame Padding="10" Margin="5" BorderColor="Gray">
+                            <StackLayout>
+                                <Label Text="{Binding ActivityType}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Description}" FontSize="Small" />
+                                <Label Text="{Binding StartTime, StringFormat='Start: {0:MM/dd/yyyy HH:mm}'}" FontSize="Small" />
+                                <Label Text="{Binding EndTime, StringFormat='End: {0:MM/dd/yyyy HH:mm}'}" FontSize="Small" />
+                                <Button Text="Details" Command="{Binding Source={x:Reference SubjectsDetailViewRoot}, Path=BindingContext.GoToActivityDetailCommand}" CommandParameter="{Binding Id}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</views:ContentPageBase>

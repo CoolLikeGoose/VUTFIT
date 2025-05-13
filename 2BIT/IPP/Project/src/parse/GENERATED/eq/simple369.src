@@ -1,0 +1,2 @@
+.IPPcode24
+EQ string@a GF@var nil@nil

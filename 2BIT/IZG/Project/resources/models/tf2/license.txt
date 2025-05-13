@@ -1,0 +1,11 @@
+Model Information:
+* title:	TF2 Medic
+* source:	https://sketchfab.com/3d-models/tf2-medic-eed224ce7131417996528cac229dc779
+* author:	Nobby76 (https://sketchfab.com/nobbyt76)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "TF2 Medic" (https://sketchfab.com/3d-models/tf2-medic-eed224ce7131417996528cac229dc779) by Nobby76 (https://sketchfab.com/nobbyt76) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

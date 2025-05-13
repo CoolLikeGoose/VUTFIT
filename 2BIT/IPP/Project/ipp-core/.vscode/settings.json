@@ -1,0 +1,45 @@
+{
+    "files.exclude": {
+        "temp": true,
+        "tmp": true
+    },
+    "phpstan.binCommand": [
+        "bin/phpstan-without-xdebug"
+    ],
+    "phpstan.binPath": "",
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git",
+        ".vscode",
+        ".vscode-insiders",
+        ".devcontainer"
+    ],
+    "cSpell.words": [
+        "autoload",
+        "CREATEFRAME",
+        "DEFVAR",
+        "DPRINT",
+        "GETCHAR",
+        "intelephense",
+        "JUMPIFEQ",
+        "JUMPIFNEQ",
+        "Kocman",
+        "Křivka",
+        "phar",
+        "phpstan",
+        "POPFRAME",
+        "PUSHFRAME",
+        "PUSHS",
+        "Radim",
+        "SETCHAR",
+        "Smirnov",
+        "spaze",
+        "STRI2INT",
+        "symb",
+        "xsmirn",
+        "Zbyněk"
+    ],
+    "phpstan.timeout": 50000
+}

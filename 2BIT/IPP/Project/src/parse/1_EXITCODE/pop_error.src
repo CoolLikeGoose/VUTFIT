@@ -1,0 +1,5 @@
+.IPPcode24
+
+DEFVAR GF@a
+PUSHS int@1
+POPS int@1

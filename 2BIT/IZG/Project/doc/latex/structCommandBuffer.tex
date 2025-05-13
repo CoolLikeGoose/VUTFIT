@@ -1,0 +1,36 @@
+\hypertarget{structCommandBuffer}{}\doxysection{Command\+Buffer Struct Reference}
+\label{structCommandBuffer}\index{CommandBuffer@{CommandBuffer}}
+
+
+\mbox{[}\mbox{\hyperlink{structCommand}{Command}}\mbox{]}  
+
+
+
+
+{\ttfamily \#include $<$fwd.\+hpp$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structCommandBuffer_a5a4e731514b5998dad67189ca3612f3e}\label{structCommandBuffer_a5a4e731514b5998dad67189ca3612f3e}} 
+uint32\+\_\+t \mbox{\hyperlink{structCommandBuffer_a5a4e731514b5998dad67189ca3612f3e}{nof\+Commands}} = 0
+\begin{DoxyCompactList}\small\item\em number of used commands in command buffer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCommandBuffer_addba1f7b3ffb5ad52a484d1b815436df}\label{structCommandBuffer_addba1f7b3ffb5ad52a484d1b815436df}} 
+\mbox{\hyperlink{structCommand}{Command}} \mbox{\hyperlink{structCommandBuffer_addba1f7b3ffb5ad52a484d1b815436df}{commands}} \mbox{[}\mbox{\hyperlink{structCommandBuffer_a94aad407c5115fdcd040134eef20b76b}{max\+Commands}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em array of commands \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structCommandBuffer_a94aad407c5115fdcd040134eef20b76b}\label{structCommandBuffer_a94aad407c5115fdcd040134eef20b76b}} 
+static const uint32\+\_\+t \mbox{\hyperlink{structCommandBuffer_a94aad407c5115fdcd040134eef20b76b}{max\+Commands}} = 10000
+\begin{DoxyCompactList}\small\item\em maximal number of commands \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}\mbox{\hyperlink{structCommand}{Command}}\mbox{]} 
+
+This struct represents a command buffer. \mbox{\hyperlink{structCommand}{Command}} buffer is used for C\+PU -\/$>$ G\+PU communication. Jobs are sent to G\+PU using this structure. \mbox{[}\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}}\mbox{]} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+student/\mbox{\hyperlink{fwd_8hpp}{fwd.\+hpp}}\end{DoxyCompactItemize}

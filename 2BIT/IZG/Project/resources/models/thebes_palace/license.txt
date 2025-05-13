@@ -1,0 +1,11 @@
+Model Information:
+* title:	Thebes Palace
+* source:	https://sketchfab.com/3d-models/thebes-palace-e7742b74bf744e87b06a0314dc992ebd
+* author:	meletisf (https://sketchfab.com/meletisf)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Thebes Palace" (https://sketchfab.com/3d-models/thebes-palace-e7742b74bf744e87b06a0314dc992ebd) by meletisf (https://sketchfab.com/meletisf) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

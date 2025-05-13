@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudIS.APP.MainPage">
+    
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Section 1: Students or Subj Quicksearch -->
+            <Frame Grid.Column="0" Margin="10" BorderColor="Purple" BackgroundColor="Transparent">
+                <StackLayout>
+                    <Label Text="Quick search" FontSize="Medium" Margin="0, 0, 15, 0"/>
+                    <StackLayout Orientation="Horizontal" Margin="0, 0, 15, 0">
+                        <Entry Placeholder="Enter search query" HorizontalOptions="FillAndExpand" Margin="0, 10, 0, 0"/>
+                        <Button Text="Search" Clicked="OnSearchClicked" HorizontalOptions="Fill"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Section 2: Upcoming Activities -->
+            <Frame Grid.Column="1" Margin="10" BorderColor="Purple" BackgroundColor="Transparent">
+                <StackLayout Grid.Column="1" Margin="10">
+                    <Label Text="Upcoming Activities" FontSize="Medium" Margin="0, 0, 15, 0"/>
+                    <StackLayout>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                        <Frame Margin="10">
+                            <Label Text="Dashboard"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

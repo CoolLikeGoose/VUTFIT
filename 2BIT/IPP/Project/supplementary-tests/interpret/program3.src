@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<program language="IPPcode24">
+  <instruction order="1" opcode="DEFVAR">
+    <arg1 type="var">GF@x</arg1>
+  </instruction>
+  <instruction order="2" opcode="CREATEFRAME"/>
+  <instruction order="3" opcode="DEFVAR">
+    <arg1 type="var">TF@isTrue</arg1>
+  </instruction>
+  <instruction order="4" opcode="MOVE">
+    <arg1 type="var">GF@x</arg1>
+    <arg2 type="int">0</arg2>
+  </instruction>
+  <instruction order="5" opcode="JUMP">
+    <arg1 type="label">ahoj</arg1>
+  </instruction>
+  <instruction order="6" opcode="LABEL">
+    <arg1 type="label">ahoj</arg1>
+  </instruction>
+  <instruction order="7" opcode="WRITE">
+    <arg1 type="string">string</arg1>
+  </instruction>
+  <instruction order="8" opcode="JUMP">
+    <arg1 type="label">ahoj2</arg1>
+  </instruction>
+  <instruction order="9" opcode="LABEL">
+    <arg1 type="label">ahoj2</arg1>
+  </instruction>
+  <instruction order="10" opcode="WRITE">
+    <arg1 type="var">GF@x</arg1>
+  </instruction>
+  <instruction order="11" opcode="ADD">
+    <arg1 type="var">GF@x</arg1>
+    <arg2 type="var">GF@x</arg2>
+    <arg3 type="int">1</arg3>
+  </instruction>
+  <instruction order="12" opcode="EQ">
+    <arg1 type="var">TF@isTrue</arg1>
+    <arg2 type="var">GF@x</arg2>
+    <arg3 type="int">69</arg3>
+  </instruction>
+  <instruction order="13" opcode="JUMPIFEQ">
+    <arg1 type="label">ahoj3</arg1>
+    <arg2 type="var">TF@isTrue</arg2>
+    <arg3 type="bool">true</arg3>
+  </instruction>
+  <instruction order="14" opcode="JUMP">
+    <arg1 type="label">ahoj</arg1>
+  </instruction>
+  <instruction order="15" opcode="LABEL">
+    <arg1 type="label">ahoj3</arg1>
+  </instruction>
+  <instruction order="16" opcode="WRITE">
+    <arg1 type="string">konec</arg1>
+  </instruction>
+</program>
+

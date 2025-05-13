@@ -1,0 +1,14 @@
+.IPPcode24
+
+DEFVAR GF@a
+
+PUSHS GF@a
+PUSHS int@5
+PUSHS bool@true
+PUSHS string@ahoj
+PUSHS nil@nil
+
+POPS GF@a
+
+ADD GF@a int@5 int@5
+SUB GF@a int@5 GF@a

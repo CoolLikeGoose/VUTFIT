@@ -1,0 +1,7 @@
+Archive xsmirn02.zip found, unpacking:
+Archive:  xsmirn02.zip
+  inflating: work/INC.pdf            
+  inflating: work/uart_rx.vhd        
+  inflating: work/uart_rx_fsm.vhd    
+Missing files:
+zprava.pdf

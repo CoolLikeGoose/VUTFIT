@@ -1,0 +1,2 @@
+.IPPcode24
+EQ bool@true string@a GF@var

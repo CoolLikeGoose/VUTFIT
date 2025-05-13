@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<program language="IPPcode24">
+  <instruction order="1" opcode="DEFVAR">
+    <arg1 type="var">GF@globalVar</arg1>
+  </instruction>
+  <instruction order="2" opcode="MOVE">
+    <arg1 type="var">GF@globalVar</arg1>
+    <arg2 type="int">5</arg2>
+  </instruction>
+  <instruction order="3" opcode="CREATEFRAME"/>
+  <instruction order="4" opcode="DEFVAR">
+    <arg1 type="var">TF@tempVar</arg1>
+  </instruction>
+  <instruction order="5" opcode="MOVE">
+    <arg1 type="var">TF@tempVar</arg1>
+    <arg2 type="string">temporary</arg2>
+  </instruction>
+  <instruction order="6" opcode="PUSHFRAME"/>
+  <instruction order="7" opcode="DEFVAR">
+    <arg1 type="var">LF@localVar</arg1>
+  </instruction>
+  <instruction order="8" opcode="MOVE">
+    <arg1 type="var">LF@localVar</arg1>
+    <arg2 type="bool">true</arg2>
+  </instruction>
+  <instruction order="9" opcode="ADD">
+    <arg1 type="var">GF@globalVar</arg1>
+    <arg2 type="var">GF@globalVar</arg2>
+    <arg3 type="int">1</arg3>
+  </instruction>
+  <instruction order="10" opcode="WRITE">
+    <arg1 type="var">GF@globalVar</arg1>
+  </instruction>
+  <instruction order="11" opcode="WRITE">
+    <arg1 type="var">LF@localVar</arg1>
+  </instruction>
+  <instruction order="12" opcode="CREATEFRAME"/>
+  <instruction order="13" opcode="DEFVAR">
+    <arg1 type="var">TF@anotherVar</arg1>
+  </instruction>
+  <instruction order="14" opcode="MOVE">
+    <arg1 type="var">TF@anotherVar</arg1>
+    <arg2 type="int">10</arg2>
+  </instruction>
+  <instruction order="15" opcode="PUSHFRAME"/>
+  <instruction order="16" opcode="WRITE">
+    <arg1 type="var">LF@anotherVar</arg1>
+  </instruction>
+  <instruction order="17" opcode="POPFRAME"/>
+  <instruction order="18" opcode="WRITE">
+    <arg1 type="var">LF@localVar</arg1>
+  </instruction>
+</program>
+

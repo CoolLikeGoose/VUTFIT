@@ -1,0 +1,9 @@
+.IPPcode24
+LABEL main
+DEFVAR GF@a
+DEFVAR GF@b
+DEFVAR GF@c
+MOVE GF@b int@5
+MOVE GF@c int@4
+EQ main GF@b GF@c
+WRITE GF@a

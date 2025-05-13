@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/php
+{
+	"name": "ipp-php",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/ipp-php,type=bind",
+	"workspaceFolder": "/ipp-php",
+	"postCreateCommand": "php composer.phar install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"streetsidesoftware.code-spell-checker",
+				"SanderRonde.phpstan-vscode",
+				"Gruntfuggly.todo-tree"
+			]
+		}
+	}
+}

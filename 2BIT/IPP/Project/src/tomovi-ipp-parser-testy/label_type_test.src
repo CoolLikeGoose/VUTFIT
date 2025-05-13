@@ -1,0 +1,11 @@
+.IPPcode24
+
+LABEL int
+RETURN
+LABEL bool
+JUMP string
+LABEL string
+CALL int
+DEFVAR GF@a
+READ GF@a int
+WRITE GF@a

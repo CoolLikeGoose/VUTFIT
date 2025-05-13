@@ -1,0 +1,89 @@
+-e [0;34mT0: Vypis interfaceu[0m
+eth0
+any
+lo
+bluetooth-monitor
+nflog
+nfqueue
+dbus-system
+dbus-session
+eth0
+any
+lo
+bluetooth-monitor
+nflog
+nfqueue
+dbus-system
+dbus-session
+-e [0;34mT1: IPv4 a TCP (74,74,66,99)[0m
+./ipk-sniffer -i ens33 -p 65004 --tcp -n 4
+ERROR: interface not found
+-e [0;34mT2: IPv6 a TCP (94,94,86,119)[0m
+./ipk-sniffer -i ens33 -p 65006 --tcp -n 4
+ERROR: interface not found
+-e [0;34mT3: IPv4 a UDP (75)[0m
+./ipk-sniffer -i ens33 -p 65104 --udp -n 1
+ERROR: interface not found
+-e [0;34mT4: IPv6 a UDP (95)[0m
+./ipk-sniffer -i ens33 -p 65106 --udp -n 1
+ERROR: interface not found
+-e [0;34mT5: IPv4 a ICMP (98,98,98,98)[0m
+./ipk-sniffer -i ens33 --icmp4 -n 4
+ERROR: interface not found
+-e [0;34mT6: IPv6 a ICMP (118,118,118,118)[0m
+./ipk-sniffer -i ens33 --icmp6 -n 4
+ERROR: interface not found
+-e [0;34mT7: ARP (60,42)[0m
+./ipk-sniffer -i ens33 --arp -n 4
+ERROR: interface not found
+-e [0;34mT8: NDP (,)[0m
+./ipk-sniffer -i ens33 --ndp -n 2
+ERROR: interface not found
+-e [0;34mT10: IGMP (,)[0m
+./ipk-sniffer -i ens33 --igmp -n 4
+ERROR: interface not found
+-e [0;34mT11: MLD (,)[0m
+./ipk-sniffer -i ens33 --mld -n 2
+ERROR: interface not found
+-e [0;34mT9: Filtry a ukonceni[0m
+./ipk-sniffer -i ens33 --tcp --udp -p 65004 --icmp4 --arp -n 17
+ERROR: interface not found
+-e [0;34mT0: Vypis interfaceu[0m
+eth0
+any
+lo
+bluetooth-monitor
+nflog
+nfqueue
+dbus-system
+dbus-session
+eth0
+any
+lo
+bluetooth-monitor
+nflog
+nfqueue
+dbus-system
+dbus-session
+-e [0;34mT1: IPv4 a TCP (74,74,66,99)[0m
+./ipk-sniffer -i lo -p 65004 --tcp -n 4
+-e [0;34mT2: IPv6 a TCP (94,94,86,119)[0m
+./ipk-sniffer -i lo -p 65006 --tcp -n 4
+-e [0;34mT3: IPv4 a UDP (75)[0m
+./ipk-sniffer -i lo -p 65104 --udp -n 1
+-e [0;34mT4: IPv6 a UDP (95)[0m
+./ipk-sniffer -i lo -p 65106 --udp -n 1
+-e [0;34mT5: IPv4 a ICMP (98,98,98,98)[0m
+./ipk-sniffer -i lo --icmp4 -n 4
+-e [0;34mT6: IPv6 a ICMP (118,118,118,118)[0m
+./ipk-sniffer -i lo --icmp6 -n 4
+-e [0;34mT7: ARP (60,42)[0m
+./ipk-sniffer -i lo --arp -n 4
+-e [0;34mT8: NDP (,)[0m
+./ipk-sniffer -i lo --ndp -n 2
+-e [0;34mT10: IGMP (,)[0m
+./ipk-sniffer -i lo --igmp -n 4
+-e [0;34mT11: MLD (,)[0m
+./ipk-sniffer -i lo --mld -n 2
+-e [0;34mT9: Filtry a ukonceni[0m
+./ipk-sniffer -i lo --tcp --udp -p 65004 --icmp4 --arp -n 17

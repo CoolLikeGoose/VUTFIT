@@ -1,0 +1,1441 @@
+/*
+ * Login: xsmirn02
+ *
+ * Doplnte sve reseni.
+ *
+ * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+ * a pro netrivialni useky kodu.
+ *
+ * Snazte se dodat aspon castecne reseni, i snaha se hodnoti.
+ */
+
+body {
+    font-family: 'Spectral', serif;
+    font-size: 16px;
+    
+    margin: 0;
+
+    background-color: #fffef0;
+    color: #333333;
+}
+
+/* -------------------------------- HEADER MENU -------------------------------- */
+#header-menu {
+    position: fixed;
+    z-index: 9999;
+
+    height: auto;
+    width: 50px;
+    left: -25px;
+    top: 40%;
+
+    padding: 10px 0;
+
+    border-radius: 10px;
+    background-color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+
+    opacity: 0.6;
+    transition: width 0.5s ease, opacity 0.5s ease, left 0.5s ease;
+}
+
+/* open animation */
+#header-menu:hover {
+    width: 180px;
+    opacity: 0.8;
+    left: 0;
+}
+
+#header-menu:hover a {
+    opacity: 1;
+}
+
+#header-menu a:hover {
+    color: blue;
+}
+
+#header-menu nav {
+    display: table;
+    width: 100%;
+}
+
+#header-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#header-menu li {
+    width: 100%;
+    text-align: left;
+}
+
+/* Menu icons */
+#header-menu a::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+
+    width: 30px;
+    margin-right: 10px;
+
+    text-align: center;
+    opacity: 1;
+}
+
+/* home icon */
+#header-menu a[href="#home"]::before {
+    content: '\f015';
+}
+
+/* products icon */
+#header-menu a[href="#products"]::before {
+    content: '\f518';
+}
+
+/* services icon */
+#header-menu a[href="#services"]::before {
+    content: '\f133';
+}
+
+/* events icon */
+#header-menu a[href="#events"]::before {
+    content: '\f5a0';
+}
+
+/* clients icon */
+#header-menu a[href="#clients"]::before {
+    content: '\f075';
+}
+
+/* contact icon */
+#header-menu a[href="#contact"]::before {
+    content: '\f0e0';
+}
+
+/* Menu text */
+#header-menu a {
+    display: flex;
+    align-items: center;
+
+    padding: 0.8rem;
+
+    border-radius: 10px;
+
+    color: lightgray;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.5s ease;
+}
+
+/* -------------------------------- BERNARDO SILVA -------------------------------- */
+
+#bernard {
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+
+    border: 2px solid blue;
+    box-sizing: content-box;
+
+    transition: background-color 0.5s ease;
+}
+
+#bernard a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 15px 20px;
+
+    transition: color 0.5s ease;
+}
+
+#bernard:hover {
+    background-color: blue;
+}
+
+#bernard:hover a {
+    color: white;
+}
+
+/* -------------------------------- VIDEO PLAYER -------------------------------- */
+.video-player {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-player.fullscreen {
+    position: fixed;
+    display: flex; 
+    z-index: 9999; 
+
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none; 
+    top: 0;
+    left: 0;
+
+    background-color: black; 
+    
+    transform: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-player.fullscreen .video-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* force video to stretch fullscreen while maintaining aspect ratio */
+.video-player.fullscreen video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+/* Play icon overlay when paused */
+.video-player::before {
+    z-index: 100;
+    content: "\f04b";
+    font-family: "Font Awesome 6 Free";
+    font-size: 5rem;
+    font-weight: 900;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: rgb(0, 0, 146);
+    text-shadow: 0 0 5px white;
+    opacity: 0;
+
+    pointer-events: none;
+  }
+
+.video-player[data-state="paused"]::before {
+    opacity: 0.6;
+}
+
+.video-content {
+    filter: sepia(100%);
+    transition: filter 0.5s ease;
+}
+
+.video-player:hover .video-content{
+    filter: none;
+}
+
+.video-player:hover .video-controls{
+    display: grid;
+}
+
+.video-player .video-popup {
+    display: none;
+    opacity: 0.8;
+    background-color: #fffef0;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 5px white;
+}
+
+/* Grid layout for video control buttons */
+.video-controls {
+    position: absolute;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-rows: auto auto;
+    
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+
+    display: none;
+    gap: 0px 15px;
+}
+
+/* style for buttons */
+.video-controls button, .video-controls span {
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 146);
+    text-shadow: 0 0 5px white;
+    opacity: 0.6;
+}
+
+.playpause {
+    grid-column: 1;
+    grid-row: 1;
+
+    font-size: 0;
+
+    padding-left: 15px;
+}
+
+.playpause::before {
+    content: "\f04b";
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.video-player[data-state="played"] .playpause::before {
+    content: "\f04c";
+}
+
+.mute {
+    grid-column: 2;
+    grid-row: 1;
+
+    font-size: 0;
+}
+
+.mute::before {
+    content: "\f028";
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.video-player[data-mute="muted"] .mute::before {
+    content: "\f026";
+}
+
+.time {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.video-controls .fullscreen {
+    grid-column: 4;
+    grid-row: 1;
+
+    font-size: 0;
+
+    padding-right: 20px;
+}
+
+.video-controls .fullscreen::before {
+    content: "\f065"; 
+    font-weight: 900;
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.2rem;
+}
+
+.progress {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    height: 10px;
+    
+    border-radius: 0;
+    opacity: 0.6;
+}
+
+.progress::-webkit-progress-value {
+    background-color: rgb(0, 0, 146);
+}
+
+/* -------------------------------- CONTENT -------------------------------- */
+/* General Sections */
+section {
+    max-width: 1200px;
+    min-width: 768px;
+    overflow:hidden;
+    position: relative;
+
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10rem;
+
+    box-sizing: border-box;
+    padding: 5rem;
+
+    box-shadow: 
+        0px 0px 130px #aa6826 inset,
+        2px 2px 20px rgb(0, 0, 0)
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h2 {
+    font-family: 'IM Fell DW Pica', serif;
+    color: #000280;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+.heading span {
+    display: block;
+    color: gray;
+    opacity: 0.6;
+}
+
+/* Decorative ornament under the title */
+.heading h2::after {
+    content: "";
+    display: block;
+    width: 240px;
+    height: 45px;
+    margin: -10px auto -5px auto;
+
+    background: url('../img/ornament.svg') no-repeat center;
+    background-size: contain;
+    filter: invert(30%) grayscale(100%);
+}
+
+/* -------------------------------- HEADER TITLE -------------------------------- */
+header {
+    /* background-color: black; */
+    background-image: linear-gradient(180deg, black 96%, #fffef0 100%);
+    padding-bottom: 80px;
+    margin-bottom: 10rem;
+}
+
+#header-title {
+    max-width: 1200px;
+    min-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: center;
+
+    opacity: 0.8;
+    color: white;
+    text-shadow: 0 0 5px blue;
+    font-size: 2rem;
+}
+
+/* I tried to make soft blur corners but it still looks weird */
+#header-title::before {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+
+    width: 768px;
+    height: 576px;
+
+    margin: -30px auto -30px auto;
+
+    content: "";
+    background: radial-gradient(ellipse, transparent 50%, black 80%), url("../img/bg-header.png") no-repeat center;
+    background-size: contain;
+
+    filter:brightness(80%) ;
+    border-radius: 100px;
+}
+
+#header-title span {
+    z-index: 100;
+    margin: 10px;
+}
+
+/* Custom position for every span with text extensions */
+#header-title span:nth-child(1) {
+    display: none;
+}
+
+#header-title span:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+
+    text-align: left;
+}
+
+#header-title span:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+
+    text-align: right;
+}
+
+#header-title span:nth-child(3)::before {
+    content: "... ";
+}
+
+
+#header-title span:nth-child(4) {
+    grid-column: 2;
+    grid-row: 3;
+
+    text-align: left;
+}
+  
+#header-title span:nth-child(4)::before {
+    content: "...or ";
+}
+
+/* -------------------------------- HOME SECTION -------------------------------- */
+section#home .section-content {
+    padding: 0px 13% 0px 13%;
+    font-size: 1.45rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+section#home .section-content .video-player {
+    justify-content: center;   
+    margin: 0 auto 0 auto;
+}
+
+section#home .video-content {
+    max-width: 639.38px;
+}
+
+section#home video {
+    max-width: 639.38px;
+}
+
+section#home .section-content p:nth-child(2) {
+    order: 2;
+}
+
+/* wine stamps */
+section#home::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    top: 21%;
+    left: 0%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 100% 100%;
+    opacity: 0.2;
+}
+
+section#home::before{
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    bottom: -5%;
+    right: 5%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 100% 0%;
+    opacity: 0.1;
+}
+
+/* -------------------------------- PRODUCTS SECTION -------------------------------- */
+/* Responsive grid layout for product items with auto-fitting columns */
+#products .section-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+
+    margin: 30px 0 30px 0;
+}
+
+#products .section-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    padding-bottom: 40px;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(61, 61, 61, 0.362);
+    
+    opacity: 0.8;
+    text-align: center;
+    color: black;
+    
+    filter: sepia(100%);
+    transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease;
+}
+
+#products .section-item:hover {
+    filter:none;
+    opacity: 1;
+}
+
+/* Product image with fixed height, cropped to fit */
+#products .section-item img {
+    height: 350px;
+    order: 1;
+
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+#products .section-item h3 {
+    order: 2;
+    margin-top: 40px;
+    margin-bottom: -10px;
+    font-size: 1.4rem;
+
+    font-family: 'IM Fell DW Pica', serif;
+
+    transition: transform 0.5s ease;
+}
+
+/* Slides up and fades in on hover */
+#products .section-item p {
+    order: 3;
+    position: absolute;
+
+    bottom: 10px;
+    left: 50%;
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    transform: translate(-50%, 100%);
+
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    font-size: 1rem;
+}
+
+#products .section-item p a {
+    text-decoration: none;
+}
+
+#products .section-item:hover p {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Move title upwards on hover for animation effect */
+#products .section-item:hover h3 {
+    transform: translate(0, -40%);
+}
+
+/* wine stamps */
+section#products::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    top: -13%;
+    left: -4%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 50% 100%;
+    opacity: 0.2;
+}
+
+
+/* -------------------------------- SERVICES SECTION -------------------------------- */
+#services .section-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+}
+
+#services .section-item {
+    display: block;
+
+    padding-top: 10px;
+
+    border-bottom: 2px dashed #8a6f54;
+
+    filter: sepia(100%);
+    transition: filter 0.5s ease;
+}
+
+/* Remove bottom border from the last service item */
+#services .section-item:last-child {
+    border: none;
+}
+
+/* #services .section-item p:nth-of-type(1) {
+    margin-top: 10px;
+} */
+
+/* Adjusted text alignment and bullet positioning for 2nd item’s list */
+#services .section-item:nth-child(2) ul {
+    text-align: right;
+    list-style-position: inside;
+}
+
+#services .section-item .references ul {
+    float: left;
+
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0px;
+}
+
+#services .section-item:nth-child(2) .references ul
+{
+    float: right;
+}
+
+#services .references ul {
+    list-style-type:none;
+}
+
+#services .section-item img {
+    margin: 10px;
+    width: 40%;
+    padding-bottom: 10px;
+
+    float:left;
+
+    opacity: 0.8;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Adjusted img alignment for 2nd item’s list */
+#services .section-item:nth-child(2) img {
+    float:right;
+}
+
+#services .section-item:hover{
+    filter: none;
+}
+
+/* Slight zoom-in and full opacity on hover animation */
+#services .section-item:hover img{
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+#services .section-item p {
+    margin-block-start: 0;
+    flex: 1;
+}
+
+/* Makes books clickable */
+#services p {
+    z-index: -1;
+}
+
+/* Add book icon before each link */
+#services .section-item a::before {
+    content: "\f02d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    margin-right: 10px;
+    
+    color: blue;
+    cursor: pointer;
+}
+
+#services h3 {
+    margin-block-end: 0;
+}
+
+#services .section-item a {
+    font-size: 0;
+}
+
+/* Dollar icon before price */
+#services .price::before {
+    content: "\f154";
+    font-family: "FontAwesome";
+    margin-right:5px;
+}
+
+/* Remove icon before price in 3rd item */
+#services .section-item:nth-child(3) .price::before {
+    content: "";
+    margin-right: 0;
+}
+
+/* wine stamps */
+section#services::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    top: 8%;
+    right: -2%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 0% 0%;
+    opacity: 0.2;
+}
+
+section#services::before {
+    content: "";
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: -2%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 0% 100%;
+    opacity: 0.2;
+}
+
+section#services .heading::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    bottom: -8%;
+    left: 50%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 50% 100%;
+    opacity: 0.2;
+}
+
+/* -------------------------------- EVENTS SECTION -------------------------------- */
+#events {
+    text-align: center;
+    padding: 3rem;
+    position: relative;
+
+    font-family: 'IM Fell DW Pica', serif;
+    font-size: 1.2rem;
+    color: darkblue;
+}
+
+/* Vertical timeline line in the center of the container */
+#events .section-content::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    /* top: 15%; */
+    width: 2px;
+    height: 100%;
+    background: black;
+    transform: translateX(-50%);
+}
+
+/* Grid layout for specific items */
+#events .section-content {
+    display: grid;
+    grid-template-columns: 1fr 5% 1fr;
+    grid-template-areas: 
+        "a . ."
+        "a . b"
+        "a . b"
+        ". . b"
+        "c . ."
+        "c . d"
+        "c . d"
+        ". . d";
+
+    position: relative;
+
+    padding: 2rem;
+    margin: 20px 0;
+}
+
+/* Define placement of elements in grid layout */
+/* Also adjust grid cells sizes because every picture has different apsect ratio */
+/* I tried to make rows adjust automaticly but this doesnt work when using grid-template-areas*/
+#events .section-item:nth-child(1) {
+    grid-area: a;
+}
+
+#events .section-item:nth-child(2) {
+    grid-area: b;
+    margin-bottom: 2rem;
+}
+
+#events .section-item:nth-child(3) {
+    grid-area: c;
+    margin-bottom: 2rem;
+}
+
+#events .section-item:nth-child(4) {
+    grid-area: d;
+    margin-bottom: 1rem;
+}
+
+
+#events .section-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    transition: filter 0.5s ease, opacity 0.5s ease;
+    opacity: 0.8;
+    filter: sepia(100%);
+}
+
+/* point animation */
+#events .section-item img {
+    width: 100%;
+    height: auto;
+    /* aspect-ratio: attr(width) / attr(height); */
+}
+
+#events .section-item:hover {
+    filter: none;
+    opacity: 1;
+}
+
+/* Initially I tried to create same animation as in the products section */
+/* but on the video it looks like just animation with opacity */
+#events .section-item:hover .desc {
+    opacity: 1;
+}
+
+/* Add bottom padding to make slide in animation */
+#events .section-item:hover h3 {
+    padding-bottom: 6%;
+}
+
+/* header things */
+#events .section-item h3 {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    margin: 0;
+
+    background: rgba(255, 255, 255, 0.6);
+    background-clip: content-box;
+
+    border: 2px white;
+    border-style: dotted dotted none none;
+    letter-spacing: 0.1rem;
+
+    transition: padding 0.5s ease;
+}
+
+/* Flip dotted border sides for even items (right-aligned) */
+#events .section-item:nth-child(even) h3 {
+    right: 0;
+    border-style: dotted none none dotted;
+}
+
+#events .section-item h3 a{
+    text-decoration: none;
+    color: darkblue;
+}
+
+/* description things */
+#events .section-item .desc {
+    position: absolute;
+    bottom: -0.5rem;
+    padding: 1rem;
+    margin: 0;
+
+    font-size: 1rem;
+    
+    background-color: rgba(255, 255, 255, 0.6);
+    background-clip: content-box;
+    color: white;
+
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+/* Align description to the right for even items (right-aligned) */
+#events .section-item:nth-child(even) .desc {
+    right: 0;
+}
+
+/* date things */
+#events .section-item .date {
+    position: absolute;
+    top: 1rem;
+    
+    padding: 1rem;
+
+    border: 2px gray;
+    border-style: dotted none dotted none;
+
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: content-box;
+}
+
+/* Align date to the right on odd items (left-aligned) */
+#events .section-item:nth-child(odd) .date {
+    right: 0;
+}
+
+/* dots */
+/* White circle with dark blue border */
+#events .section-item .date::after {
+    content: "";
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 5px solid darkblue;
+    border-radius: 50%;
+}
+
+#events .section-item:nth-child(odd) .date::after {
+    bottom: -15px;
+    right: -41px;
+}
+
+#events .section-item:nth-child(even) .date::after {
+    bottom: -15px;
+    left: -41px;
+}
+
+#events .section-item:hover .date::after{
+    background-color: darkblue;
+}
+
+/* lines */
+#events .section-item .date::before {
+    content: "";
+    position: absolute;
+
+    width: 10px;
+    height: 3px;
+    background: darkblue;
+    border-radius: 3px;
+}
+
+#events .section-item:nth-child(odd) .date::before {
+    bottom: -3px;
+    right: -15px;
+}
+
+#events .section-item:nth-child(even) .date::before {
+    bottom: -3px;
+    left: -15px;
+}
+
+/* wine stamps */
+section#events::after {
+    content: "";
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+    top: -13%;
+    right: -4%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 100% 100%;
+    opacity: 0.2;
+}
+
+
+/* -------------------------------- CLIENTS SECTION TODO -------------------------------- */
+.slider {
+    display: grid;
+
+    margin: 190px 0 150px 0;
+
+    align-items: center;
+    justify-content: center;
+
+    filter: sepia(100%) blur(1px);
+    transition: filter 0.5s ease;
+}
+
+.slider:hover {
+    filter: none;
+}
+
+/* Make grid layout and then customize placement for each slider item */
+.slider-item {
+    position: absolute;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slider-item:nth-child(1) {
+    grid-template-areas: "a b c";
+    animation: fade 5s infinite 2.5s;
+}
+
+.slider-item:nth-child(2) {
+    grid-template-areas: "c b a";
+    animation: fade 5s infinite;
+}
+
+/* General specifications for grid elements */
+.slider-item img {
+    grid-area: c;
+
+    width: 100%;
+    max-width: 200px;
+
+    justify-self: center;
+}
+
+.slider-item blockquote {
+    position: relative;
+    grid-area: a;
+
+    max-width: 300px;
+    height: fit-content;
+
+    padding: 15px;
+    margin-top: 150px;
+    
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.768);
+    color: white;
+    box-shadow: 0px 0px 30px #8a6f54;
+}
+
+/* Small quote dot */
+.section-content .slider-item::after {
+    content: "";
+    grid-area: b;
+
+    width: 40px;
+    height: 30px;
+
+    margin-top: 100%;
+    margin-left: 50%;
+
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 30px #8a6f54;
+    
+    transform: translate(-50%, -50%);
+    
+}
+
+/* Fade in animation for each slide */
+@keyframes fade {
+    0%, 40% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* wine stamps */
+section#clients::after {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+    top: -7%;
+    left: 14%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 50% 0%;
+    opacity: 0.2;
+}
+
+/* -------------------------------- CONTACTS SECTION -------------------------------- */
+#contact video {
+    width: 100%;
+}
+
+/* Grid layout for elements */
+#contact .section-content {
+    display: grid;
+    grid-template-columns: 1fr 20% 1fr;
+    grid-template-rows: 1fr auto auto;
+    align-items: start;
+
+    margin-top: 30px;
+}
+
+#contact .video-player {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+
+    max-width: 100%;
+}
+
+#contact .section-content span {
+    font-style: italic;
+    transition: filter 0.5s ease;
+    text-align: center;
+}
+
+#contact .section-content span a {
+    text-decoration: none;
+}
+
+#contact .section-content span:nth-of-type(1) {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+
+    justify-self: start;
+}
+
+/* Custom mentions for each person */
+#contact .section-content span:nth-of-type(2) { /* Bernard Black */
+    grid-column: 3;
+    grid-row: 2;
+
+    justify-self: center;
+    align-self: center;
+
+    filter: sepia(100%);
+}
+
+/* picture */
+#contact .section-content span:nth-of-type(2)::before {
+    content: "";
+    display: block;
+
+    width: 100px;
+    height: 100px;
+    justify-self: center;
+
+    border-radius: 1000px;
+
+    background: url("../img/bernard.jpg");
+    background-size: contain;
+}
+
+#contact .section-content span:nth-of-type(2):hover {
+    filter: none;
+}
+
+#contact .section-content span:nth-of-type(2):hover a {
+    text-decoration: underline;
+}
+
+#contact .section-content span:nth-of-type(3) { /* Mr. Benson */
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: center;
+    align-self: center;
+
+    filter: sepia(100%);
+}
+
+/* picture */
+#contact .section-content span:nth-of-type(3)::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    justify-self: center;
+
+    border-radius: 1000px;
+
+    background: url("../img/benson.jpg");
+}
+
+#contact .section-content span:nth-of-type(3):hover {
+    filter: none;
+}
+
+#contact .section-content span:nth-of-type(3):hover a {
+    text-decoration: underline;
+}
+
+/* placement for form */
+#contact .contact-form {
+    grid-column: 2 / span 3;
+    grid-row: 1;
+
+    width: 100%;
+}
+
+#contact .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* margin-bottom is here to get it under of the current grid cell */
+/* Theoretically it is better to add new row and make video span also for this row */
+#contact .contact-form input[type="submit"] {
+    align-self: center;
+    width: 25%;
+    margin-bottom: -43px;
+}
+
+/* customize form */
+form input,
+form select,
+form textarea {
+    z-index: 100;
+
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 5px solid #8a6f54;
+    background-color: #ead9c8;
+    outline: none;
+    opacity: 0.8;
+}
+
+/* animation on focus */
+form input:focus,
+form select:focus,
+form textarea:focus,
+#contact .contact-form input[type="submit"]:hover {
+    opacity: 1;
+}
+
+/* light up invalid inputs */
+/* form:has(input:invalid) is here to light up submit btn when user dont fill the form properly */
+/* But not every browser would support that */
+form input:invalid,
+input[type="submit"]:disabled,
+form:has(input:invalid) input[type="submit"]{
+    background-color: #f7ced3;
+}
+
+/* wine stamps */
+section#contact::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+    top: 0%;
+    left: 30%;
+
+    background: url('../img/wine.png') no-repeat;
+    background-size: 300% 200%;
+    background-position: 100% 0%;
+    opacity: 0.2;
+}
+
+/* -------------------------------- FOOTER SECTION -------------------------------- */
+
+footer {
+    background-image: linear-gradient(0, black 90%, #fffef0 100%);
+}
+
+footer .section-content{
+    max-width: 1200px;
+    min-width: 768px;
+
+    margin: 0 auto 0 auto;
+    padding: 130px 0 30px 0;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    
+    color:white;
+}
+
+footer span{
+    margin: 10px;
+    opacity: 0.9;
+
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'IM Fell DW Pica', serif;
+}
+
+footer span:nth-child(1){
+    grid-column: 1;
+    grid-row:2;
+
+    text-align: left;
+}
+
+footer span:nth-child(2){
+    grid-column: 2;
+    grid-row:2;
+
+    text-align: right;
+}
+
+footer span:nth-child(3){
+    grid-column: 1/span 2;
+    grid-row:1;
+
+    font-size: 2rem;
+}
+
+footer a {
+    color:white;
+    text-decoration: none;
+}
+
+/* knife png */
+footer .section-content img {
+    width: 20px;
+    height: 20px;
+
+    margin-right: 3px;
+    transform: translateY(25%);
+}
+
+/* -------------------------------- POPUP SECTION -------------------------------- */
+/* Here again I tried to make blur eadges of the div but it doesnt look that good */
+#manny {
+    position: fixed;
+    display: flex;
+    z-index: 9999;
+
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    height: 120px;
+    width: 400px;
+
+    background-color: black;
+    box-shadow: 0px 0px 20px black;
+    border-radius: 5px;
+
+    opacity: 0;    
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+
+    justify-content: center;
+    color:white;
+}
+
+#manny.open {
+    opacity: 0.8;
+    pointer-events:all;
+}
+
+/* white glowing around manny */
+#manny img {
+    height: 80%;
+    margin: 10px;
+    filter: drop-shadow(0px 0px 5px white);
+}
+
+#manny div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#manny span:nth-child(1) {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+}
+
+#manny a {
+    text-decoration: none;
+}
+
+#manny a:hover {
+    text-shadow: 0 0 10px white;
+}

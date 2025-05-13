@@ -1,0 +1,240 @@
+.IFJcode23
+DEFVAR GF@FuncReturn
+MOVE GF@FuncReturn nil@nil
+DEFVAR GF@__ArgCount__
+MOVE GF@__ArgCount__ nil@nil
+DEFVAR GF@__Arg__
+MOVE GF@__Arg__ nil@nil
+DEFVAR GF@__Trash__
+MOVE GF@__Trash__ nil@nil
+CREATEFRAME
+PUSHFRAME
+JUMP substringIntercodeEnd
+LABEL substring
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@TempBool
+DEFVAR LF@arg0
+POPS LF@arg0
+DEFVAR LF@arg1
+POPS LF@arg1
+DEFVAR LF@arg2
+POPS LF@arg2
+LT LF@TempBool LF@arg1 int@0
+JUMPIFEQ ReturnNil LF@TempBool bool@true
+LT LF@TempBool LF@arg2 int@0
+JUMPIFEQ ReturnNil LF@TempBool bool@true
+GT LF@TempBool LF@arg1 LF@arg2
+JUMPIFEQ ReturnNil LF@TempBool bool@true
+DEFVAR LF@TempInt
+STRLEN LF@TempInt LF@arg0
+DEFVAR LF@TempBool1
+DEFVAR LF@TempBool2
+GT LF@TempBool1 LF@arg1 LF@TempInt
+EQ LF@TempBool2 LF@arg1 LF@TempInt
+OR LF@TempBool LF@TempBool1 LF@TempBool2
+JUMPIFEQ ReturnNil LF@TempBool bool@true
+GT LF@TempBool LF@arg2 LF@TempInt
+JUMPIFEQ ReturnNil LF@TempBool bool@true
+DEFVAR LF@TempBoolCycle
+DEFVAR LF@Increment
+MOVE LF@Increment LF@arg1
+DEFVAR LF@SubString
+MOVE LF@SubString string@
+DEFVAR LF@CurChar
+LABEL For_Head
+LT LF@TempBoolCycle LF@Increment LF@arg2
+JUMPIFEQ For LF@TempBoolCycle bool@true
+MOVE GF@FuncReturn LF@SubString
+POPFRAME
+RETURN
+LABEL For
+GETCHAR LF@CurChar LF@arg0 LF@Increment
+CONCAT LF@SubString LF@SubString LF@CurChar
+ADD LF@Increment LF@Increment int@1
+JUMP For_Head
+LABEL ReturnNil
+MOVE GF@FuncReturn nil@nil
+POPFRAME
+RETURN
+LABEL substringIntercodeEnd
+JUMP chrend
+LABEL chr
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@number
+DEFVAR LF@strlen
+MOVE LF@strlen string@a
+POPS LF@number
+INT2CHAR LF@strlen LF@number
+MOVE GF@FuncReturn LF@strlen
+POPFRAME
+RETURN
+LABEL chrend
+JUMP ordEnd
+LABEL ord
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@str
+DEFVAR LF@strlen
+POPS LF@str
+STRLEN LF@strlen LF@str
+JUMPIFEQ IfLinezero LF@strlen int@0
+STRI2INT LF@strlen LF@str int@0
+MOVE GF@FuncReturn LF@strlen
+POPFRAME
+RETURN
+LABEL IfLinezero
+MOVE GF@FuncReturn int@0
+POPFRAME
+RETURN
+LABEL ordEnd
+JUMP readStringEnd
+LABEL readString
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@ReadString
+READ LF@ReadString string
+MOVE GF@FuncReturn LF@ReadString
+POPFRAME
+RETURN
+LABEL readStringEnd
+JUMP ReadIntEnd
+LABEL readInt
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@ReadInt
+READ LF@ReadInt int
+MOVE GF@FuncReturn LF@ReadInt
+POPFRAME
+RETURN
+LABEL ReadIntEnd
+JUMP readDoubleEnd
+LABEL readDouble
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@ReadFloat
+READ LF@ReadFloat float
+MOVE GF@FuncReturn LF@ReadFloat
+POPFRAME
+RETURN
+LABEL readDoubleEnd
+JUMP Int2DoubleEnd
+LABEL Int2Double
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@IntToFloat
+DEFVAR LF@tempInt
+POPS LF@tempInt
+INT2FLOAT LF@IntToFloat LF@tempInt
+MOVE GF@FuncReturn LF@IntToFloat
+POPFRAME
+RETURN
+LABEL Int2DoubleEnd
+JUMP Double2IntEnd
+LABEL Double2Int
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@FloatToInt
+DEFVAR LF@tempDouble
+POPS LF@tempDouble
+FLOAT2INT LF@FloatToInt LF@tempDouble
+MOVE GF@FuncReturn LF@FloatToInt
+POPFRAME
+RETURN
+LABEL Double2IntEnd
+JUMP lengthEnd
+LABEL length
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trash
+POPS LF@trash
+DEFVAR LF@tempString
+DEFVAR LF@StringLegnth
+POPS LF@tempString
+STRLEN LF@StringLegnth LF@tempString
+MOVE GF@FuncReturn  LF@StringLegnth
+POPFRAME
+RETURN
+LABEL lengthEnd
+JUMP EscapeWrite
+LABEL write
+CREATEFRAME
+PUSHFRAME
+POPS GF@__ArgCount__
+JUMPIFEQ ReturnWrite GF@__ArgCount__ int@0
+LABEL ForWrite
+SUB GF@__ArgCount__ GF@__ArgCount__ int@1
+POPS GF@__Arg__
+WRITE GF@__Arg__
+JUMPIFNEQ ForWrite GF@__ArgCount__ int@0
+POPFRAME
+LABEL ReturnWrite
+RETURN
+LABEL EscapeWrite
+JUMP $HardUnwrapEnd
+LABEL $HardUnwrap
+PUSHS nil@nil
+JUMPIFEQS $HardUnwrapBadExit
+RETURN
+LABEL $HardUnwrapBadExit
+EXIT int@57
+LABEL $HardUnwrapEnd
+JUMP $SoftUnwrapEnd
+LABEL $??
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@trashcan
+PUSHS nil@nil
+JUMPIFEQS $SoftUnwrapBadExit
+POPS GF@FuncReturn
+POPS LF@trashcan
+POPFRAME
+RETURN
+LABEL $SoftUnwrapBadExit
+POPS LF@trashcan
+POPS GF@FuncReturn
+POPFRAME
+RETURN
+LABEL $SoftUnwrapEnd
+JUMP $Int2DoubleEnd
+LABEL $Int2Double
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@IntToFloat
+DEFVAR LF@tempInt
+POPS LF@tempInt
+DEFVAR LF@tempString
+TYPE LF@tempString LF@tempInt
+JUMPIFEQ $Double2Double LF@tempString string@float
+INT2FLOAT LF@IntToFloat LF@tempInt
+MOVE GF@FuncReturn LF@IntToFloat
+POPFRAME
+RETURN
+LABEL $Double2Double
+MOVE GF@FuncReturn LF@tempInt
+POPFRAME
+RETURN
+LABEL $Int2DoubleEnd
+DEFVAR GF@r1
+DEFVAR GF@r2
+DEFVAR GF@r3
+DEFVAR GF@r4
+LABEL ProgramEnd
+POPFRAME

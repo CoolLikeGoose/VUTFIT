@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Activity"
+                       xmlns:models="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       x:Class="StudIS.APP.Views.Activities.ActivityEditView"
+                       x:DataType="vm:ActivityEditViewModel"
+                       x:Name="ActivityEditViewRoot">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Header Section -->
+            <Label Text="Edit Activity" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20" />
+
+            <!-- Activity Description -->
+            <Label Text="Description" />
+            <Entry Text="{Binding Activity.Description}" Placeholder="Enter activity description" />
+
+            <!-- Activity Type -->
+            <Picker Title="Activity Type" SelectedItem="{Binding Activity.ActivityType}" ItemsSource="{Binding ActivityTypes}" />
+
+            <!-- Start Time -->
+            <Label Text="Start Time" Margin="0,10,0,0" />
+            <DatePicker Date="{Binding Activity.StartTime}" />
+            <TimePicker Time="{Binding Activity.StartTime, Mode=TwoWay}" />
+
+            <!-- End Time -->
+            <Label Text="End Time" Margin="0,10,0,0" />
+            <DatePicker Date="{Binding Activity.EndTime}" />
+            <TimePicker Time="{Binding Activity.EndTime, Mode=TwoWay}" />
+
+            <!-- Room -->
+            <Picker Title="Room" SelectedItem="{Binding Activity.Room}" ItemsSource="{Binding Rooms}" />
+
+            <!-- Subject -->
+            <Picker Title="Subject" SelectedItem="{Binding Activity.SubjectId}" ItemsSource="{Binding Subjects}" ItemDisplayBinding="{Binding Name}" />
+
+            <!-- Save and Cancel Buttons -->
+            <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</views:ContentPageBase>

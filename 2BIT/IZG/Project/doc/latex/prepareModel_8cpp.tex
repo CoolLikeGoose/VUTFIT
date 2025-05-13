@@ -1,0 +1,100 @@
+\hypertarget{prepareModel_8cpp}{}\doxysection{student/prepare\+Model.cpp File Reference}
+\label{prepareModel_8cpp}\index{student/prepareModel.cpp@{student/prepareModel.cpp}}
+
+
+This file contains functions for model rendering.  
+
+
+{\ttfamily \#include $<$student/prepare\+Model.\+hpp$>$}\newline
+{\ttfamily \#include $<$student/gpu.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{prepareModel_8cpp_af46f2952d390459f20fc55a1eb8f4f30}{prepare\+Model}} (\mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}} \&mem, \mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&command\+Buffer, \mbox{\hyperlink{structModel}{Model}} const \&model)
+\begin{DoxyCompactList}\small\item\em This function prepares model into memory and creates command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prepareModel_8cpp_a0224939bb488063ed7ba3a75659e4616}{draw\+Model\+\_\+vertex\+Shader}} (\mbox{\hyperlink{structOutVertex}{Out\+Vertex}} \&out\+Vertex, \mbox{\hyperlink{structInVertex}{In\+Vertex}} const \&in\+Vertex, \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const \&si)
+\begin{DoxyCompactList}\small\item\em \mbox{[}draw\+Model\mbox{]} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prepareModel_8cpp_a4fb632ea1b28681c59ef705725611573}{draw\+Model\+\_\+fragment\+Shader}} (\mbox{\hyperlink{structOutFragment}{Out\+Fragment}} \&out\+Fragment, \mbox{\hyperlink{structInFragment}{In\+Fragment}} const \&in\+Fragment, \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const \&si)
+\begin{DoxyCompactList}\small\item\em \mbox{[}draw\+Model\+\_\+vs\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains functions for model rendering. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\texttt{ imilet@fit.\+vutbr.\+cz}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{prepareModel_8cpp_a4fb632ea1b28681c59ef705725611573}\label{prepareModel_8cpp_a4fb632ea1b28681c59ef705725611573}} 
+\index{prepareModel.cpp@{prepareModel.cpp}!drawModel\_fragmentShader@{drawModel\_fragmentShader}}
+\index{drawModel\_fragmentShader@{drawModel\_fragmentShader}!prepareModel.cpp@{prepareModel.cpp}}
+\doxysubsubsection{\texorpdfstring{drawModel\_fragmentShader()}{drawModel\_fragmentShader()}}
+{\footnotesize\ttfamily void draw\+Model\+\_\+fragment\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOutFragment}{Out\+Fragment}} \&}]{out\+Fragment,  }\item[{\mbox{\hyperlink{structInFragment}{In\+Fragment}} const \&}]{in\+Fragment,  }\item[{\mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const \&}]{si }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}draw\+Model\+\_\+vs\mbox{]} 
+
+This functionrepresents fragment shader of texture rendering method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Fragment} & output fragment \\
+\hline
+{\em in\+Fragment} & input fragment \\
+\hline
+{\em si} & shader interface \mbox{[}draw\+Model\+\_\+fs\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Tato funkce reprezentujte fragment shader.~\newline
+ Vaším úkolem je správně obarvit fragmenty a osvětlit je pomocí lambertova osvětlovacího modelu. Bližší informace jsou uvedeny na hlavní stránce dokumentace. \end{DoxyRefDesc}
+\mbox{\Hypertarget{prepareModel_8cpp_a0224939bb488063ed7ba3a75659e4616}\label{prepareModel_8cpp_a0224939bb488063ed7ba3a75659e4616}} 
+\index{prepareModel.cpp@{prepareModel.cpp}!drawModel\_vertexShader@{drawModel\_vertexShader}}
+\index{drawModel\_vertexShader@{drawModel\_vertexShader}!prepareModel.cpp@{prepareModel.cpp}}
+\doxysubsubsection{\texorpdfstring{drawModel\_vertexShader()}{drawModel\_vertexShader()}}
+{\footnotesize\ttfamily void draw\+Model\+\_\+vertex\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOutVertex}{Out\+Vertex}} \&}]{out\+Vertex,  }\item[{\mbox{\hyperlink{structInVertex}{In\+Vertex}} const \&}]{in\+Vertex,  }\item[{\mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const \&}]{si }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}draw\+Model\mbox{]} 
+
+This function represents vertex shader of texture rendering method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Vertex} & output vertex \\
+\hline
+{\em in\+Vertex} & input vertex \\
+\hline
+{\em si} & shader interface \mbox{[}draw\+Model\+\_\+vs\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Tato funkce reprezentujte vertex shader.~\newline
+ Vaším úkolem je správně trasnformovat vrcholy modelu. Bližší informace jsou uvedeny na hlavní stránce dokumentace. \end{DoxyRefDesc}
+\mbox{\Hypertarget{prepareModel_8cpp_af46f2952d390459f20fc55a1eb8f4f30}\label{prepareModel_8cpp_af46f2952d390459f20fc55a1eb8f4f30}} 
+\index{prepareModel.cpp@{prepareModel.cpp}!prepareModel@{prepareModel}}
+\index{prepareModel@{prepareModel}!prepareModel.cpp@{prepareModel.cpp}}
+\doxysubsubsection{\texorpdfstring{prepareModel()}{prepareModel()}}
+{\footnotesize\ttfamily void prepare\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}} \&}]{mem,  }\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{command\+Buffer,  }\item[{\mbox{\hyperlink{structModel}{Model}} const \&}]{model }\end{DoxyParamCaption})}
+
+
+
+This function prepares model into memory and creates command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mem} & gpu memory \\
+\hline
+{\em command\+Buffer} & command buffer \\
+\hline
+{\em model} & model structure \mbox{[}draw\+Model\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Tato funkce připraví command buffer pro model a nastaví správně pamět grafické karty.~\newline
+ Vaším úkolem je správně projít model a vložit vykreslovací příkazy do command\+Bufferu. Zároveň musíte vložit do paměti textury, buffery a uniformní proměnné, které buffer command buffer využívat. Bližší informace jsou uvedeny na hlavní stránce dokumentace a v testech. \end{DoxyRefDesc}

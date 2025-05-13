@@ -1,0 +1,31 @@
+\doxysection{Data Structures}
+Here are the data structures with brief descriptions\+:\begin{DoxyCompactList}
+\item\contentsline{section}{\mbox{\hyperlink{unionAttribute}{Attribute}} \\*\mbox{[}Attribute\+Type\mbox{]} }{\pageref{unionAttribute}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structBindFramebufferCommand}{Bind\+Framebuffer\+Command}} \\*\mbox{[}\mbox{\hyperlink{structSetDrawIdCommand}{Set\+Draw\+Id\+Command}}\mbox{]} }{\pageref{structBindFramebufferCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structBindProgramCommand}{Bind\+Program\+Command}} \\*\mbox{[}\mbox{\hyperlink{structBindFramebufferCommand}{Bind\+Framebuffer\+Command}}\mbox{]} }{\pageref{structBindProgramCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structBindVertexArrayCommand}{Bind\+Vertex\+Array\+Command}} \\*\mbox{[}\mbox{\hyperlink{structBindProgramCommand}{Bind\+Program\+Command}}\mbox{]} }{\pageref{structBindVertexArrayCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structBuffer}{Buffer}} \\*\mbox{[}\mbox{\hyperlink{structFramebuffer}{Framebuffer}}\mbox{]} }{\pageref{structBuffer}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structClearCommand}{Clear\+Command}} \\*This structure represents clear command. Clear command stores data which are used by clearing operation on the G\+PU }{\pageref{structClearCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCommand}{Command}} \\*\mbox{[}\mbox{\hyperlink{unionCommandData}{Command\+Data}}\mbox{]} }{\pageref{structCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \\*\mbox{[}\mbox{\hyperlink{structCommand}{Command}}\mbox{]} }{\pageref{structCommandBuffer}}{}
+\item\contentsline{section}{\mbox{\hyperlink{unionCommandData}{Command\+Data}} \\*\mbox{[}Command\+Type\mbox{]} }{\pageref{unionCommandData}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structDrawCommand}{Draw\+Command}} \\*\mbox{[}\mbox{\hyperlink{structClearCommand}{Clear\+Command}}\mbox{]} }{\pageref{structDrawCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structFramebuffer}{Framebuffer}} \\*This structure represent a framebuffer A framebuffer is used as an output of rendering }{\pageref{structFramebuffer}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}} \\*\mbox{[}\mbox{\hyperlink{structBuffer}{Buffer}}\mbox{]} }{\pageref{structGPUMemory}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structImage}{Image}} \\*This structure represents 2D memory of image. 2D images are used as textures and color or depth buffers of framebuffers. Pixel \mbox{[}x,y\mbox{]} starts at uint8\+\_\+t$\ast$ptr = ((uint8\+\_\+t$\ast$)data) + y$\ast$pitch + x$\ast$bytes\+Per\+Pixel; channel\+Types is swizzling table for colors (R\+GB,B\+GR,...) for format == F\+L\+O\+A\+T32\+: bytes\+Per\+Pixel = sizeof(float) $\ast$ channels for format == U\+I\+N\+T8\+: bytes\+Per\+Pixel = sizeof(uint8\+\_\+t) $\ast$ channels }{\pageref{structImage}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structInFragment}{In\+Fragment}} \\*\mbox{[}\mbox{\hyperlink{structOutVertex}{Out\+Vertex}}\mbox{]} }{\pageref{structInFragment}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structInVertex}{In\+Vertex}} \\*\mbox{[}\mbox{\hyperlink{unionAttribute}{Attribute}}\mbox{]} }{\pageref{structInVertex}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structMesh}{Mesh}} \\*This struct represents a mesh }{\pageref{structMesh}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structModel}{Model}} \\*\mbox{[}\mbox{\hyperlink{structNode}{Node}}\mbox{]} }{\pageref{structModel}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structNode}{Node}} \\*\mbox{[}\mbox{\hyperlink{structMesh}{Mesh}}\mbox{]} }{\pageref{structNode}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structOutFragment}{Out\+Fragment}} \\*\mbox{[}\mbox{\hyperlink{structInFragment}{In\+Fragment}}\mbox{]} }{\pageref{structOutFragment}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structOutVertex}{Out\+Vertex}} \\*\mbox{[}\mbox{\hyperlink{structInVertex}{In\+Vertex}}\mbox{]} }{\pageref{structOutVertex}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structProgram}{Program}} \\*\mbox{[}\mbox{\hyperlink{structVertexArray}{Vertex\+Array}}\mbox{]} }{\pageref{structProgram}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structSetDrawIdCommand}{Set\+Draw\+Id\+Command}} \\*\mbox{[}\mbox{\hyperlink{structDrawCommand}{Draw\+Command}}\mbox{]} }{\pageref{structSetDrawIdCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} \\*\mbox{[}Index\+Type\mbox{]} }{\pageref{structShaderInterface}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structSubCommand}{Sub\+Command}} \\*\mbox{[}\mbox{\hyperlink{structBindVertexArrayCommand}{Bind\+Vertex\+Array\+Command}}\mbox{]} }{\pageref{structSubCommand}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structTexture}{Texture}} \\*\mbox{[}\mbox{\hyperlink{structImage}{Image}}\mbox{]} }{\pageref{structTexture}}{}
+\item\contentsline{section}{\mbox{\hyperlink{unionUniform}{Uniform}} \\*\mbox{[}\mbox{\hyperlink{structOutFragment}{Out\+Fragment}}\mbox{]} }{\pageref{unionUniform}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structVertexArray}{Vertex\+Array}} \\*\mbox{[}\mbox{\hyperlink{structVertexAttrib}{Vertex\+Attrib}}\mbox{]} }{\pageref{structVertexArray}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structVertexAttrib}{Vertex\+Attrib}} \\*\mbox{[}Fragment\+Shader\mbox{]} }{\pageref{structVertexAttrib}}{}
+\end{DoxyCompactList}

@@ -1,0 +1,34 @@
+﻿<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Evaluation"
+                       xmlns:models="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       xmlns:evaluation="clr-namespace:StudIS.APP.ViewModels.Evaluation"
+                       x:Class="StudIS.APP.Views.Evaluations.EvaluationEditView"
+                       x:DataType="evaluation:EvaluationEditViewModel"
+                       x:Name="EvaluationEditViewRoot">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Header Section -->
+            <Label Text="Edit Evaluation" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20" />
+            <Picker Title="Student" 
+                    SelectedItem="{Binding SelectedStudentListModel}" 
+                    ItemsSource="{Binding StudentsForChoice}" 
+                    IsVisible="{Binding IsStudentsVisible}"/>
+            <!-- Evaluation Description -->
+            <Label Text="Description" />
+            <Entry Text="{Binding Evaluation.Description}" Placeholder="Enter evaluation description" />
+
+            <!-- Evaluation Grade -->
+            <Label Text="Evaluation Grade" Margin="0,10,0,0" />
+            <Entry Text="{Binding Evaluation.Grade}" Placeholder="Enter evaluation grade" />
+
+            <!-- Save and Cancel Buttons -->
+            <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView> 
+</views:ContentPageBase>

@@ -1,0 +1,4 @@
+v 4
+file "/homes/eva/xs/xsmirn02/programming/inp23-projekt1/zadani/test/" "../src/cpu.vhd" "bc247fbcc2e4874e19e26662777391f8bffbe258" "20231126204102.085":
+  entity cpu at 6( 214) + 0 on 11;
+  architecture behavioral of cpu at 47( 2232) + 0 on 12;

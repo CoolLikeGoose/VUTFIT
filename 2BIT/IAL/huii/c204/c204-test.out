@@ -1,0 +1,90 @@
+C204 - Infix to Postfix Expression Conversion, Basic Tests
+==========================================================
+
+[test_01] Upper and lower case characters with plus operator
+Provided infix  : a+B=
+Expected postfix: aB+=
+Conversion match: OK
+
+
+
+[test_02] Digits with minus operator
+Provided infix  : 0-1=
+Expected postfix: 01-=
+Conversion match: OK
+
+
+
+[test_03] Mixed operands with multiplication operator
+Provided infix  : a*0=
+Expected postfix: a0*=
+Conversion match: OK
+
+
+
+[test_04] Mixed operands with division operator
+Provided infix  : B/1=
+Expected postfix: B1/=
+Conversion match: OK
+
+
+
+[test_05] Simple parentheses support
+Provided infix  : (a+b)=
+Expected postfix: ab+=
+Conversion match: OK
+
+
+
+[test_06] Expression evaluation from the left to the right
+Provided infix  : a+b+c=
+Expected postfix: ab+c+=
+Conversion match: OK
+
+
+
+[test_07] Minus operator does not have higher priority than plus
+Provided infix  : a+b-c=
+Expected postfix: ab+c-=
+Conversion match: OK
+
+
+
+[test_08] Plus operator does not have higher priority than minus
+Provided infix  : A-B+C=
+Expected postfix: AB-C+=
+Conversion match: OK
+
+
+
+[test_09] Plus operator does not have higher priority than minus
+Provided infix  : 1*2/3=
+Expected postfix: 12*3/=
+Conversion match: OK
+
+
+
+[test_10] Parentheses change operator priority
+Provided infix  : A+(B-c)=
+Expected postfix: ABc-+=
+Conversion match: OK
+
+
+
+[test_eval_01] Evaluate expression
+expression : (a+b)*(c-d)=
+variables  : a = 5, b = 5, c = 12, d = 2
+eval result: 100
+
+
+[test_eval_02] Evaluate expression
+expression : (a-b)*C=
+variables  : a = 3, b = 5, C = -5
+eval result: 10
+
+
+[test_eval_03] Evaluate expression
+expression : a*b+c/d=
+variables  : a = 10, b = 3, c = 100, d = 5
+eval result: 50
+

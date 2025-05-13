@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="StudIS.APP.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StudIS.APP"
+    xmlns:st="clr-namespace:StudIS.APP.Views.Student"
+    xmlns:su="clr-namespace:StudIS.APP.Views.Subjects"
+    xmlns:a="clr-namespace:StudIS.APP.Views.Activities"
+    Shell.FlyoutBehavior="Disabled"
+    Title="StudIS">
+    
+    <TabBar>
+        <Tab Title="Main">
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="Main" />
+        </Tab>
+        <Tab Title="Students">
+            <ShellContent
+                Title="Students"
+                ContentTemplate="{DataTemplate st:StudentListView}"
+                Route="students" />
+        </Tab>
+        <Tab Title="Subjects">
+            <ShellContent
+                Title="Subjects"
+                ContentTemplate="{DataTemplate su:SubjectsListView}"
+                Route="subjects" />
+        </Tab>
+        <Tab Title="Activities">
+            <ShellContent
+                Title="Activities"
+                ContentTemplate="{DataTemplate a:ActivitiesListView}"
+                Route="activities" />
+        </Tab>
+    </TabBar>
+</Shell>

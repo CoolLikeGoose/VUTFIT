@@ -1,0 +1,37 @@
+Zadani c. 386
+
+Metodou K-means clustering zaradte nasledujci body (x,y,z) v 3D prostoru 
+( 6,-8, 2) (-3,-1, 0) ( 9,-9, 7) (-7, 2, 3) (-2,-2, 5) ( 0, 5,-9) ( 7,-4, 1) ( 9,-6, 6) (-6,-4,-4) ( 5, 5,-9) 
+do 3 shluku s pocatecnimi stredy 
+( 9,-6, 6) ( 6,-8, 2) ( 9,-9, 7).
+
+Vysledky vypoctu zaokrouhlujte na dve desetinna mista. 
+
+Iteration 1 středy:
+Body: [1 1 2 1 1 1 1 0 1 1]
+[[ 9.    -6.     6.   ]
+ [ 0.    -0.875 -1.375]
+ [ 9.    -9.     7.   ]]
+
+Iteration 2 středy:
+Body: [0 1 2 1 1 1 0 0 1 1]
+[[ 7.33333333 -6.          3.        ]
+ [-2.16666667  0.83333333 -2.33333333]
+ [ 9.         -9.          7.        ]]
+
+Iteration 3 středy:
+Body: [0 1 2 1 1 1 0 2 1 1]
+[[ 6.5        -6.          1.5       ]
+ [-2.16666667  0.83333333 -2.33333333]
+ [ 9.         -7.5         6.5       ]]
+
+Iteration 4 středy:
+Body: [0 1 2 1 1 1 0 2 1 1]
+[[ 6.5        -6.          1.5       ]
+ [-2.16666667  0.83333333 -2.33333333]
+ [ 9.         -7.5         6.5       ]]
+
+Výsledné středy:
+(6.5, -6, 1.5)
+(-2.17, 0.83, -2.33)
+(9, -7.5, 6.5)

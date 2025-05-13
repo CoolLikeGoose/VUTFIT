@@ -1,0 +1,10 @@
+^C:\USERS\THEKR\DESKTOP\IZG-LAB-1\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/thekr/Desktop/izg-lab-1 -BC:/Users/thekr/Desktop/izg-lab-1/build --check-stamp-file C:/Users/thekr/Desktop/izg-lab-1/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

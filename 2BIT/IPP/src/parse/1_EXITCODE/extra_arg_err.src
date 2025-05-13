@@ -1,0 +1,4 @@
+.IPPcode24
+
+DEFVAR GF@a
+PUSHFRAME GF@a

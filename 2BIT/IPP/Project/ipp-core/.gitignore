@@ -1,0 +1,8 @@
+/vendor/
+/temp/
+/tmp/
+/examples/
+/tests/
+/materials/
+is_it_ok.log
+*.zip

@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<program language="IPPcode24">
+  <instruction order="1" opcode="DEFVAR">
+    <arg1 type="var">GF@x</arg1>
+  </instruction>
+  <instruction order="2" opcode="DEFVAR">
+    <arg1 type="var">GF@y</arg1>
+  </instruction>
+  <instruction order="3" opcode="DEFVAR">
+    <arg1 type="var">GF@z</arg1>
+  </instruction>
+  <instruction order="4" opcode="MOVE">
+    <arg1 type="var">GF@x</arg1>
+    <arg2 type="int">1</arg2>
+  </instruction>
+  <instruction order="5" opcode="MOVE">
+    <arg1 type="var">GF@y</arg1>
+    <arg2 type="int">2</arg2>
+  </instruction>
+  <instruction order="6" opcode="MOVE">
+    <arg1 type="var">GF@z</arg1>
+    <arg2 type="int">3</arg2>
+  </instruction>
+  <instruction order="7" opcode="CREATEFRAME"/>
+  <instruction order="8" opcode="DEFVAR">
+    <arg1 type="var">TF@x</arg1>
+  </instruction>
+  <instruction order="9" opcode="DEFVAR">
+    <arg1 type="var">TF@y</arg1>
+  </instruction>
+  <instruction order="10" opcode="DEFVAR">
+    <arg1 type="var">TF@z</arg1>
+  </instruction>
+  <instruction order="11" opcode="MOVE">
+    <arg1 type="var">TF@x</arg1>
+    <arg2 type="int">3</arg2>
+  </instruction>
+  <instruction order="12" opcode="MOVE">
+    <arg1 type="var">TF@y</arg1>
+    <arg2 type="int">2</arg2>
+  </instruction>
+  <instruction order="13" opcode="MOVE">
+    <arg1 type="var">TF@z</arg1>
+    <arg2 type="int">9</arg2>
+  </instruction>
+  <instruction order="14" opcode="ADD">
+    <arg1 type="var">TF@x</arg1>
+    <arg2 type="var">TF@x</arg2>
+    <arg3 type="var">GF@x</arg3>
+  </instruction>
+  <instruction order="15" opcode="WRITE">
+    <arg1 type="var">TF@x</arg1>
+  </instruction>
+  <instruction order="16" opcode="SUB">
+    <arg1 type="var">TF@y</arg1>
+    <arg2 type="var">TF@y</arg2>
+    <arg3 type="var">GF@y</arg3>
+  </instruction>
+  <instruction order="17" opcode="WRITE">
+    <arg1 type="var">TF@y</arg1>
+  </instruction>
+  <instruction order="18" opcode="IDIV">
+    <arg1 type="var">TF@z</arg1>
+    <arg2 type="var">TF@z</arg2>
+    <arg3 type="var">GF@z</arg3>
+  </instruction>
+  <instruction order="19" opcode="WRITE">
+    <arg1 type="var">TF@z</arg1>
+  </instruction>
+  <instruction order="20" opcode="PUSHFRAME"/>
+  <instruction order="21" opcode="WRITE">
+    <arg1 type="var">LF@x</arg1>
+  </instruction>
+  <instruction order="22" opcode="WRITE">
+    <arg1 type="var">LF@y</arg1>
+  </instruction>
+  <instruction order="23" opcode="WRITE">
+    <arg1 type="var">LF@z</arg1>
+  </instruction>
+</program>
+

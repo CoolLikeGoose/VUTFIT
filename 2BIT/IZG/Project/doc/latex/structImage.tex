@@ -1,0 +1,57 @@
+\hypertarget{structImage}{}\doxysection{Image Struct Reference}
+\label{structImage}\index{Image@{Image}}
+
+
+This structure represents 2D memory of image. 2D images are used as textures and color or depth buffers of framebuffers. Pixel \mbox{[}x,y\mbox{]} starts at uint8\+\_\+t$\ast$ptr = ((uint8\+\_\+t$\ast$)data) + y$\ast$pitch + x$\ast$bytes\+Per\+Pixel; channel\+Types is swizzling table for colors (R\+GB,B\+GR,...) for format == F\+L\+O\+A\+T32\+: bytes\+Per\+Pixel = sizeof(float) $\ast$ channels for format == U\+I\+N\+T8\+: bytes\+Per\+Pixel = sizeof(uint8\+\_\+t) $\ast$ channels.  
+
+
+
+
+{\ttfamily \#include $<$fwd.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structImage_afe74defc826aae605cb2214cbf34c5eb}\label{structImage_afe74defc826aae605cb2214cbf34c5eb}} 
+enum \mbox{\hyperlink{structImage_afe74defc826aae605cb2214cbf34c5eb}{Channel}} \{ {\bfseries R\+ED} = 0, 
+{\bfseries G\+R\+E\+EN}, 
+{\bfseries B\+L\+UE}, 
+{\bfseries A\+L\+P\+HA}
+ \}
+\begin{DoxyCompactList}\small\item\em Channel type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_a1d53cd4fd9e5b67d38d49bc2c5ebd0db}\label{structImage_a1d53cd4fd9e5b67d38d49bc2c5ebd0db}} 
+enum \mbox{\hyperlink{structImage_a1d53cd4fd9e5b67d38d49bc2c5ebd0db}{Format}} \{ {\bfseries U\+I\+N\+T8}, 
+{\bfseries F\+L\+O\+A\+T32}
+ \}
+\begin{DoxyCompactList}\small\item\em Format of data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structImage_a2d9eabf3628b454331420e4b377538b9}\label{structImage_a2d9eabf3628b454331420e4b377538b9}} 
+void $\ast$ \mbox{\hyperlink{structImage_a2d9eabf3628b454331420e4b377538b9}{data}} = nullptr
+\begin{DoxyCompactList}\small\item\em point to image data \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_af20c22715fcc14fe41d929a5127ac897}\label{structImage_af20c22715fcc14fe41d929a5127ac897}} 
+uint32\+\_\+t \mbox{\hyperlink{structImage_af20c22715fcc14fe41d929a5127ac897}{channels}} = 4
+\begin{DoxyCompactList}\small\item\em number of color channels \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_a98d0e7ac2ffeca933536b705cbdc5dba}\label{structImage_a98d0e7ac2ffeca933536b705cbdc5dba}} 
+\mbox{\hyperlink{structImage_a1d53cd4fd9e5b67d38d49bc2c5ebd0db}{Format}} \mbox{\hyperlink{structImage_a98d0e7ac2ffeca933536b705cbdc5dba}{format}} = U\+I\+N\+T8
+\begin{DoxyCompactList}\small\item\em type of data for every channel \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_a86d38f6adc2c4bc8285c908460634eac}\label{structImage_a86d38f6adc2c4bc8285c908460634eac}} 
+\mbox{\hyperlink{structImage_afe74defc826aae605cb2214cbf34c5eb}{Channel}} \mbox{\hyperlink{structImage_a86d38f6adc2c4bc8285c908460634eac}{channel\+Types}} \mbox{[}4\mbox{]} = \{R\+ED,G\+R\+E\+EN,B\+L\+UE,A\+L\+P\+HA\}
+\begin{DoxyCompactList}\small\item\em only for colors -\/ what colors the channels represent \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_a85765e057e50aaa2da6ffd1e7085f52a}\label{structImage_a85765e057e50aaa2da6ffd1e7085f52a}} 
+uint32\+\_\+t \mbox{\hyperlink{structImage_a85765e057e50aaa2da6ffd1e7085f52a}{pitch}} = 0
+\begin{DoxyCompactList}\small\item\em size of row in bytes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structImage_add6fee24fd0db09ee35432b6541e5018}\label{structImage_add6fee24fd0db09ee35432b6541e5018}} 
+uint32\+\_\+t \mbox{\hyperlink{structImage_add6fee24fd0db09ee35432b6541e5018}{bytes\+Per\+Pixel}} = 0
+\begin{DoxyCompactList}\small\item\em size of pixel in bytes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure represents 2D memory of image. 2D images are used as textures and color or depth buffers of framebuffers. Pixel \mbox{[}x,y\mbox{]} starts at uint8\+\_\+t$\ast$ptr = ((uint8\+\_\+t$\ast$)data) + y$\ast$pitch + x$\ast$bytes\+Per\+Pixel; channel\+Types is swizzling table for colors (R\+GB,B\+GR,...) for format == F\+L\+O\+A\+T32\+: bytes\+Per\+Pixel = sizeof(float) $\ast$ channels for format == U\+I\+N\+T8\+: bytes\+Per\+Pixel = sizeof(uint8\+\_\+t) $\ast$ channels. 
+
+pitch = width $\ast$ bytes\+Per\+Pixel \mbox{[}\mbox{\hyperlink{structImage}{Image}}\mbox{]} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+student/\mbox{\hyperlink{fwd_8hpp}{fwd.\+hpp}}\end{DoxyCompactItemize}

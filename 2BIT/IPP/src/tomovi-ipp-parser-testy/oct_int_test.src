@@ -1,0 +1,9 @@
+.IPPcode24
+
+PUSHS int@0o00
+PUSHS int@0o01
+PUSHS int@0o02
+PUSHS int@-0o03
+PUSHS int@-0o04
+PUSHS int@-0o507
+PUSHS int@-0o0000001

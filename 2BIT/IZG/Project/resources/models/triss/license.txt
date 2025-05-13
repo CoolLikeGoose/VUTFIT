@@ -1,0 +1,11 @@
+Model Information:
+* title:	Witcher 2 - Triss Merigold
+* source:	https://sketchfab.com/3d-models/witcher-2-triss-merigold-6098998b6b734e5c823b88edef7524f7
+* author:	vighols05 (https://sketchfab.com/vighols05)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Witcher 2 - Triss Merigold" (https://sketchfab.com/3d-models/witcher-2-triss-merigold-6098998b6b734e5c823b88edef7524f7) by vighols05 (https://sketchfab.com/vighols05) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

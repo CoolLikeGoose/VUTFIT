@@ -1,0 +1,4 @@
+.IPPcode24
+
+DEFVAR GF@a
+READ GF@a INT # for better testing change type to {Int, bOOl, stRing}

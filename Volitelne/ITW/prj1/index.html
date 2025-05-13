@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1" rel="stylesheet">
+    <!-- font awsome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- title -->
+    <title>Black Books</title>
+    <!-- custom scripts -->
+    <script src="js/scroll.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/slider.js"></script>
+</head>
+<body>
+    <header>
+        <div id="header-menu">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="header-title">
+            <span>Black Books</span>
+            <span>Some Book Shop</span>
+            <span>somewhere in London</span>
+            <span>probably closed</span>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <div class="heading">
+                <h2>Black Books</h2>
+                <span>I'm a quitter. I come from a long line of quitters. It's amazing I'm here at all.</span>
+            </div>
+            <div class="section-content">
+                <p>Here at Black Books, we stock books, if you can believe it. Proper ones.
+                    With words. Not the sort of thing you skim while sipping overpriced oat-milk nonsense in a chain café.
+                    No, these books are for reading, collecting, and occasionally throwing at unwanted customers.
+                    We don't do loyalty cards, special offers, or any of that customer is always right rubbish—because let's face it, they rarely are.</p>
+                <p>If you must come in, don't touch anything, don't ask questions, and for the love of all that is good, don't ask if we have a toilet. We don't. We barely have running water.</p>
+                <div class="video-player" data-state="paused" data-mute="unmuted">
+                    <div class="video-content">
+                        <video src="video/heaven.mp4" poster="img/fran.jpg"></video>
+                    </div>
+                    <div class="video-controls">
+                        <button class="playpause" type="button">Play/Pause</button>
+                        <progress class="progress" value="0" >
+                            <span class="progress-bar"></span>
+                        </progress>
+                        <button class="mute" type="button">Mute/Unmute</button>
+                        <button class="fullscreen" type="button">Fullscreen</button>
+                        <span data-type="played" class="time">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="products">
+            <div class="heading">
+                <h2>Products</h2>
+                <span>Bernard Black, he's mad," they'd say. "He's insane. He's dangerous." Well I'll show them! I'll show them all!</span>
+            </div>
+            <div class="section-content">
+                <div class="section-item">
+                    <h3>Appetising Beverages</h3>
+                    <img src="img/pope-wine.jpg" alt="">
+                    <p>...approved by the <a href="https://www.youtube.com/watch?v=QvEsCVw4nhA">Pope</a> himself</p>
+                </div>
+                <div class="section-item">
+                    <h3>Indelible Desserts</h3>
+                    <img src="img/wine-lolly.jpg" alt="">
+                    <p><a href="https://www.youtube.com/watch?v=lj2ZlY2nQ3s">...fetched</a> by Manny.</p>
+                </div>
+                <div class="section-item">
+                    <h3>Splendorous Dishes</h3>
+                    <img src="img/soup-tower.jpg" alt="">
+                    <p>...served with <a href="https://www.youtube.com/watch?v=Q0GtFjnXOuw">love</a></p>
+                </div>
+                <div class="section-item">
+                    <h3>And some books...</h3>
+                    <img src="img/rip-off.jpg" alt="">
+                    <p>... or <a href="https://www.youtube.com/watch?v=EY5-0It0acU">parts</a> of them</p>
+                </div>
+            </div>
+        </section>
+        <section id="services">
+            <div class="heading">
+                <h2>Services</h2>
+                <span>You know what you are? You're a beard with an idiot hanging off it.</span>
+            </div>
+            <div class="section-content">
+                <div class="section-item">
+                    <img src="img/tax.jpg" alt="">
+                    <h3>Tax Consulting</h3>
+                    <div class="service-props">
+                        <span class="price">30 per consultation</span>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://www.youtube.com/watch?v=ILysMhm8lXs">https://www.youtube.com/watch?v=ILysMhm8lXs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>Yes, you read that correctly. For reasons beyond comprehension, we now offer tax consulting. Why? Because apparently, people trust me—me—to handle their finances. A man who keeps his receipts in the oven. A man whose idea of "deductible expenses" includes wine, biscuits, and emotional distress.
+                        So, if you enjoy the thrill of potential bankruptcy, audits, or possibly prison, step right up! I'll scribble some numbers, shout at a form, and declare it all “somebody else's problem.” No refunds, no guarantees, and certainly no competence.
+                        Black Books Tax Consulting: because what's the worst that could happen? (No, seriously, what? I should probably know.)</p>
+                </div>
+                <div class="section-item">
+                    <img src="img/teaching.jpg" alt="">
+                    <h3>Reading Lessons</h3>
+                    <div class="service-props">
+                        <span class="price">20 per lesson</span>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://drive.google.com/file/d/1UdjJ-yRGkiz832OSE4WnbQGMUrPcLgVT/view?usp=drive_link">https://drive.google.com/file/d/1UdjJ-yRGkiz832OSE4WnbQGMUrPcLgVT/view?usp=drive_link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>
+                        Yes, we now offer reading lessons. No, I don't know why. Apparently, some of you have reached adulthood without mastering the art of deciphering words, and somehow, that's my problem.
+                        So, if you're truly desperate—or just enjoy being insulted—come along and let me, Bernard Black, reluctantly guide you through the mystical world of literacy. Lessons include:
+                    </p>
+                    <ul>
+                        <li><strong>Stop Mumbling:</strong> a masterclass in not sounding like an idiot.</li>
+                        <li><strong>Punctuation Exists, You Know:</strong> because commas save lives.</li>
+                        <li><strong>If You Ask for Harry Potter, I Will Throw You Out:</strong> self-explanatory.</li>
+                    </ul>
+                    <p>
+                        There will be no patience, no encouragement, and certainly no praise. But by the end, you might be able to get through a book without drooling on it.
+                        Sign up now! Or don't. I really don't care.
+                    </p>
+                </div>
+                <div class="section-item">
+                    <img src="img/selling.jpg" alt="">
+                    <h3>Recommendation of Books</h3>
+                    <div class="service-props">
+                        <span class="price">for free</span>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://www.youtube.com/watch?v=FjwvovxFII4">https://www.youtube.com/watch?v=FjwvovxFII4</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=bon6Ke0mquM">https://www.youtube.com/watch?v=bon6Ke0mquM</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=c-9sDVEHbHs">https://www.youtube.com/watch?v=c-9sDVEHbHs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>
+                        Oh, so you've wandered in, gazed helplessly at the shelves, and now expect me to do your thinking for you? Fantastic. Yes, I can recommend a book, but let's be clear—this isn't some cheerful, chatty bookstore where I pretend to care about your reading journey.
+                        What are you after? Something easy? Something light? Oh, how delightful—perhaps I should also pre-chew your food while I'm at it. No, you'll take a real book. Something worthwhile. Something with words longer than your attention span. And if you ask for "that thing everyone's reading" or mention some bizarre modern nonsense like Tick Tock—which I assume is either a clock or a disease—I will personally ensure you leave with War and Peace and a firm shove out the door.
+                        So, go on, ask. But be warned: if you don't like what I recommend, that's your fault, not mine.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="events">
+            <div class="heading">
+                <h2>Events</h2>
+                <span>The music was too loud, the food was cold, the drinks were few, and the people were many. It was everything I expected, and less. I'm never going outside again unless I need someplace to throw up.</span>
+            </div>
+            <div class="section-content">
+                <div class="section-item">
+                    <img src="img/children.jpg" alt="Elephant & the Balloon">
+                    <h3><a href="https://www.youtube.com/watch?v=MLcF9lxgxUQ">Elephant & the Balloon</a></h3>
+                    <span class="desc">Reading for children</span>
+                    <span class="date">31. 5.</span>
+                </div>
+                <div class="section-item">
+                    <img src="img/presentation.jpg" alt="Jason Hamilto">
+                    <h3><a href="https://drive.google.com/file/d/1mLpUuZIrZ68vy5gDwd-ibcXdcHCpI5hY/view?usp=drive_link">Jason Hamilton</a></h3>
+                    <span class="desc">Traveller writer's talk</span>
+                    <span class="date">24. 6.</span>
+                </div>
+                <div class="section-item">
+                    <img src="img/plate.jpg" alt="Gourmet Evening">
+                    <h3><a href="https://www.youtube.com/watch?v=ilJto4VBjRc">Gourmet Evening</a></h3>
+                    <span class="desc">Degustation with books</span>
+                    <span class="date">4. 8.</span>
+                </div>
+                <div class="section-item">
+                    <img src="img/poker.jpg" alt="tyrion">
+                    <h3><a href="https://drive.google.com/file/d/1-q7hoyGFYPowhTaT3998S3sQF2kmKRyn/view?usp=drive_link">Win your store back!</a></h3>
+                    <span class="desc">Poker night</span>
+                    <span class="date">17. 12.</span>
+                </div>
+            </div>
+        </section>
+        <section id="clients">
+            <div class="heading">
+                <h2>Clients</h2>
+                <span>You know, just sometimes, in between the first cigarette with coffee in the morning to that four hundredth glass of cornershop piss at 3am, you do sometimes look at yourself and think...This is fantastic. I'm in heaven.</span>
+            </div>
+            <div class="section-content slider">
+                <div class="section-item slider-item">
+                    <img src="img/nie.png" alt="nie">
+                    <blockquote>
+                        Nie! Radšej knihu.
+                    </blockquote>
+                </div>
+                <div class="section-item slider-item">
+                    <img src="img/tyrion.png" alt="tyrion">
+                    <blockquote>
+                        I read and know things.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="heading">
+                <h2>Contact</h2>
+                <span>Men have a different way of noticing hair and appearance. Which is not noticing.</span>
+            </div>
+            <div class="section-content">
+                <div class="video-player" data-state="paused" data-mute="unmuted">
+                    <div class="video-content">
+                        <video src="video/shoes.mp4" poster="img/dylan.jpg"></video>
+                    </div>
+                    <div class="video-controls">
+                        <button class="playpause" type="button">Play/Pause</button>
+                        <progress class="progress" value="0" >
+                            <span class="progress-bar"></span>
+                        </progress>
+                        <button class="mute" type="button">Mute/Unmute</button>
+                        <button class="fullscreen" type="button">Fullscreen</button>
+                        <span data-type="played" class="time">00:00</span>
+                    </div>
+                </div>
+                <span>This shop respects gender equality. So better send us some grant money.</span>
+                <span><span class="name"><a href="https://www.youtube.com/watch?v=936YFY1jAUk">Bernard Black</a></span>—the owner of the shop</span>
+                <span>Powered by <span class="name"><a href="https://www.youtube.com/watch?v=C_Ewy2Xe_BI">Mr. Benson</a></span>—the landlord</span>
+                <div class="contact-form">
+                    <form method="post" onsubmit="toast(); return false;">
+                        <input name="text" type="text" placeholder="A miserable FIT student" required>
+                        <input name="email" type="email" placeholder="student@vutbr.cz" required>
+                        <select name="type">
+                            <option value="elephant" >Elephant and the Balloon</option>
+                            <option value="hamilton">Jason Hamilton</option>
+                            <option value="gourmet">Gourmet Evening</option>
+                            <option value="poker">Poker Night</option>
+                        </select>
+                        <input name="persons" type="number" placeholder="Number of persons" min="1" required>
+                        <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Hi, I heard you're hosting a reading event for The Elephant and the Balloon—sounds like the perfect solution to my introvert problems. I'm sure this will help me master social interactions and become the life of the party. Can you save me a spot? I'm really looking forward to finally breaking out of my shell."></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="section-content">
+            <span>For educational purposes <a href="https://www.youtube.com/watch?v=gmOzR2AOqfw">only</a></span>
+            <span><img src="img/dexter.ico" alt="dexter"><a href="https://dexter.fit.vutbr.cz">Dexter@FIT</a>, 2025</span>
+            <span>This is life! We suffer and slave and expire. That's it!</span>
+        </div>
+    </footer>
+    <div id="bernard">
+        <a href="#" title=""><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+    <div id="manny">
+        <a href="https://www.youtube.com/watch?v=uRCcqB_tCuE"><img src="img/manny.png" alt="leaf"></a>
+        <div>
+            <span><b>I got the queen!</b></span>
+            <span>Your order is going to be <a href="https://www.youtube.com/watch?v=oBHHMoSEbug">processed</a>...</span>
+        </div>
+    </div>
+</body>
+</html>

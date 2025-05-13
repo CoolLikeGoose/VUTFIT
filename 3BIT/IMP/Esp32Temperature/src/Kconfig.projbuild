@@ -1,0 +1,23 @@
+menu "Temperature controller"
+
+    config WIFI_SSID
+        string "Wifi SSID"
+        default ""
+    
+    config WIFI_PWD 
+        string "Wifi password"
+        default ""
+
+    config TEMPERATURE_THRESHOLD
+        string "Temperature threshold"
+        default ""
+
+    config HYSTERESIS
+        string "HYSTERESIS"
+        default ""
+
+    config MQTT_BROKER_URL
+        string "MQTT Broker url"
+        default ""
+
+endmenu

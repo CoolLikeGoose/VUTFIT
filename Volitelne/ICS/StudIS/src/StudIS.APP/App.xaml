@@ -1,0 +1,21 @@
+﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudIS.APP.App">
+    <Application.Resources>
+        <!-- Application resource dictionary -->
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#6200EE" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <Style x:Key="SearchEntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#E0E0E0" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+    </Application.Resources>
+</Application>

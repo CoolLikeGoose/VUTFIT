@@ -1,0 +1,10 @@
+.IPPcode24
+DEFVAR GF@a
+MOVE GF@a int@42
+WRITE GF@a
+MOVE GF@a string@tu\032mezeraěščřž
+WRITE GF@a
+MOVE GF@a bool@false
+WRITE GF@a
+MOVE GF@a nil@nil
+WRITE GF@a

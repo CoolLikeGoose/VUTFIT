@@ -1,0 +1,10 @@
+^C:\USERS\THEKR\DESKTOP\IZG-LAB-1\BUILD\CMAKEFILES\A40CD22676B578B423C180FBCF422799\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/thekr/Desktop/izg-lab-1 -BC:/Users/thekr/Desktop/izg-lab-1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/thekr/Desktop/izg-lab-1/build/izg_lab_01.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

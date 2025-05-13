@@ -1,0 +1,107 @@
+1: Z 1: started
+2: Z 2: started
+3: Z 3: started
+4: Z 4: started
+5: Z 5: started
+6: Z 6: started
+7: Z 7: started
+8: Z 8: started
+9: Z 9: started
+10: Z 10: started
+11: Z 11: started
+12: Z 12: started
+13: Z 13: started
+14: Z 5: entering office for a service 1
+15: Z 14: started
+16: Z 15: started
+17: Z 16: started
+18: Z 17: started
+19: Z 18: started
+20: Z 19: started
+21: U 1: started
+22: U 2: started
+23: U 2: taking break
+24: U 1: serving a service of type 1
+25: Z 20: started
+26: Z 5: called by office worker
+27: U 2: break finished
+28: U 2: taking break
+29: Z 5: going home
+30: Z 9: entering office for a service 2
+31: Z 3: entering office for a service 3
+32: Z 18: entering office for a service 2
+33: Z 12: entering office for a service 1
+34: U 1: service finished
+35: U 1: serving a service of type 2
+36: Z 9: called by office worker
+37: U 1: service finished
+38: U 1: serving a service of type 1
+39: Z 12: called by office worker
+40: Z 9: going home
+41: U 1: service finished
+42: U 1: serving a service of type 3
+43: Z 3: called by office worker
+44: Z 12: going home
+45: U 1: service finished
+46: U 1: serving a service of type 2
+47: Z 18: called by office worker
+48: Z 18: going home
+49: Z 3: going home
+50: Z 15: entering office for a service 1
+51: U 1: service finished
+52: U 1: serving a service of type 1
+53: Z 15: called by office worker
+54: U 2: break finished
+55: U 2: taking break
+56: Z 15: going home
+57: Z 20: entering office for a service 2
+58: U 1: service finished
+59: U 1: serving a service of type 2
+60: Z 20: called by office worker
+61: Z 11: entering office for a service 2
+62: U 1: service finished
+63: U 1: serving a service of type 2
+64: Z 11: called by office worker
+65: Z 11: going home
+66: Z 1: entering office for a service 3
+67: Z 4: entering office for a service 3
+68: Z 20: going home
+69: U 1: service finished
+70: U 1: serving a service of type 3
+71: Z 1: called by office worker
+72: U 1: service finished
+73: U 1: serving a service of type 3
+74: Z 4: called by office worker
+75: Z 4: going home
+76: Z 13: entering office for a service 1
+77: Z 1: going home
+78: Z 6: entering office for a service 3
+79: Z 7: entering office for a service 2
+80: U 1: service finished
+81: U 1: serving a service of type 3
+82: Z 6: called by office worker
+83: Z 16: entering office for a service 3
+84: closing
+85: U 1: service finished
+86: U 1: serving a service of type 3
+87: Z 16: called by office worker
+88: Z 16: going home
+89: Z 6: going home
+90: U 2: break finished
+91: U 2: serving a service of type 2
+92: Z 7: called by office worker
+93: U 1: service finished
+94: U 1: serving a service of type 1
+95: Z 13: called by office worker
+96: U 1: service finished
+97: U 1: going home
+98: U 2: service finished
+99: U 2: going home
+100: Z 10: going home
+101: Z 13: going home
+102: Z 7: going home
+103: Z 8: going home
+104: Z 17: going home
+105: Z 2: going home
+106: Z 19: going home
+107: Z 14: going home

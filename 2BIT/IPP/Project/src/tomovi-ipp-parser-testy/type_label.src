@@ -1,0 +1,4 @@
+.IPPcode24
+LABEL int
+LABEL string
+LABEL nil

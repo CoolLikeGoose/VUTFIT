@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Activity"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:models="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       x:Class="StudIS.APP.Views.Activities.ActivityDetailView"
+                       x:DataType="vm:ActivityDetailViewModel"
+                       x:Name="ActivityDetailPageRoot">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+
+            <!-- Activity Information Section -->
+            <Frame BorderColor="Black" Padding="10" Margin="0,10,0,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <BoxView WidthRequest="50" HeightRequest="50" BackgroundColor="LightGray" />
+                    <StackLayout Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Activity.ActivityType}" FontSize="Large" FontAttributes="Bold" TextColor="Red"/>
+                        <Label Text="{Binding Activity.Description}" FontSize="Medium" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+                        <Button Text="Delete" Command="{Binding DeleteCommand}" Margin="0,0,5,0"/>
+                        <Button Text="Edit" Command="{Binding EditCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Time and Location Section -->
+            <Label Text="Time and Location" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Frame BorderColor="Black" Padding="10" Margin="0,10,0,0">
+                <StackLayout>
+                    <Label Text="Start Time" />
+                    <Label Text="{Binding Activity.StartTime}" />
+                    <Label Text="End Time" />
+                    <Label Text="{Binding Activity.EndTime}" />
+                    <Label Text="Room" />
+                    <Label Text="{Binding Activity.Room}" />
+                    <Label Text="Activity Type" />
+                    <Label Text="{Binding Activity.ActivityType}" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Subject Names Section -->
+            <Label Text="Subjects" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Frame BorderColor="Black" Padding="10" Margin="0,5,0,0">
+                <Label Text="{Binding SubjectName}" FontSize="Medium" />
+            </Frame>
+
+            <!-- Evaluations Section -->
+            <Label Text="Evaluations" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Button Text="Add Evaluation" HorizontalOptions="End" Command="{Binding AddEvaluationCommand}" />
+
+            <CollectionView ItemsSource="{Binding Evaluations}" Margin="0,10,0,0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="7" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:EvaluationListModel">
+                        <Frame BorderColor="Black" Padding="10" Margin="0,20,0,0" CornerRadius="10" BackgroundColor="Black">
+                            <Grid RowSpacing="10" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Start">
+                                    <Label Text="{Binding Student.FirstName}" VerticalOptions="Center" Margin="5" BackgroundColor="Gray" Padding="5" />
+                                    <Label Text="{Binding Grade}" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Margin="25" BackgroundColor="MediumPurple" Padding="5" />
+                                </StackLayout>
+                                <Label Text="{Binding Description}" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Start" Margin="5" BackgroundColor="Gray" Padding="5" />
+                                <Button Text="Edit" Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Margin="5" BackgroundColor="#28a745" TextColor="White" CornerRadius="5" Command="{Binding Path=BindingContext.EditEvaluationCommand, Source={x:Reference ActivityDetailPageRoot}}" CommandParameter="{Binding Id}" />
+                                <Button Text="Delete" Grid.Column="5" VerticalOptions="Center" HorizontalOptions="Center" Margin="5" BackgroundColor="#dc3545" TextColor="White" CornerRadius="5" Command="{Binding Path=BindingContext.DeleteEvaluationCommand, Source={x:Reference ActivityDetailPageRoot}}" CommandParameter="{Binding Id}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+
+</views:ContentPageBase>

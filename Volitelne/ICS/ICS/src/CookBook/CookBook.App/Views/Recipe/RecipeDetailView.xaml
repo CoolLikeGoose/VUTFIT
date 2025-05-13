@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:CookBook.App.Views"
+                       xmlns:vm="clr-namespace:CookBook.App.ViewModels"
+                       xmlns:texts="clr-namespace:CookBook.App.Resources.Texts"
+                       xmlns:models="clr-namespace:CookBook.BL.Models;assembly=CookBook.BL"
+                       x:Class="CookBook.App.Views.Recipe.RecipeDetailView"
+                       Title="{x:Static texts:RecipeDetailViewTexts.Page_Title}"
+                       Style="{StaticResource ContentPageStyle}"
+                       x:Name="RecipeDetailViewRoot"
+                       x:DataType="vm:RecipeDetailViewModel">
+    <Grid RowDefinitions="Auto, *"
+          RowSpacing="20">
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*, Auto, Auto"
+              ColumnSpacing="15">
+            <Button Grid.Column="1"
+                    VerticalOptions="Start"
+                    HeightRequest="30"
+                    Text="{x:Static texts:RecipeDetailViewTexts.Delete_Button_Text}"
+                    CornerRadius="5"
+                    BackgroundColor="{StaticResource ErrorColor}"
+                    Command="{Binding DeleteCommand}" />
+
+            <Button Grid.Row="0"
+                    HorizontalOptions="End" VerticalOptions="Start"
+                    HeightRequest="30"
+                    Text="{x:Static texts:RecipeDetailViewTexts.Edit_Button_Text}"
+                    CornerRadius="5"
+                    Command="{Binding GoToEditCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}" />
+        </Grid>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*, Auto"
+              ColumnSpacing="20">
+            <ScrollView Orientation="Vertical">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, *"
+                      RowSpacing="20">
+                    <Label Grid.Row="0"
+                           Text="{Binding Recipe.Name}"
+                           TextColor="{StaticResource PrimaryLabelTextColor}"
+                           FontSize="20" />
+
+                    <Frame Grid.Row="1"
+                           BackgroundColor="{Binding Recipe.FoodType, Converter={StaticResource FoodTypeToColorConverter}}"
+                           HeightRequest="100"
+                           CornerRadius="10"
+                           Padding="0">
+                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *"
+                              HorizontalOptions="Fill" VerticalOptions="Center"
+                              RowSpacing="5">
+
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   HorizontalOptions="Center" VerticalOptions="Start"
+                                   Text="{Binding Recipe.FoodType, Converter={StaticResource FoodTypeToStringConverter}}"
+                                   FontSize="11"
+                                   TextColor="White" />
+
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   HorizontalOptions="Center" VerticalOptions="Start"
+                                   Text="{Binding Recipe.Duration, StringFormat='{0} min'}"
+                                   FontSize="11"
+                                   TextColor="White" />
+
+                            <Label Grid.Row="1" Grid.Column="2"
+                                   HorizontalOptions="Center" VerticalOptions="Start"
+                                   Text="{Binding Recipe.Ingredients.Count, Converter={StaticResource RecipeIngredientsCountToStringConverter}}"
+                                   TextColor="White"
+                                   FontSize="11" />
+                        </Grid>
+                    </Frame>
+
+                    <Label Grid.Row="2"
+                           Text="{x:Static texts:RecipeDetailViewTexts.Description_Label_Text}"
+                           FontSize="16" />
+
+                    <Label Grid.Row="3"
+                           Text="{Binding Recipe.Description}"
+                           FontSize="14" />
+
+                    <Label Grid.Row="4"
+                           Text="{x:Static texts:RecipeDetailViewTexts.Ingredients_Label_Text}"
+                           FontSize="16" />
+
+                    <CollectionView Grid.Row="5"
+                                    ItemsSource="{Binding Recipe.Ingredients}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:IngredientAmountDetailModel">
+                                <HorizontalStackLayout>
+                                    <Frame Margin="5, 5, 20, 5"
+                                           Style="{StaticResource ImageFrameStyle}">
+                                        <Image Source="{Binding IngredientImageUrl, TargetNullValue='ingredient_placeholder.jpg'}"
+                                               WidthRequest="60" HeightRequest="60"
+                                               Aspect="AspectFill" />
+                                    </Frame>
+
+                                    <Label VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Amount}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Unit, Converter={StaticResource UnitToStringConverter}}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding IngredientName}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+
+            <Grid Grid.Column="1"
+                  RowDefinitions="Auto, *"
+                  RowSpacing="20">
+                <Frame Grid.Row="0"
+                       Style="{StaticResource ImageFrameStyle}">
+                    <Image Source="{Binding Recipe.ImageUrl, TargetNullValue='recipe_placeholder.jpg'}"
+                           WidthRequest="320" HeightRequest="240"
+                           Aspect="AspectFill" />
+                </Frame>
+            </Grid>
+        </Grid>
+    </Grid>
+</views:ContentPageBase>

@@ -1,0 +1,106 @@
+\hypertarget{gpu_8cpp}{}\doxysection{student/gpu.cpp File Reference}
+\label{gpu_8cpp}\index{student/gpu.cpp@{student/gpu.cpp}}
+
+
+This file contains implementation of gpu.  
+
+
+{\ttfamily \#include $<$student/gpu.\+hpp$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gpu_8cpp_a534f9ebe20a4f57bd73b4dfb9bb4b29b}{izg\+\_\+enqueue}} (\mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}} \&mem, \mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} const \&cb)
+\begin{DoxyCompactList}\small\item\em \mbox{[}izg\+\_\+enqueue\mbox{]} \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{gpu_8cpp_abf6cca928d7eb5a455aed9776b59aaee}{read\+\_\+texture}} (\mbox{\hyperlink{structTexture}{Texture}} const \&texture, glm\+::vec2 uv)
+\begin{DoxyCompactList}\small\item\em \mbox{[}izg\+\_\+enqueue\mbox{]} \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{gpu_8cpp_a688e2ccf23ad94434083e6ecb5709a16}{read\+\_\+texture\+Clamp}} (\mbox{\hyperlink{structTexture}{Texture}} const \&texture, glm\+::vec2 uv)
+\begin{DoxyCompactList}\small\item\em This function reads color from texture with clamping on the borders. \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{gpu_8cpp_a2c99f0b106295a612fe402c1f6357cb9}{texel\+Fetch}} (\mbox{\hyperlink{structTexture}{Texture}} const \&texture, glm\+::uvec2 pix)
+\begin{DoxyCompactList}\small\item\em This function fetches color from texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains implementation of gpu. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\texttt{ imilet@fit.\+vutbr.\+cz}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{gpu_8cpp_a534f9ebe20a4f57bd73b4dfb9bb4b29b}\label{gpu_8cpp_a534f9ebe20a4f57bd73b4dfb9bb4b29b}} 
+\index{gpu.cpp@{gpu.cpp}!izg\_enqueue@{izg\_enqueue}}
+\index{izg\_enqueue@{izg\_enqueue}!gpu.cpp@{gpu.cpp}}
+\doxysubsubsection{\texorpdfstring{izg\_enqueue()}{izg\_enqueue()}}
+{\footnotesize\ttfamily void izg\+\_\+enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}} \&}]{mem,  }\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} const \&}]{cb }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}izg\+\_\+enqueue\mbox{]} 
+
+function that executes work stored in command buffer on the gpu memory. This function represents the functionality of G\+PU. It can render stuff, it can clear framebuffer. It can process work stored in command buffer \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Tato funkce reprezentuje funkcionalitu grafické karty.~\newline
+ Měla by umět zpracovat command buffer, čistit framebuffer a kresli.~\newline
+ mem obsahuje paměť grafické karty. cb obsahuje command buffer pro zpracování. Bližší informace jsou uvedeny na hlavní stránce dokumentace. \end{DoxyRefDesc}
+\mbox{\Hypertarget{gpu_8cpp_abf6cca928d7eb5a455aed9776b59aaee}\label{gpu_8cpp_abf6cca928d7eb5a455aed9776b59aaee}} 
+\index{gpu.cpp@{gpu.cpp}!read\_texture@{read\_texture}}
+\index{read\_texture@{read\_texture}!gpu.cpp@{gpu.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_texture()}{read\_texture()}}
+{\footnotesize\ttfamily glm\+::vec4 read\+\_\+texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTexture}{Texture}} const \&}]{texture,  }\item[{glm\+::vec2}]{uv }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}izg\+\_\+enqueue\mbox{]} 
+
+This function reads color from texture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & texture \\
+\hline
+{\em uv} & uv coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color 4 floats 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpu_8cpp_a688e2ccf23ad94434083e6ecb5709a16}\label{gpu_8cpp_a688e2ccf23ad94434083e6ecb5709a16}} 
+\index{gpu.cpp@{gpu.cpp}!read\_textureClamp@{read\_textureClamp}}
+\index{read\_textureClamp@{read\_textureClamp}!gpu.cpp@{gpu.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_textureClamp()}{read\_textureClamp()}}
+{\footnotesize\ttfamily glm\+::vec4 read\+\_\+texture\+Clamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTexture}{Texture}} const \&}]{texture,  }\item[{glm\+::vec2}]{uv }\end{DoxyParamCaption})}
+
+
+
+This function reads color from texture with clamping on the borders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & texture \\
+\hline
+{\em uv} & uv coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color 4 floats 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpu_8cpp_a2c99f0b106295a612fe402c1f6357cb9}\label{gpu_8cpp_a2c99f0b106295a612fe402c1f6357cb9}} 
+\index{gpu.cpp@{gpu.cpp}!texelFetch@{texelFetch}}
+\index{texelFetch@{texelFetch}!gpu.cpp@{gpu.cpp}}
+\doxysubsubsection{\texorpdfstring{texelFetch()}{texelFetch()}}
+{\footnotesize\ttfamily glm\+::vec4 texel\+Fetch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTexture}{Texture}} const \&}]{texture,  }\item[{glm\+::uvec2}]{pix }\end{DoxyParamCaption})}
+
+
+
+This function fetches color from texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & texture \\
+\hline
+{\em pix} & integer coorinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color 4 floats 
+\end{DoxyReturn}

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+XDEBUG_MODE=off vendor/bin/phpstan "$@"

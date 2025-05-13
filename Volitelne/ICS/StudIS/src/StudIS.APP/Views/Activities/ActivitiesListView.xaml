@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Activity"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:models="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       x:Class="StudIS.APP.Views.Activities.ActivitiesListView"
+                       x:DataType="vm:ActivityListViewModel"
+                       x:Name="ActivityListPageRoot">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Header Section -->
+            <Grid ColumnSpacing="10" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Activities" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" Margin="0,20,0,20" Grid.Column="0"/>
+                <Button Text="Refresh" Command="{Binding RefreshCommand}" HorizontalOptions="End" Margin="0,20,0,20" Grid.Column="1"/>
+            </Grid>
+
+            <!-- Add Activity Button -->
+            <Button Text="Add Activity" HorizontalOptions="End" Command="{Binding GoToCreateCommand}" Margin="0,0,0,20"/>
+
+            <!-- Sort Section -->
+            <Grid ColumnSpacing="10" RowSpacing="10" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Picker Grid.Row="0" Grid.Column="0" SelectedItem="{Binding SortOption}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Start Date (Earliest First)</x:String>
+                            <x:String>Start Date (Latest First)</x:String>
+                            <x:String>End Date (Earliest First)</x:String>
+                            <x:String>End Date (Latest First)</x:String>
+                            <x:String>Activity Type (A-Z)</x:String>
+                            <x:String>Activity Type (Z-A)</x:String>
+                            <x:String>Subject (A-Z)</x:String>
+                            <x:String>Subject (Z-A)</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Text="Sort" Grid.Row="0" Grid.Column="1" WidthRequest="100" Command="{Binding SortActivitiesCommand}"/>
+            </Grid>
+
+            <!-- Activities List -->
+            <CollectionView ItemsSource="{Binding Activities}" Margin="0,5,0,0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="7" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:ActivityWithSubjectName">
+                        <Frame BorderColor="Black" Padding="10" Margin="0,10,0,0">
+                            <StackLayout>
+                                <Grid ColumnSpacing="10" RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Activity.ActivityType}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Activity.Description}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Text="{Binding Activity.StartTime, StringFormat='{0:MM/dd/yyyy HH:mm}'}" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                                    <Label Text="{Binding Activity.EndTime, StringFormat='{0:MM/dd/yyyy HH:mm}'}" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                                    <Label Text="{Binding Activity.Room}" Grid.Row="1" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                                    <Label Text="{Binding SubjectName}" Grid.Row="1" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                                    <Button Text="Details" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" Command="{Binding Path=BindingContext.GoToDetailCommand, Source={x:Reference ActivityListPageRoot}}" CommandParameter="{Binding Activity.Id}" Margin="10,0,0,0"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</views:ContentPageBase>

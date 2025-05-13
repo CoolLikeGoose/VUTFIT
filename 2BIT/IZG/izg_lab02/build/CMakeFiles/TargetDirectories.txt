@@ -1,0 +1,9 @@
+C:/Users/thekr/Desktop/izg_lab02/build/CMakeFiles/izg_lab_02.dir
+C:/Users/thekr/Desktop/izg_lab02/build/CMakeFiles/INSTALL.dir
+C:/Users/thekr/Desktop/izg_lab02/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/thekr/Desktop/izg_lab02/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/thekr/Desktop/izg_lab02/build/SDL/CMakeFiles/SDL2main.dir
+C:/Users/thekr/Desktop/izg_lab02/build/SDL/CMakeFiles/SDL2-static.dir
+C:/Users/thekr/Desktop/izg_lab02/build/SDL/CMakeFiles/uninstall.dir
+C:/Users/thekr/Desktop/izg_lab02/build/SDL/CMakeFiles/INSTALL.dir
+C:/Users/thekr/Desktop/izg_lab02/build/SDL/CMakeFiles/ALL_BUILD.dir

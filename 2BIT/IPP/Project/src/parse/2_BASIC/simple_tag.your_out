@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<program language="IPPcode24"><instruction order="1" opcode="CREATEFRAME" /><instruction order="2" opcode="DEFVAR"><arg1 type="var">TF@x</arg1></instruction><instruction order="3" opcode="PUSHFRAME" /><instruction order="4" opcode="CREATEFRAME" /><instruction order="5" opcode="WRITE"><arg1 type="var">TF@x</arg1></instruction><instruction order="6" opcode="POPFRAME" /></program>

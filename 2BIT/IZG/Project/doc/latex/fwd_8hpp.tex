@@ -1,0 +1,487 @@
+\hypertarget{fwd_8hpp}{}\doxysection{student/fwd.hpp File Reference}
+\label{fwd_8hpp}\index{student/fwd.hpp@{student/fwd.hpp}}
+
+
+This file contains forward declarations, structures and constants.  
+
+
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structImage}{Image}}
+\begin{DoxyCompactList}\small\item\em This structure represents 2D memory of image. 2D images are used as textures and color or depth buffers of framebuffers. Pixel \mbox{[}x,y\mbox{]} starts at uint8\+\_\+t$\ast$ptr = ((uint8\+\_\+t$\ast$)data) + y$\ast$pitch + x$\ast$bytes\+Per\+Pixel; channel\+Types is swizzling table for colors (R\+GB,B\+GR,...) for format == F\+L\+O\+A\+T32\+: bytes\+Per\+Pixel = sizeof(float) $\ast$ channels for format == U\+I\+N\+T8\+: bytes\+Per\+Pixel = sizeof(uint8\+\_\+t) $\ast$ channels. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTexture}{Texture}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structImage}{Image}}\mbox{]} \end{DoxyCompactList}\item 
+union \mbox{\hyperlink{unionAttribute}{Attribute}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Attribute\+Type\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structInVertex}{In\+Vertex}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{unionAttribute}{Attribute}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structOutVertex}{Out\+Vertex}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structInVertex}{In\+Vertex}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structInFragment}{In\+Fragment}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structOutVertex}{Out\+Vertex}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structOutFragment}{Out\+Fragment}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structInFragment}{In\+Fragment}}\mbox{]} \end{DoxyCompactList}\item 
+union \mbox{\hyperlink{unionUniform}{Uniform}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structOutFragment}{Out\+Fragment}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Index\+Type\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structVertexAttrib}{Vertex\+Attrib}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Fragment\+Shader\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structVertexArray}{Vertex\+Array}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structVertexAttrib}{Vertex\+Attrib}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structProgram}{Program}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structVertexArray}{Vertex\+Array}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structFramebuffer}{Framebuffer}}
+\begin{DoxyCompactList}\small\item\em This structure represent a framebuffer A framebuffer is used as an output of rendering. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBuffer}{Buffer}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structFramebuffer}{Framebuffer}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structGPUMemory}{G\+P\+U\+Memory}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structBuffer}{Buffer}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structClearCommand}{Clear\+Command}}
+\begin{DoxyCompactList}\small\item\em This structure represents clear command. Clear command stores data which are used by clearing operation on the G\+PU. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDrawCommand}{Draw\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structClearCommand}{Clear\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSetDrawIdCommand}{Set\+Draw\+Id\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structDrawCommand}{Draw\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBindFramebufferCommand}{Bind\+Framebuffer\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structSetDrawIdCommand}{Set\+Draw\+Id\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBindProgramCommand}{Bind\+Program\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structBindFramebufferCommand}{Bind\+Framebuffer\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBindVertexArrayCommand}{Bind\+Vertex\+Array\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structBindProgramCommand}{Bind\+Program\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSubCommand}{Sub\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structBindVertexArrayCommand}{Bind\+Vertex\+Array\+Command}}\mbox{]} \end{DoxyCompactList}\item 
+union \mbox{\hyperlink{unionCommandData}{Command\+Data}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Command\+Type\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCommand}{Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{unionCommandData}{Command\+Data}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structCommand}{Command}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMesh}{Mesh}}
+\begin{DoxyCompactList}\small\item\em This struct represents a mesh. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structNode}{Node}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structMesh}{Mesh}}\mbox{]} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structModel}{Model}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structNode}{Node}}\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{fwd_8hpp_a61e7df3fcaa53829be20be29b197e3e6}{Vertex\+Shader}} = void($\ast$)(\mbox{\hyperlink{structOutVertex}{Out\+Vertex}} \&out\+Vertex, \mbox{\hyperlink{structInVertex}{In\+Vertex}} const  \&in\+Vertex, \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const  \&si)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structShaderInterface}{Shader\+Interface}}\mbox{]} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{fwd_8hpp_ac2dd95ee5e44978647da13fc95b9420e}{Fragment\+Shader}} = void($\ast$)(\mbox{\hyperlink{structOutFragment}{Out\+Fragment}} \&out\+Fragment, \mbox{\hyperlink{structInFragment}{In\+Fragment}} const  \&in\+Fragment, \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const  \&si)
+\begin{DoxyCompactList}\small\item\em \mbox{[}Vertex\+Shader\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4d}{Attribute\+Type}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daba2b45bdc11e2a4a6e86aab2ac693cbb}{Attribute\+Type\+::\+E\+M\+P\+TY}} = 0, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4dae738c26bf4ce1037fa81b039a915cbf6}{Attribute\+Type\+::\+F\+L\+O\+AT}} = 1, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da9bd71a29dd44a2e0252b56ce5c6d251a}{Attribute\+Type\+::\+V\+E\+C2}} = 2, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa7c116def9f212182aa52ab1e936d77d}{Attribute\+Type\+::\+V\+E\+C3}} = 3, 
+\newline
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daee190f7a0572504036effa0134dc5d88}{Attribute\+Type\+::\+V\+E\+C4}} = 4, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da3351504090a741e69da641a42e00da80}{Attribute\+Type\+::\+U\+I\+NT}} = 8+1, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da5ca0c8351a842472da0c9e89a3714475}{Attribute\+Type\+::\+U\+V\+E\+C2}} = 8+2, 
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa9767ed71ca4b7d192cdaec255e6d39b}{Attribute\+Type\+::\+U\+V\+E\+C3}} = 8+3, 
+\newline
+\mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa569d1b1b651370ef8da7dd5c4eb67bf}{Attribute\+Type\+::\+U\+V\+E\+C4}} = 8+4
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structTexture}{Texture}}\mbox{]} \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{fwd_8hpp_a862161defe984b09e24dfec9e0540a3e}{Index\+Type}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{fwd_8hpp_a862161defe984b09e24dfec9e0540a3eaecfc091ed2a607335524c8389cfa41b5}{Index\+Type\+::\+U\+I\+N\+T8}} = 1, 
+\mbox{\hyperlink{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea48d8f1a723d44ff4a87db1bb6c551c62}{Index\+Type\+::\+U\+I\+N\+T16}} = 2, 
+\mbox{\hyperlink{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea17266551181f69a1b4a3ad5c9e270afc}{Index\+Type\+::\+U\+I\+N\+T32}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{unionUniform}{Uniform}}\mbox{]} \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} \{ \newline
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aba2b45bdc11e2a4a6e86aab2ac693cbb}{Command\+Type\+::\+E\+M\+P\+TY}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a813461e0c58e7ad59a2fd83ca2237fec}{Command\+Type\+::\+C\+L\+E\+AR}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af33727905f5b6f48cac50cb735ed9524}{Command\+Type\+::\+S\+E\+T\+\_\+\+D\+R\+A\+W\+\_\+\+ID}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a2b4807f24940ca2fe73284bc6e864d66}{Command\+Type\+::\+D\+R\+AW}}, 
+\newline
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac9e3011a04cc978bf737d10d2b73f4b7}{Command\+Type\+::\+B\+I\+N\+D\+\_\+\+F\+R\+A\+M\+E\+B\+U\+F\+F\+ER}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac539ee5fafd5847e0877fc545dde6093}{Command\+Type\+::\+B\+I\+N\+D\+\_\+\+P\+R\+O\+G\+R\+AM}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af579b0c380b4a2da14f78e233e2a44f6}{Command\+Type\+::\+B\+I\+N\+D\+\_\+\+V\+E\+R\+T\+E\+X\+A\+R\+R\+AY}}, 
+\mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aadcc01dbaca0f0d3fb64ef8f45550ec3}{Command\+Type\+::\+S\+U\+B\+\_\+\+C\+O\+M\+M\+A\+ND}}
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structSubCommand}{Sub\+Command}}\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{fwd_8hpp_abd9ee83292852b458b91506148892a50}{get\+Pixel}} (\mbox{\hyperlink{structImage}{Image}} \&image, uint32\+\_\+t x, uint32\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structProgram}{Program}}\mbox{]} \end{DoxyCompactList}\item 
+void const  $\ast$ \mbox{\hyperlink{fwd_8hpp_a7e5bf61740dd6142aba99b2f6a70b293}{get\+Pixel}} (\mbox{\hyperlink{structImage}{Image}} const \&image, uint32\+\_\+t x, uint32\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em This function gets constant pointer to the start of the pixel in the image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_a8f837089b3ff5f5c2ebc125f4000fdd4}{push\+Clear\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, glm\+::vec4 const \&color=glm\+::vec4(0), float depth=10e10, bool clear\+Color=true, bool clear\+Depth=true)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}}\mbox{]} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_ad5d24f6d5d3b90ad155197ce8edf694c}{push\+Draw\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, uint32\+\_\+t nof\+Vertices, bool backface\+Culling=false)
+\begin{DoxyCompactList}\small\item\em This function can be used to insert draw command into command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_aaf908caefd690c7d905eb3baa9e1a569}{push\+Bind\+Framebuffer\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em This function can be used to insert bind\+Framebuffer command into command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_ad35fa691c90051fd7b24f95fb6c4b55d}{push\+Bind\+Program\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em This function inserts bind\+Program command into command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_a6a83b6ff420e4e17a9aef5a4a11a2499}{push\+Bind\+Vertex\+Array\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em This function inserts bind\+Vertex\+Array command into command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_aacb69634138ae054e54e64be83d9cf14}{push\+Set\+Draw\+Id\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em This function inserts set\+Draw\+Id command into command buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fwd_8hpp_aa4d71f523e3610ab809ded2a09276d20}{push\+Sub\+Command}} (\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&cb, \mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} $\ast$sub)
+\begin{DoxyCompactList}\small\item\em This function inserts sub\+Command into command buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fwd_8hpp_a4a3d1b76496eeb849f86584b59091f7a}\label{fwd_8hpp_a4a3d1b76496eeb849f86584b59091f7a}} 
+const uint32\+\_\+t \mbox{\hyperlink{fwd_8hpp_a4a3d1b76496eeb849f86584b59091f7a}{max\+Attributes}} = 4
+\begin{DoxyCompactList}\small\item\em maximum number of vertex/fragment attributes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains forward declarations, structures and constants. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\texttt{ imilet@fit.\+vutbr.\+cz}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{fwd_8hpp_ac2dd95ee5e44978647da13fc95b9420e}\label{fwd_8hpp_ac2dd95ee5e44978647da13fc95b9420e}} 
+\index{fwd.hpp@{fwd.hpp}!FragmentShader@{FragmentShader}}
+\index{FragmentShader@{FragmentShader}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{FragmentShader}{FragmentShader}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{fwd_8hpp_ac2dd95ee5e44978647da13fc95b9420e}{Fragment\+Shader}} =  void($\ast$)( \mbox{\hyperlink{structOutFragment}{Out\+Fragment}} \&out\+Fragment, \mbox{\hyperlink{structInFragment}{In\+Fragment}} const\&in\+Fragment , \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const\&si )}
+
+
+
+\mbox{[}Vertex\+Shader\mbox{]} 
+
+Function type for fragment shader
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Fragment} & output fragment \\
+\hline
+{\em in\+Fragment} & input fragment \\
+\hline
+{\em uniforms} & uniform variables \mbox{[}Fragment\+Shader\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_a61e7df3fcaa53829be20be29b197e3e6}\label{fwd_8hpp_a61e7df3fcaa53829be20be29b197e3e6}} 
+\index{fwd.hpp@{fwd.hpp}!VertexShader@{VertexShader}}
+\index{VertexShader@{VertexShader}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{VertexShader}{VertexShader}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{fwd_8hpp_a61e7df3fcaa53829be20be29b197e3e6}{Vertex\+Shader}} =  void($\ast$)( \mbox{\hyperlink{structOutVertex}{Out\+Vertex}} \&out\+Vertex, \mbox{\hyperlink{structInVertex}{In\+Vertex}} const\&in\+Vertex , \mbox{\hyperlink{structShaderInterface}{Shader\+Interface}} const\&si )}
+
+
+
+\mbox{[}\mbox{\hyperlink{structShaderInterface}{Shader\+Interface}}\mbox{]} 
+
+Function type for vertex shader
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Vertex} & output vertex \\
+\hline
+{\em in\+Vertex} & input vertex \\
+\hline
+{\em uniforms} & uniform variables \mbox{[}Vertex\+Shader\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4d}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4d}} 
+\index{fwd.hpp@{fwd.hpp}!AttributeType@{AttributeType}}
+\index{AttributeType@{AttributeType}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{AttributeType}{AttributeType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4d}{Attribute\+Type}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+\mbox{[}\mbox{\hyperlink{structTexture}{Texture}}\mbox{]} 
+
+This enum represents vertex/fragment attribute type. \mbox{[}Attribute\+Type\mbox{]} \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daba2b45bdc11e2a4a6e86aab2ac693cbb}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daba2b45bdc11e2a4a6e86aab2ac693cbb}} 
+E\+M\+P\+TY&disabled attribute \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT@{FLOAT}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!FLOAT@{FLOAT}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4dae738c26bf4ce1037fa81b039a915cbf6}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4dae738c26bf4ce1037fa81b039a915cbf6}} 
+F\+L\+O\+AT&1x 32-\/bit float \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VEC2@{VEC2}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!VEC2@{VEC2}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da9bd71a29dd44a2e0252b56ce5c6d251a}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da9bd71a29dd44a2e0252b56ce5c6d251a}} 
+V\+E\+C2&2x 32-\/bit floats \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VEC3@{VEC3}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!VEC3@{VEC3}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa7c116def9f212182aa52ab1e936d77d}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa7c116def9f212182aa52ab1e936d77d}} 
+V\+E\+C3&3x 32-\/bit floats \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VEC4@{VEC4}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!VEC4@{VEC4}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daee190f7a0572504036effa0134dc5d88}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daee190f7a0572504036effa0134dc5d88}} 
+V\+E\+C4&4x 32-\/bit floats \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT@{UINT}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UINT@{UINT}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da3351504090a741e69da641a42e00da80}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da3351504090a741e69da641a42e00da80}} 
+U\+I\+NT&1x 32-\/bit unsigned int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UVEC2@{UVEC2}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UVEC2@{UVEC2}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da5ca0c8351a842472da0c9e89a3714475}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4da5ca0c8351a842472da0c9e89a3714475}} 
+U\+V\+E\+C2&2x 32-\/bit unsigned int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UVEC3@{UVEC3}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UVEC3@{UVEC3}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa9767ed71ca4b7d192cdaec255e6d39b}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa9767ed71ca4b7d192cdaec255e6d39b}} 
+U\+V\+E\+C3&3x 32-\/bit unsigned int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UVEC4@{UVEC4}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UVEC4@{UVEC4}}}\mbox{\Hypertarget{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa569d1b1b651370ef8da7dd5c4eb67bf}\label{fwd_8hpp_addfd10ead04eeadec78064481a4a3f4daa569d1b1b651370ef8da7dd5c4eb67bf}} 
+U\+V\+E\+C4&4x 32-\/bit unsigned int \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352}} 
+\index{fwd.hpp@{fwd.hpp}!CommandType@{CommandType}}
+\index{CommandType@{CommandType}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{CommandType}{CommandType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+\mbox{[}\mbox{\hyperlink{structSubCommand}{Sub\+Command}}\mbox{]} 
+
+This enum represents type of command. \mbox{[}Command\+Type\mbox{]} \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aba2b45bdc11e2a4a6e86aab2ac693cbb}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aba2b45bdc11e2a4a6e86aab2ac693cbb}} 
+E\+M\+P\+TY&empty command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLEAR@{CLEAR}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!CLEAR@{CLEAR}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a813461e0c58e7ad59a2fd83ca2237fec}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a813461e0c58e7ad59a2fd83ca2237fec}} 
+C\+L\+E\+AR&clear command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SET\_DRAW\_ID@{SET\_DRAW\_ID}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!SET\_DRAW\_ID@{SET\_DRAW\_ID}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af33727905f5b6f48cac50cb735ed9524}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af33727905f5b6f48cac50cb735ed9524}} 
+S\+E\+T\+\_\+\+D\+R\+A\+W\+\_\+\+ID&set draw\+Id command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DRAW@{DRAW}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!DRAW@{DRAW}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a2b4807f24940ca2fe73284bc6e864d66}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352a2b4807f24940ca2fe73284bc6e864d66}} 
+D\+R\+AW&draw command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIND\_FRAMEBUFFER@{BIND\_FRAMEBUFFER}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!BIND\_FRAMEBUFFER@{BIND\_FRAMEBUFFER}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac9e3011a04cc978bf737d10d2b73f4b7}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac9e3011a04cc978bf737d10d2b73f4b7}} 
+B\+I\+N\+D\+\_\+\+F\+R\+A\+M\+E\+B\+U\+F\+F\+ER&bind framebuffer command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIND\_PROGRAM@{BIND\_PROGRAM}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!BIND\_PROGRAM@{BIND\_PROGRAM}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac539ee5fafd5847e0877fc545dde6093}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352ac539ee5fafd5847e0877fc545dde6093}} 
+B\+I\+N\+D\+\_\+\+P\+R\+O\+G\+R\+AM&bind program command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIND\_VERTEXARRAY@{BIND\_VERTEXARRAY}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!BIND\_VERTEXARRAY@{BIND\_VERTEXARRAY}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af579b0c380b4a2da14f78e233e2a44f6}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352af579b0c380b4a2da14f78e233e2a44f6}} 
+B\+I\+N\+D\+\_\+\+V\+E\+R\+T\+E\+X\+A\+R\+R\+AY&bind vertex array command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUB\_COMMAND@{SUB\_COMMAND}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!SUB\_COMMAND@{SUB\_COMMAND}}}\mbox{\Hypertarget{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aadcc01dbaca0f0d3fb64ef8f45550ec3}\label{fwd_8hpp_a21e038f5b8958e203d28bc4f18472352aadcc01dbaca0f0d3fb64ef8f45550ec3}} 
+S\+U\+B\+\_\+\+C\+O\+M\+M\+A\+ND&sub command \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{fwd_8hpp_a862161defe984b09e24dfec9e0540a3e}\label{fwd_8hpp_a862161defe984b09e24dfec9e0540a3e}} 
+\index{fwd.hpp@{fwd.hpp}!IndexType@{IndexType}}
+\index{IndexType@{IndexType}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{IndexType}{IndexType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fwd_8hpp_a862161defe984b09e24dfec9e0540a3e}{Index\+Type}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+\mbox{[}\mbox{\hyperlink{unionUniform}{Uniform}}\mbox{]} 
+
+This enum represents index type \mbox{[}Index\+Type\mbox{]} \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT8@{UINT8}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UINT8@{UINT8}}}\mbox{\Hypertarget{fwd_8hpp_a862161defe984b09e24dfec9e0540a3eaecfc091ed2a607335524c8389cfa41b5}\label{fwd_8hpp_a862161defe984b09e24dfec9e0540a3eaecfc091ed2a607335524c8389cfa41b5}} 
+U\+I\+N\+T8&uin8\+\_\+t type \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT16@{UINT16}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UINT16@{UINT16}}}\mbox{\Hypertarget{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea48d8f1a723d44ff4a87db1bb6c551c62}\label{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea48d8f1a723d44ff4a87db1bb6c551c62}} 
+U\+I\+N\+T16&uin16\+\_\+t type \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT32@{UINT32}!fwd.hpp@{fwd.hpp}}\index{fwd.hpp@{fwd.hpp}!UINT32@{UINT32}}}\mbox{\Hypertarget{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea17266551181f69a1b4a3ad5c9e270afc}\label{fwd_8hpp_a862161defe984b09e24dfec9e0540a3ea17266551181f69a1b4a3ad5c9e270afc}} 
+U\+I\+N\+T32&uint32\+\_\+t type \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fwd_8hpp_abd9ee83292852b458b91506148892a50}\label{fwd_8hpp_abd9ee83292852b458b91506148892a50}} 
+\index{fwd.hpp@{fwd.hpp}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{getPixel()}{getPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void$\ast$ get\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structImage}{Image}} \&}]{image,  }\item[{uint32\+\_\+t}]{x,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{[}\mbox{\hyperlink{structProgram}{Program}}\mbox{]} 
+
+This function gets pointer to the start of the pixel in the image
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & image \\
+\hline
+{\em x} & x coordinates \\
+\hline
+{\em y} & y coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the start of the pixel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fwd_8hpp_a7e5bf61740dd6142aba99b2f6a70b293}\label{fwd_8hpp_a7e5bf61740dd6142aba99b2f6a70b293}} 
+\index{fwd.hpp@{fwd.hpp}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{getPixel()}{getPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void const$\ast$ get\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structImage}{Image}} const \&}]{image,  }\item[{uint32\+\_\+t}]{x,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function gets constant pointer to the start of the pixel in the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & image \\
+\hline
+{\em x} & x coordinates \\
+\hline
+{\em y} & y coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+constant pointer to the start of the pixel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fwd_8hpp_aaf908caefd690c7d905eb3baa9e1a569}\label{fwd_8hpp_aaf908caefd690c7d905eb3baa9e1a569}} 
+\index{fwd.hpp@{fwd.hpp}!pushBindFramebufferCommand@{pushBindFramebufferCommand}}
+\index{pushBindFramebufferCommand@{pushBindFramebufferCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushBindFramebufferCommand()}{pushBindFramebufferCommand()}}
+{\footnotesize\ttfamily void push\+Bind\+Framebuffer\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function can be used to insert bind\+Framebuffer command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em id} & id of framebuffer to bind \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_ad35fa691c90051fd7b24f95fb6c4b55d}\label{fwd_8hpp_ad35fa691c90051fd7b24f95fb6c4b55d}} 
+\index{fwd.hpp@{fwd.hpp}!pushBindProgramCommand@{pushBindProgramCommand}}
+\index{pushBindProgramCommand@{pushBindProgramCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushBindProgramCommand()}{pushBindProgramCommand()}}
+{\footnotesize\ttfamily void push\+Bind\+Program\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function inserts bind\+Program command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em id} & id of program \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_a6a83b6ff420e4e17a9aef5a4a11a2499}\label{fwd_8hpp_a6a83b6ff420e4e17a9aef5a4a11a2499}} 
+\index{fwd.hpp@{fwd.hpp}!pushBindVertexArrayCommand@{pushBindVertexArrayCommand}}
+\index{pushBindVertexArrayCommand@{pushBindVertexArrayCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushBindVertexArrayCommand()}{pushBindVertexArrayCommand()}}
+{\footnotesize\ttfamily void push\+Bind\+Vertex\+Array\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function inserts bind\+Vertex\+Array command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em id} & id of vertex array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_a8f837089b3ff5f5c2ebc125f4000fdd4}\label{fwd_8hpp_a8f837089b3ff5f5c2ebc125f4000fdd4}} 
+\index{fwd.hpp@{fwd.hpp}!pushClearCommand@{pushClearCommand}}
+\index{pushClearCommand@{pushClearCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushClearCommand()}{pushClearCommand()}}
+{\footnotesize\ttfamily void push\+Clear\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{glm\+::vec4 const \&}]{color = {\ttfamily glm\+:\+:vec4(0)},  }\item[{float}]{depth = {\ttfamily 10e10},  }\item[{bool}]{clear\+Color = {\ttfamily true},  }\item[{bool}]{clear\+Depth = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{[}\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}}\mbox{]} 
+
+This function can be used to insert clear command to command buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em color} & color for cleaning \\
+\hline
+{\em depth} & depth for cleaning \\
+\hline
+{\em clear\+Color} & should the color buffer be cleaned? \\
+\hline
+{\em clear\+Depth} & should the depth buffer be cleaned? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_ad5d24f6d5d3b90ad155197ce8edf694c}\label{fwd_8hpp_ad5d24f6d5d3b90ad155197ce8edf694c}} 
+\index{fwd.hpp@{fwd.hpp}!pushDrawCommand@{pushDrawCommand}}
+\index{pushDrawCommand@{pushDrawCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushDrawCommand()}{pushDrawCommand()}}
+{\footnotesize\ttfamily void push\+Draw\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{uint32\+\_\+t}]{nof\+Vertices,  }\item[{bool}]{backface\+Culling = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function can be used to insert draw command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em nof\+Vertices} & number of vertices that should be rendered \\
+\hline
+{\em backface\+Culling} & should the backface culling be enabled? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_aacb69634138ae054e54e64be83d9cf14}\label{fwd_8hpp_aacb69634138ae054e54e64be83d9cf14}} 
+\index{fwd.hpp@{fwd.hpp}!pushSetDrawIdCommand@{pushSetDrawIdCommand}}
+\index{pushSetDrawIdCommand@{pushSetDrawIdCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushSetDrawIdCommand()}{pushSetDrawIdCommand()}}
+{\footnotesize\ttfamily void push\+Set\+Draw\+Id\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function inserts set\+Draw\+Id command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em id} & gl\+\_\+\+Draw\+ID \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fwd_8hpp_aa4d71f523e3610ab809ded2a09276d20}\label{fwd_8hpp_aa4d71f523e3610ab809ded2a09276d20}} 
+\index{fwd.hpp@{fwd.hpp}!pushSubCommand@{pushSubCommand}}
+\index{pushSubCommand@{pushSubCommand}!fwd.hpp@{fwd.hpp}}
+\doxysubsubsection{\texorpdfstring{pushSubCommand()}{pushSubCommand()}}
+{\footnotesize\ttfamily void push\+Sub\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} \&}]{cb,  }\item[{\mbox{\hyperlink{structCommandBuffer}{Command\+Buffer}} $\ast$}]{sub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function inserts sub\+Command into command buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & command buffer \\
+\hline
+{\em sub} & pointer to sub command \\
+\hline
+\end{DoxyParams}

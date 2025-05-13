@@ -1,0 +1,473 @@
+/usr/local/share/ghdl/bin/ghdl -i --ieee=synopsys -fexplicit --workdir=build --work=work ../src/cpu.vhd
+/usr/local/share/ghdl/bin/ghdl -m --ieee=synopsys -fexplicit --workdir=build -Pbuild --work=work cpu
+/usr/local/share/ghdl/bin/ghdl -r --ieee=synopsys -fexplicit --workdir=build -Pbuild --work=work cpu --vpi=/homes/eva/xs/xsmirn02/programming/inp23-projekt1/env/lib/python3.8/site-packages/cocotb/libs/libcocotbvpi_ghdl.so
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:109  in set_program_name_in_venv        Using Python virtual environment interpreter at /homes/eva/xs/xsmirn02/programming/inp23-projekt1/env/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on GHDL version 2.0.0 (tarball) [Dunoon edition]
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.7.1 from /homes/eva/xs/xsmirn02/programming/inp23-projekt1/env/lib/python3.8/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1700974810
+     0.00ns INFO     cocotb.hexdigest                   lib: db913e6f9a8b6fd10e0c8ec59ef3e5fa
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_reset
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_init
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_increment
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_decrement
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_move
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_print
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_input
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_while_loop
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_break
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_login_xsmirn02
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_00
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_01
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_02
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_03
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_04
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_05
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_06
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_07
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_08
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_09
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_10
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_11
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_12
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_13
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_14
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_15
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_16
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_17
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_18
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_19
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_20
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_21
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_22
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_23
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_24
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_25
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_26
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_27
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_28
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_debug_29
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_break_while_while
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_break_while_while_2
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_hello_world
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_abc
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_hello
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_text
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_sum
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_hello_world
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_example_bsort
+     0.00ns INFO     cocotb.regression                  Found test cpu.test_printf
+     0.00ns INFO     cocotb.regression                  running test_reset (1/50)
+     0.00ns INFO     cocotb.hexdigest                   test: 657dd62b7824255e9bf9aec1f7431723
+../../src/synopsys/std_logic_arith.vhdl:255:21:@0ms:(assertion warning): There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+../../src/synopsys/std_logic_arith.vhdl:255:21:@0ms:(assertion warning): There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+../../src/synopsys/std_logic_arith.vhdl:255:21:@0ms:(assertion warning): There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+../../src/synopsys/std_logic_arith.vhdl:255:21:@0ms:(assertion warning): There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+../../src/synopsys/std_logic_arith.vhdl:255:21:@1ns:(assertion warning): There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+    51.00ns INFO     cocotb.regression                  test_reset passed
+    51.00ns INFO     cocotb.regression                  running test_init (2/50)
+                                                          Procesor initialization test
+    51.00ns INFO     cocotb.hexdigest                   test: d0d2a235641de815d2202364fb7d4c3e
+    52.00ns INFO     cocotb.hexdigest                   code: 420cd9f16e90b08dbdf5195fdd9d0f62 len: 1
+   151.00ns INFO     cocotb.hexdigest                   result: 420cd9f16e90b08dbdf5195fdd9d0f62
+   151.00ns INFO     cocotb.regression                  test_init passed
+   151.00ns INFO     cocotb.regression                  running test_increment (3/50)
+                                                          Increment value of the first memory cell, i.e. *ptr++
+   151.00ns INFO     cocotb.hexdigest                   test: 25e0975eddd59d75187081f86237c92c
+   152.00ns INFO     cocotb.hexdigest                   code: 83fdb8859bf9b7036a839b918e308b60 len: 4
+   381.00ns INFO     cocotb.hexdigest                   result: 08a9e9c47976e0116dfa992853b8e023
+   381.00ns INFO     cocotb.regression                  test_increment passed
+   381.00ns INFO     cocotb.regression                  running test_decrement (4/50)
+                                                          Decrement value of the first memory cell, i.e. *ptr--
+   381.00ns INFO     cocotb.hexdigest                   test: 167e6e25169899ec51407d15b5b469be
+   382.00ns INFO     cocotb.hexdigest                   code: 0772f54a199d95c25fff832f480c9d84 len: 4
+   611.00ns INFO     cocotb.hexdigest                   result: cd6b8633aedcb944cec479ecee67bfa8
+   611.00ns INFO     cocotb.regression                  test_decrement passed
+   611.00ns INFO     cocotb.regression                  running test_move (5/50)
+                                                          Move the pointer to the next cell and increment its value
+   611.00ns INFO     cocotb.hexdigest                   test: 45fe9aaf9183f39f6ad0adec554e69da
+   612.00ns INFO     cocotb.hexdigest                   code: 7c1cd3f96fc2c2ff2e089c27cfda24b6 len: 3
+   801.00ns INFO     cocotb.hexdigest                   result: 7efbf0ee85c154b96298cc5edbbd2370
+   801.00ns INFO     cocotb.regression                  test_move passed
+   801.00ns INFO     cocotb.regression                  running test_print (6/50)
+                                                          Print data to the output, i.e. putchar(*ptr)
+   801.00ns INFO     cocotb.hexdigest                   test: 56ce379f4ae506b5ef14486e95987b41
+   802.00ns INFO     cocotb.hexdigest                   code: b265746fe722436c7a1a1d8de199b058 len: 4
+  1991.00ns INFO     cocotb.hexdigest                   result: b265746fe722436c7a1a1d8de199b058
+  1991.00ns INFO     cocotb.regression                  test_print passed
+  1991.00ns INFO     cocotb.regression                  running test_input (7/50)
+                                                          Load data from the input, i.e. *ptr=getchar()
+  1991.00ns INFO     cocotb.hexdigest                   test: 8f590c72289a1cd8ab3b1d2e659801c0
+  1992.00ns INFO     cocotb.hexdigest                   code: d3fac245532f03964cd19007b2032729 len: 4
+  3191.00ns INFO     cocotb.hexdigest                   result: 2ed967e2be16e52843468f1408cb360b
+  3192.00ns INFO     cocotb.hexdigest                   code: d3fac245532f03964cd19007b2032729 len: 4
+  4391.00ns INFO     cocotb.hexdigest                   result: e816e9d618b24eaf2f916252df61b844
+  4391.00ns INFO     cocotb.regression                  test_input passed
+  4391.00ns INFO     cocotb.regression                  running test_while_loop (8/50)
+                                                          Simple while loop test
+  4391.00ns INFO     cocotb.hexdigest                   test: 0743f46ee911752ba901b5e3759a20ce
+  4392.00ns INFO     cocotb.hexdigest                   code: dc8bee53ab9c57eaa957fd0fe2002e38 len: 5
+  5681.00ns INFO     cocotb.hexdigest                   result: c5c20856db594032a8e2bc7a51242fe0
+  5681.00ns INFO     cocotb.regression                  test_while_loop passed
+  5681.00ns INFO     cocotb.regression                  running test_break (9/50)
+                                                          Simple break test
+  5681.00ns INFO     cocotb.hexdigest                   test: ca2756a059ca2ef32a6371b6b63e86a9
+  5682.00ns INFO     cocotb.hexdigest                   code: 2ff92dcde40bfd62c304d85b3c307437 len: 6
+  5981.00ns INFO     cocotb.hexdigest                   result: ee374f6c466ac5617293b3600d1b5028
+  5981.00ns INFO     cocotb.regression                  test_break passed
+  5981.00ns INFO     cocotb.regression                  running test_login_xsmirn02 (10/50)
+                                                          Executes program in login.b file
+  5981.00ns INFO     cocotb.hexdigest                   test: 40e8f9967ff6c52dac46d86b260d7cae
+  5982.00ns INFO     cocotb.hexdigest                   code: 6633893b7b934f709042c5abc19cff41 len: 721
+ 97791.00ns INFO     cocotb.hexdigest                   result: 5cee80005ee19f5455978ac9bc1cc31d
+ 97791.00ns INFO     cocotb.regression                  test_login_xsmirn02 passed
+ 97791.00ns INFO     cocotb.regression                  running test_debug_00 (11/50)
+ 97791.00ns INFO     cocotb.hexdigest                   test: 95aa1d38fea6f8dcae78bebc624fe335
+ 97792.00ns INFO     cocotb.hexdigest                   code: 5869424dda3b137508f04e6835ac8c9a len: 3
+ 97981.00ns INFO     cocotb.hexdigest                   result: 27d28dfb6031a3fc7534cd33eb4f7f1c
+ 97981.00ns INFO     cocotb.regression                  test_debug_00 passed
+ 97981.00ns INFO     cocotb.regression                  running test_debug_01 (12/50)
+ 97981.00ns INFO     cocotb.hexdigest                   test: 3d13c240e9e40c5a5282ff43752d13ba
+ 97982.00ns INFO     cocotb.hexdigest                   code: fde65dfa1e116cbf1de66b3149929976 len: 2
+ 98131.00ns INFO     cocotb.hexdigest                   result: fde65dfa1e116cbf1de66b3149929976
+ 98131.00ns INFO     cocotb.regression                  test_debug_01 passed
+ 98131.00ns INFO     cocotb.regression                  running test_debug_02 (13/50)
+ 98131.00ns INFO     cocotb.hexdigest                   test: 87c8c0d144444c565e0fd15a26376dc7
+ 98132.00ns INFO     cocotb.hexdigest                   code: e8ec12131b43ffecf9441f8c0137b84f len: 7
+ 98481.00ns INFO     cocotb.hexdigest                   result: c7e3ae2339fb57538b4cb34e30280bad
+ 98481.00ns INFO     cocotb.regression                  test_debug_02 passed
+ 98481.00ns INFO     cocotb.regression                  running test_debug_03 (14/50)
+ 98481.00ns INFO     cocotb.hexdigest                   test: 137637f678fd46f1961fd73c3738b55a
+ 98482.00ns INFO     cocotb.hexdigest                   code: 0b437f393518560f9e88c35db7edae2e len: 2
+ 98641.00ns INFO     cocotb.hexdigest                   result: bdf741200c038f73d8e64e3d39adda4e
+ 98641.00ns INFO     cocotb.regression                  test_debug_03 passed
+ 98641.00ns INFO     cocotb.regression                  running test_debug_04 (15/50)
+ 98641.00ns INFO     cocotb.hexdigest                   test: 31d7bce8a61ec851564c7d68f62c483a
+ 98642.00ns INFO     cocotb.hexdigest                   code: 4b60f5162fced32a081da1ba7480ed1a len: 4
+ 99331.00ns INFO     cocotb.hexdigest                   result: 785d18dee2a31326c22977718d92845b
+ 99331.00ns INFO     cocotb.regression                  test_debug_04 passed
+ 99331.00ns INFO     cocotb.regression                  running test_debug_05 (16/50)
+ 99331.00ns INFO     cocotb.hexdigest                   test: ec7e73a2b1295e34f6fcd4fc1bf4db86
+ 99332.00ns INFO     cocotb.hexdigest                   code: efec18f7b13e461aa482daa2b2df83c5 len: 4
+ 99881.00ns INFO     cocotb.hexdigest                   result: be91332064bb51021b1f0bc8a74c8e50
+ 99881.00ns INFO     cocotb.regression                  test_debug_05 passed
+ 99881.00ns INFO     cocotb.regression                  running test_debug_06 (17/50)
+ 99881.00ns INFO     cocotb.hexdigest                   test: 7de4cc4bd23e7c44e83efe411794f296
+ 99882.00ns INFO     cocotb.hexdigest                   code: 4e3d128c64f91cd4130ee00dc7564f0f len: 16
+100591.00ns INFO     cocotb.hexdigest                   result: d3b0087273f35867ce48610400d246e5
+100591.00ns INFO     cocotb.regression                  test_debug_06 passed
+100591.00ns INFO     cocotb.regression                  running test_debug_07 (18/50)
+100591.00ns INFO     cocotb.hexdigest                   test: 9423632c2576d8c11bccc2689a90753b
+100592.00ns INFO     cocotb.hexdigest                   code: 28e59f073d7fe47eba10a948b43a89c9 len: 10
+102621.00ns INFO     cocotb.hexdigest                   result: b870dd34bf8fd8151b051cd5f180e150
+102621.00ns INFO     cocotb.regression                  test_debug_07 passed
+102621.00ns INFO     cocotb.regression                  running test_debug_08 (19/50)
+102621.00ns INFO     cocotb.hexdigest                   test: 8447941ee1ec13d880c4aae93f6e3fb7
+102622.00ns INFO     cocotb.hexdigest                   code: 51746c6d456773bf91a003709e646e16 len: 9
+103001.00ns INFO     cocotb.hexdigest                   result: 51746c6d456773bf91a003709e646e16
+103001.00ns INFO     cocotb.regression                  test_debug_08 passed
+103001.00ns INFO     cocotb.regression                  running test_debug_09 (20/50)
+103001.00ns INFO     cocotb.hexdigest                   test: fcdb4becc58355da4dc636a9a0c60103
+103002.00ns INFO     cocotb.hexdigest                   code: 9faf6bf1c35cee5960ddd3c16a56d878 len: 10
+105031.00ns INFO     cocotb.hexdigest                   result: 024fdb6f0c8bb1291c5dd2faf2793e1b
+105031.00ns INFO     cocotb.regression                  test_debug_09 passed
+105031.00ns INFO     cocotb.regression                  running test_debug_10 (21/50)
+105031.00ns INFO     cocotb.hexdigest                   test: a42dd89942deb1464053a16d188c90bc
+105032.00ns INFO     cocotb.hexdigest                   code: 64cc26622979213f71ced8878d950a50 len: 24
+106061.00ns INFO     cocotb.hexdigest                   result: 64d90569ade90f43342609d7573f9846
+106061.00ns INFO     cocotb.regression                  test_debug_10 passed
+106061.00ns INFO     cocotb.regression                  running test_debug_11 (22/50)
+106061.00ns INFO     cocotb.hexdigest                   test: 3c3a1985a20f70de0daecc62e212f44a
+106062.00ns INFO     cocotb.hexdigest                   code: 2d374584c62f5ca51142d04daf8373f0 len: 8
+107471.00ns INFO     cocotb.hexdigest                   result: 9238c709702040eda9b46d917814cff4
+107471.00ns INFO     cocotb.regression                  test_debug_11 passed
+107471.00ns INFO     cocotb.regression                  running test_debug_12 (23/50)
+107471.00ns INFO     cocotb.hexdigest                   test: a92937966f8ba24c643b4e9ec2ae4b9f
+107472.00ns INFO     cocotb.hexdigest                   code: 7cccaa4d9b2a08209c32076378072a39 len: 11
+109361.00ns INFO     cocotb.hexdigest                   result: 8e38bdeb72c642d07e990ac945c65117
+109361.00ns INFO     cocotb.regression                  test_debug_12 passed
+109361.00ns INFO     cocotb.regression                  running test_debug_13 (24/50)
+109361.00ns INFO     cocotb.hexdigest                   test: 729319964d81aeca11014b09db65d5ae
+109362.00ns INFO     cocotb.hexdigest                   code: a7270d6f4931f48989e68be3efe1cea6 len: 11
+111251.00ns INFO     cocotb.hexdigest                   result: 020e619cc20ebe0e8f2cef9ff3cc4fb3
+111251.00ns INFO     cocotb.regression                  test_debug_13 passed
+111251.00ns INFO     cocotb.regression                  running test_debug_14 (25/50)
+111251.00ns INFO     cocotb.hexdigest                   test: 369b3c2cfc1933226c6e311edce19c02
+111252.00ns INFO     cocotb.hexdigest                   code: 2293035ef5b1b8d9801d30c43678b6db len: 27
+115341.00ns INFO     cocotb.hexdigest                   result: 7c2674c354bdcd18c7e9864443ae4ed0
+115341.00ns INFO     cocotb.regression                  test_debug_14 passed
+115341.00ns INFO     cocotb.regression                  running test_debug_15 (26/50)
+115341.00ns INFO     cocotb.hexdigest                   test: 510b44fb2795369670ed3f369634513a
+115342.00ns INFO     cocotb.hexdigest                   code: 9975d12dc6313233f1122c2f0bece9c6 len: 73
+118251.00ns INFO     cocotb.hexdigest                   result: 9975d12dc6313233f1122c2f0bece9c6
+118251.00ns INFO     cocotb.regression                  test_debug_15 passed
+118251.00ns INFO     cocotb.regression                  running test_debug_16 (27/50)
+118251.00ns INFO     cocotb.hexdigest                   test: 6c1c9226d958f88297aa582500c9b7f6
+118252.00ns INFO     cocotb.hexdigest                   code: f1e0d105845005226104cf85d0866416 len: 13
+119541.00ns INFO     cocotb.hexdigest                   result: d612a28727fec6cf3c237cadadbd80f1
+119541.00ns INFO     cocotb.regression                  test_debug_16 passed
+119541.00ns INFO     cocotb.regression                  running test_debug_17 (28/50)
+119541.00ns INFO     cocotb.hexdigest                   test: f462cc2971e1e643a0acdd331809cdd4
+119542.00ns INFO     cocotb.hexdigest                   code: 5ff62a613272aee80a7c7d0dca418d8d len: 20
+121471.00ns INFO     cocotb.hexdigest                   result: 7e46588cddc7a2786eef3f8e47761841
+121471.00ns INFO     cocotb.regression                  test_debug_17 passed
+121471.00ns INFO     cocotb.regression                  running test_debug_18 (29/50)
+121471.00ns INFO     cocotb.hexdigest                   test: e310ee7ceb8459ac419c8ac9ca33a86b
+121472.00ns INFO     cocotb.hexdigest                   code: 5e1b8896f3a862f771ba051317ae37c7 len: 23
+123341.00ns INFO     cocotb.hexdigest                   result: 2ebd4f47b033a5dbd24db91aceed7887
+123341.00ns INFO     cocotb.regression                  test_debug_18 passed
+123341.00ns INFO     cocotb.regression                  running test_debug_19 (30/50)
+123341.00ns INFO     cocotb.hexdigest                   test: 70ecfe18f3eecfb3ae0c5d458095c507
+123342.00ns INFO     cocotb.hexdigest                   code: 710d144c34bd1f8c859e4bdf38febc48 len: 345
+293091.00ns INFO     cocotb.hexdigest                   result: af99454ece036fef862108387e8b7646
+293091.00ns INFO     cocotb.regression                  test_debug_19 passed
+293091.00ns INFO     cocotb.regression                  running test_debug_20 (31/50)
+293091.00ns INFO     cocotb.hexdigest                   test: eccc272afb4b0ddcf1ec432d7a782736
+293092.00ns INFO     cocotb.hexdigest                   code: 007f25ca1fcac6bb60699d4b0604863d len: 572
+316041.00ns INFO     cocotb.hexdigest                   result: d1bdc9c265e967c85df31c7e652f5157
+316041.00ns INFO     cocotb.regression                  test_debug_20 passed
+316041.00ns INFO     cocotb.regression                  running test_debug_21 (32/50)
+316041.00ns INFO     cocotb.hexdigest                   test: d921f910ebf12e09ce5483baa85667e3
+316042.00ns INFO     cocotb.hexdigest                   code: 39f4d52c3704ef5c99edc7ff180663e7 len: 935
+520731.00ns INFO     cocotb.hexdigest                   result: 1d0aad5b7c1fb0c4aa66ca4cc7535665
+520731.00ns INFO     cocotb.regression                  test_debug_21 passed
+520731.00ns INFO     cocotb.regression                  running test_debug_22 (33/50)
+520731.00ns INFO     cocotb.hexdigest                   test: 93ce70ac7d9aae2a785e5a1f76b31b4a
+520732.00ns INFO     cocotb.hexdigest                   code: 82561044dfe6ad3fdbe3a2b7e2fb84aa len: 3
+520921.00ns INFO     cocotb.hexdigest                   result: c156af33f4cd2c8322e5836a17ebb63c
+520921.00ns INFO     cocotb.regression                  test_debug_22 passed
+520921.00ns INFO     cocotb.regression                  running test_debug_23 (34/50)
+520921.00ns INFO     cocotb.hexdigest                   test: db81af72973f295fe1b3ff2ba96bbd24
+520922.00ns INFO     cocotb.hexdigest                   code: 753ae972d2be84deea8a06a8bbfb3af2 len: 18
+521711.00ns INFO     cocotb.hexdigest                   result: 1f44f50485b6f0713ed440bd466f5b74
+521711.00ns INFO     cocotb.regression                  test_debug_23 passed
+521711.00ns INFO     cocotb.regression                  running test_debug_24 (35/50)
+521711.00ns INFO     cocotb.hexdigest                   test: 75337a9f0c1844c9947781dc075d1a83
+521712.00ns INFO     cocotb.hexdigest                   code: f87313b9cf9c2b7107c5a257e634c14e len: 10
+522801.00ns INFO     cocotb.hexdigest                   result: 7d2754d7004a14c75dd149d7ea519735
+522801.00ns INFO     cocotb.regression                  test_debug_24 passed
+522801.00ns INFO     cocotb.regression                  running test_debug_25 (36/50)
+522801.00ns INFO     cocotb.hexdigest                   test: 24b97cd3c56ab093de66a5864a1295ac
+522802.00ns INFO     cocotb.hexdigest                   code: 78a522b4b319338199f240e248dd0703 len: 128
+546401.00ns INFO     cocotb.hexdigest                   result: 354beb693b488288a748116d59405253
+546401.00ns INFO     cocotb.regression                  test_debug_25 passed
+546401.00ns INFO     cocotb.regression                  running test_debug_26 (37/50)
+546401.00ns INFO     cocotb.hexdigest                   test: c301290426b1e2a596f9471d1cc9ec6f
+546402.00ns INFO     cocotb.hexdigest                   code: 3640397037cbe04b92e5e1cd438a32b0 len: 19
+547111.00ns INFO     cocotb.hexdigest                   result: e39b418484b39103fc9182189bee685a
+547111.00ns INFO     cocotb.regression                  test_debug_26 passed
+547111.00ns INFO     cocotb.regression                  running test_debug_27 (38/50)
+547111.00ns INFO     cocotb.hexdigest                   test: 423b1c280a71887886410b6ae5402904
+547112.00ns INFO     cocotb.hexdigest                   code: ad358b823048dc2858cc68fc79acfa62 len: 28
+551901.00ns INFO     cocotb.hexdigest                   result: 6b9f7327e00df8dcfdda9c922a162f4b
+551901.00ns INFO     cocotb.regression                  test_debug_27 passed
+551901.00ns INFO     cocotb.regression                  running test_debug_28 (39/50)
+551901.00ns INFO     cocotb.hexdigest                   test: 90caa740f9b44a210c2885f288d380a7
+551902.00ns INFO     cocotb.hexdigest                   code: 845b3dd67781c0861e52d8bd3523fc9e len: 52
+572111.00ns INFO     cocotb.hexdigest                   result: d40d83baea183ae0b07702d645a1fd55
+572111.00ns INFO     cocotb.regression                  test_debug_28 passed
+572111.00ns INFO     cocotb.regression                  running test_debug_29 (40/50)
+572111.00ns INFO     cocotb.hexdigest                   test: d96bf8a7d711d7b3ad1726e8adcd16a0
+572112.00ns INFO     cocotb.hexdigest                   code: 774b4514d19ff7cce7d3eebf7e201062 len: 37
+573471.00ns INFO     cocotb.hexdigest                   result: 9b1c1fe93f02ee73e31c253818a9d199
+573471.00ns INFO     cocotb.regression                  test_debug_29 passed
+573471.00ns INFO     cocotb.regression                  running test_break_while_while (41/50)
+573471.00ns INFO     cocotb.hexdigest                   test: 1f5f8eb180d394652bac29839a7a9133
+573472.00ns INFO     cocotb.hexdigest                   code: 391f5912199c2128154358dcfd42fd24 len: 132
+589281.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'I'
+589791.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'IN'
+590301.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP'
+590811.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-'
+591321.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2'
+591831.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-20'
+592341.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-202'
+592851.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023'
+593361.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.'
+594411.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.p'
+594921.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pr'
+595431.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pro'
+595941.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj'
+596451.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj1'
+596481.00ns INFO     cocotb.hexdigest                   result: 83b3ea4aa281380138663789feb0ac38
+596481.00ns INFO     cocotb.regression                  test_break_while_while passed
+596481.00ns INFO     cocotb.regression                  running test_break_while_while_2 (42/50)
+596481.00ns INFO     cocotb.hexdigest                   test: e63d00937dd46a14135c47beeb78dfa0
+596482.00ns INFO     cocotb.hexdigest                   code: a405f5295aaa8c36295d212b62e1631d len: 143
+617571.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'I'
+618081.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'IN'
+618591.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP'
+619101.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-'
+619611.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2'
+620121.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-20'
+620631.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-202'
+621141.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023'
+621651.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.'
+622701.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.p'
+623211.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pr'
+623721.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pro'
+624231.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj'
+624741.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj1'
+624771.00ns INFO     cocotb.hexdigest                   result: 55ccf519ab1385bc1971673b4005a26e
+624771.00ns INFO     cocotb.regression                  test_break_while_while_2 passed
+624771.00ns INFO     cocotb.regression                  running test_hello_world (43/50)
+624771.00ns INFO     cocotb.hexdigest                   test: 88f09ad113041430816be80cf27a6cd6
+624772.00ns INFO     cocotb.hexdigest                   code: a7440f2da1217acd3454c28bb524607f len: 121
+649061.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'H'
+649571.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'He'
+650081.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hel'
+650591.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hell'
+651101.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello'
+651611.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello '
+652151.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello W'
+652661.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Wo'
+653171.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Wor'
+653681.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Worl'
+654191.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World'
+654701.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World!'
+655211.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World!\n'
+655241.00ns INFO     cocotb.hexdigest                   result: d82627e58704e907013d54298e113d3f
+655241.00ns INFO     cocotb.regression                  test_hello_world passed
+655241.00ns INFO     cocotb.regression                  running test_example_abc (44/50)
+655241.00ns INFO     cocotb.hexdigest                   test: 6e3f918821a6cbfa877b0bbd8d240b32
+655242.00ns INFO     cocotb.hexdigest                   code: be40a192feaac35d749c671798c3ef57 len: 89
+658181.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'A'
+658691.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'AB'
+659201.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABC'
+659711.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCD'
+660221.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDE'
+660731.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEF'
+661241.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFG'
+661751.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFGH'
+662261.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFGHI'
+662771.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFGHIJ'
+663281.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFGHIJK'
+663791.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'ABCDEFGHIJKL'
+663821.00ns INFO     cocotb.hexdigest                   result: 56702ff7b59ae2b2d0328a371aee20c3
+663821.00ns INFO     cocotb.regression                  test_example_abc passed
+663821.00ns INFO     cocotb.regression                  running test_example_hello (45/50)
+663821.00ns INFO     cocotb.hexdigest                   test: 2a28ef42d15ef503c76727cc535b3266
+663822.00ns INFO     cocotb.hexdigest                   code: cf1146eb30e7587270126b0e52d0e67e len: 10
+664021.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'H'
+664531.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'He'
+665041.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hel'
+665551.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hell'
+666061.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello'
+666091.00ns INFO     cocotb.hexdigest                   result: cf1146eb30e7587270126b0e52d0e67e
+666091.00ns INFO     cocotb.regression                  test_example_hello passed
+666091.00ns INFO     cocotb.regression                  running test_example_text (46/50)
+666091.00ns INFO     cocotb.hexdigest                   test: 5971fcb502cba3d6dc9ba54cc8e66c66
+666092.00ns INFO     cocotb.hexdigest                   code: d04500d1e26f569dc146b7a805b47f62 len: 131
+681421.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'I'
+681931.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'IN'
+682441.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP'
+682951.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-'
+683461.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2'
+683971.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-20'
+684481.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-202'
+684991.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023'
+685501.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.'
+686551.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.p'
+687061.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pr'
+687571.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.pro'
+688081.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj'
+688591.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'INP-2023.proj1'
+688621.00ns INFO     cocotb.hexdigest                   result: 431a406560049afa8318f40d4792dff8
+688621.00ns INFO     cocotb.regression                  test_example_text passed
+688621.00ns INFO     cocotb.regression                  running test_example_sum (47/50)
+688621.00ns INFO     cocotb.hexdigest                   test: 25d81020838a4c82bdf38167f940e3f1
+688622.00ns INFO     cocotb.hexdigest                   code: 22fb5f37dd973c6cd38d869728a3db02 len: 98
+1055991.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'x'
+1056021.00ns INFO     cocotb.hexdigest                   result: 7781aa30abb9bbc418b3c1d3a2594e03
+1056021.00ns INFO     cocotb.regression                  test_example_sum passed
+1056021.00ns INFO     cocotb.regression                  running test_example_hello_world (48/50)
+1056021.00ns INFO     cocotb.hexdigest                   test: 532b936cf20e25a8eaf7ceb45b754336
+1056022.00ns INFO     cocotb.hexdigest                   code: 074c196273879ae5aed2a4392716e680 len: 112
+1075691.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'H'
+1076201.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'He'
+1076711.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hel'
+1077221.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hell'
+1077731.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello'
+1078241.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello '
+1078781.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello W'
+1079291.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Wo'
+1079801.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Wor'
+1080311.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello Worl'
+1080821.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World'
+1081331.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World!'
+1081841.00ns DEBUG    cocotb.lcd                         Characters written to LCD: 'Hello World!\n'
+1081871.00ns INFO     cocotb.hexdigest                   result: 6e7266e25d47784e6d398a725f4172c9
+1081871.00ns INFO     cocotb.regression                  test_example_hello_world passed
+1081871.00ns INFO     cocotb.regression                  running test_example_bsort (49/50)
+1081871.00ns INFO     cocotb.hexdigest                   test: c7f58495247bd5c48617c30b2321f489
+1081872.00ns INFO     cocotb.hexdigest                   code: 4a389db9f01dc5b5e28806d1a9475723 len: 124
+1537021.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '1'
+1537531.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '12'
+1538041.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '123'
+1538161.00ns INFO     cocotb.hexdigest                   result: deaeeaa01e451caeaa8e45e96feda4e6
+1538161.00ns INFO     cocotb.regression                  test_example_bsort passed
+1538161.00ns INFO     cocotb.regression                  running test_printf (50/50)
+                                                           Program which emulates printing of %d
+1538161.00ns INFO     cocotb.hexdigest                   test: 3e25edf0fb0a80b83990812fef29fef0
+1538162.00ns INFO     cocotb.hexdigest                   code: 8ca67d97fd03ceff30c6bcf178aa1c51 len: 157
+1990361.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '1'
+1998441.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '12'
+2006681.00ns DEBUG    cocotb.lcd                         Characters written to LCD: '123'
+2014891.00ns INFO     cocotb.hexdigest                   result: 4924a2111a38fc3b5dc6dbc6b805f9aa
+2014891.00ns INFO     cocotb.regression                  test_printf passed
+2014891.00ns INFO     cocotb.regression                  ****************************************************************************************
+                                                         ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ****************************************************************************************
+                                                         ** cpu.test_reset                   PASS          51.00           0.00      10250.60  **
+                                                         ** cpu.test_init                    PASS         100.00           0.01      12362.00  **
+                                                         ** cpu.test_increment               PASS         230.00           0.01      16673.41  **
+                                                         ** cpu.test_decrement               PASS         230.00           0.01      16800.30  **
+                                                         ** cpu.test_move                    PASS         190.00           0.01      16075.32  **
+                                                         ** cpu.test_print                   PASS        1190.00           0.04      26861.10  **
+                                                         ** cpu.test_input                   PASS        2400.00           0.10      23190.94  **
+                                                         ** cpu.test_while_loop              PASS        1290.00           0.05      25288.50  **
+                                                         ** cpu.test_break                   PASS         300.00           0.02      18221.05  **
+                                                         ** cpu.test_login_xsmirn02          PASS       91810.00           3.90      23540.66  **
+                                                         ** cpu.test_debug_00                PASS         190.00           0.01      15422.32  **
+                                                         ** cpu.test_debug_01                PASS         150.00           0.01      15502.69  **
+                                                         ** cpu.test_debug_02                PASS         350.00           0.02      18655.09  **
+                                                         ** cpu.test_debug_03                PASS         160.00           0.01      15408.20  **
+                                                         ** cpu.test_debug_04                PASS         690.00           0.03      24414.91  **
+                                                         ** cpu.test_debug_05                PASS         550.00           0.03      20671.22  **
+                                                         ** cpu.test_debug_06                PASS         710.00           0.04      20231.09  **
+                                                         ** cpu.test_debug_07                PASS        2030.00           0.09      22868.17  **
+                                                         ** cpu.test_debug_08                PASS         380.00           0.02      19093.57  **
+                                                         ** cpu.test_debug_09                PASS        2030.00           0.09      22815.84  **
+                                                         ** cpu.test_debug_10                PASS        1030.00           0.05      20459.54  **
+                                                         ** cpu.test_debug_11                PASS        1410.00           0.06      22503.51  **
+                                                         ** cpu.test_debug_12                PASS        1890.00           0.08      22655.71  **
+                                                         ** cpu.test_debug_13                PASS        1890.00           0.08      22809.30  **
+                                                         ** cpu.test_debug_14                PASS        4090.00           0.18      23204.77  **
+                                                         ** cpu.test_debug_15                PASS        2910.00           0.13      22168.55  **
+                                                         ** cpu.test_debug_16                PASS        1290.00           0.06      21930.25  **
+                                                         ** cpu.test_debug_17                PASS        1930.00           0.09      22510.64  **
+                                                         ** cpu.test_debug_18                PASS        1870.00           0.08      22206.72  **
+                                                         ** cpu.test_debug_19                PASS      169750.00           7.04      24114.56  **
+                                                         ** cpu.test_debug_20                PASS       22950.00           1.01      22760.12  **
+                                                         ** cpu.test_debug_21                PASS      204690.00           8.54      23966.68  **
+                                                         ** cpu.test_debug_22                PASS         190.00           0.01      16472.73  **
+                                                         ** cpu.test_debug_23                PASS         790.00           0.04      20990.92  **
+                                                         ** cpu.test_debug_24                PASS        1090.00           0.05      22095.45  **
+                                                         ** cpu.test_debug_25                PASS       23600.00           0.99      23728.56  **
+                                                         ** cpu.test_debug_26                PASS         710.00           0.03      20612.40  **
+                                                         ** cpu.test_debug_27                PASS        4790.00           0.20      23555.80  **
+                                                         ** cpu.test_debug_28                PASS       20210.00           0.85      23872.29  **
+                                                         ** cpu.test_debug_29                PASS        1360.00           0.06      21805.92  **
+                                                         ** cpu.test_break_while_while       PASS       23010.00           0.95      24341.98  **
+                                                         ** cpu.test_break_while_while_2     PASS       28290.00           1.16      24369.64  **
+                                                         ** cpu.test_hello_world             PASS       30470.00           1.25      24352.64  **
+                                                         ** cpu.test_example_abc             PASS        8580.00           0.32      26407.67  **
+                                                         ** cpu.test_example_hello           PASS        2270.00           0.08      27909.65  **
+                                                         ** cpu.test_example_text            PASS       22530.00           0.91      24624.12  **
+                                                         ** cpu.test_example_sum             PASS      367400.00          15.13      24283.55  **
+                                                         ** cpu.test_example_hello_world     PASS       25850.00           1.06      24423.21  **
+                                                         ** cpu.test_example_bsort           PASS      456290.00          18.85      24201.48  **
+                                                         ** cpu.test_printf                  PASS      476730.00          19.66      24253.99  **
+                                                         ****************************************************************************************
+                                                         ** TESTS=50 PASS=50 FAIL=0 SKIP=0            2014891.00          84.01      23982.60  **
+                                                         ****************************************************************************************
+                                                         

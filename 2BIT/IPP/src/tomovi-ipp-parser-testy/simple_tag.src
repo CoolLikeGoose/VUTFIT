@@ -1,0 +1,10 @@
+# Ukazka kódu se sémantickou chybou (skript parse.py ale vrací 0 místo 54), která nemá být detekována už v parse.py. Výstup obsahuje příklad elementu bez podelementů, který lze zapsat krátkým i dlouhým způsobem.
+.IPPcode24
+
+CREATEFRAME # příklad instrukce bez operandů, v XML možný zápis delším způsobem
+DEFVAR TF@x
+PUSHFRAME
+CREATEFRAME
+WRITE TF@x  # přístup k nedefinované proměnné, což se v parse.py neodhalí
+POPFRAME # tato instrukce bude pro ilustraci ve výstupním XML zapsána kratším způsobem (ručně upraveno, pro JExamXML je krátký i dlouhý způsob zápisu takových elementů ekvivaletní)
+

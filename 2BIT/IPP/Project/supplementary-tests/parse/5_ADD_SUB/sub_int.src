@@ -1,0 +1,4 @@
+.IPPcode24
+DEFVAR GF@c
+SUB GF@c int@42 int@42
+WRITE GF@c

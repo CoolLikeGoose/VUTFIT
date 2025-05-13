@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Student"
+                       xmlns:views="clr-namespace:StudIS.APP.Views"
+                       xmlns:m="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+                       x:Class="StudIS.APP.Views.Student.StudentDetailView"
+                       x:DataType="vm:StudentDetailViewModel"
+                       x:Name="StudentDetailViewRoot">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Student Information Section -->
+            <Frame BorderColor="Black" Padding="10" Margin="0,10,0,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image Source="{Binding Student.ImageUrl}" WidthRequest="150"></Image>
+                    <StackLayout Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Student.FirstName}" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="{Binding Student.LastName}" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+                        <Button Style="{StaticResource ActionButtonStyle}" CornerRadius="5"
+                                Text="Delete" Command="{Binding DeleteCommand}" Margin="0,0,5,0"/>
+                        <Button Style="{StaticResource ActionButtonStyle}" CornerRadius="5"
+                                Text="Edit" Command="{Binding EditCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Enrolled Subjects Section -->
+            <Label Text="Enrolled Subjects" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Picker x:Name="SubjectPicker" ItemsSource="{Binding AvailableSubjects}" 
+                    IsVisible="{Binding IsPickerVisible}" 
+                    SelectedItem="{Binding SelectedSubjectListModel}"
+                    ItemDisplayBinding="{Binding Name}"/>
+            <Button Text="Save" Command="{Binding SaveSubjectCommand}"
+                    IsVisible="{Binding IsSaveButtonVisible}"/>
+            <Button Text="Add" HorizontalOptions="End" Margin="0,-40,0,10" WidthRequest="80" 
+                    Command="{Binding AddSubjectCommand}"
+                    IsVisible="{Binding IsAddButtonVisible}"/>
+
+            <CollectionView ItemsSource="{Binding Student.Subjects}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:StudentSubjectsListModel">
+                        <StackLayout Padding="10">
+                            <Frame>
+                                <StackLayout Orientation="Horizontal" Spacing="50">
+                                    <!--<Button Text="▼" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPage}}, Path=BindingContext.ToggleActivitiesCommand}" CommandParameter="{Binding .}" />-->
+                                    <Label Text="{Binding Subject.Abbreviation}" VerticalOptions="Center" BackgroundColor="Green" />
+                                    <Label Text="{Binding Subject.Name}" VerticalOptions="Center" />
+                                    <Button Text="Details" VerticalOptions="Center" HorizontalOptions="EndAndExpand" 
+                                            Command="{Binding Source={x:Reference StudentDetailViewRoot},
+                                        Path= BindingContext.GoToDetailCommand}" CommandParameter="{Binding SubjectId}"
+                                            Style="{StaticResource ActionButtonStyle}" CornerRadius="5"/>
+                                    <Button Text="Remove" VerticalOptions="Center" Style="{StaticResource ActionButtonStyle}" CornerRadius="5"
+                                            Command="{Binding Source={x:Reference StudentDetailViewRoot},
+                                        Path= BindingContext.RemoveCommand}" CommandParameter="{Binding SubjectId}"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</views:ContentPageBase>

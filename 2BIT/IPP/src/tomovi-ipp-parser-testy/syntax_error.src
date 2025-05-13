@@ -1,0 +1,7 @@
+# Ukazka kódu se syntaktickou chybou (skript parse.py musí detekovat)
+
+.IPPcode24
+LABEL begin
+DEFVAR GF@x
+WRITE begin  # neočekávaný token
+

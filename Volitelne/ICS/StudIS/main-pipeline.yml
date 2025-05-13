@@ -1,0 +1,36 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+    includePreviewVersions: false
+    installationPath: '$(Agent.ToolsDirectory)/dotnet'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'src/StudIS.sln'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'src/StudIS.sln'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: |
+      src/StudIS.BL.Tests/StudIS.BL.Tests.csproj
+      src/StudIS.DAL.Tests/StudIS.DAL.Tests.csproj
+      src/StudIS.Common.Tests/StudIS.Common.Tests.csproj
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'

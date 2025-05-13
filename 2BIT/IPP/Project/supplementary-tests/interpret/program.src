@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode24">
+    <instruction order="1" opcode="DEFVAR">
+        <arg1 type="var">GF@input</arg1>
+    </instruction>
+    <instruction order="2" opcode="DEFVAR">
+        <arg1 type="var">GF@result</arg1>
+    </instruction>
+    <instruction order="3" opcode="DEFVAR">
+        <arg1 type="var">GF@char</arg1>
+    </instruction>
+    <instruction order="4" opcode="DEFVAR">
+        <arg1 type="var">GF@cond</arg1>
+    </instruction>
+    <instruction order="5" opcode="DEFVAR">
+        <arg1 type="var">GF@strlen</arg1>
+    </instruction>
+    <instruction order="6" opcode="MOVE">
+        <arg1 type="var">GF@input</arg1>
+        <arg2 type="string">abcabcabc</arg2>
+    </instruction>
+    <instruction order="7" opcode="MOVE">
+        <arg1 type="var">GF@result</arg1>
+        <arg2 type="string"></arg2>
+    </instruction>
+    <instruction order="8" opcode="DEFVAR">
+        <arg1 type="var">GF@i</arg1>
+    </instruction>
+    <instruction order="9" opcode="MOVE">
+        <arg1 type="var">GF@i</arg1>
+        <arg2 type="int">0</arg2>
+    </instruction>
+    <instruction order="10" opcode="DEFVAR">
+        <arg1 type="var">GF@doubleI</arg1>
+    </instruction>
+    <instruction order="11" opcode="STRLEN">
+        <arg1 type="var">GF@strlen</arg1>
+        <arg2 type="var">GF@input</arg2>
+    </instruction>
+    <instruction order="12" opcode="LABEL">
+        <arg1 type="label">loop</arg1>
+    </instruction>
+    <instruction order="13" opcode="JUMPIFEQ">
+        <arg1 type="label">end</arg1>
+        <arg2 type="var">GF@i</arg2>
+        <arg3 type="var">GF@strlen</arg3>
+    </instruction>
+    <instruction order="14" opcode="GETCHAR">
+        <arg1 type="var">GF@char</arg1>
+        <arg2 type="var">GF@input</arg2>
+        <arg3 type="var">GF@i</arg3>
+    </instruction>
+    <instruction order="15" opcode="MUL">
+        <arg1 type="var">GF@doubleI</arg1>
+        <arg2 type="var">GF@i</arg2>
+        <arg3 type="int">2</arg3>
+    </instruction>
+    <instruction order="16" opcode="SUB">
+        <arg1 type="var">GF@cond</arg1>
+        <arg2 type="var">GF@i</arg2>
+        <arg3 type="var">GF@doubleI</arg3>
+    </instruction>
+    <instruction order="17" opcode="JUMPIFNEQ">
+        <arg1 type="label">skip</arg1>
+        <arg2 type="var">GF@cond</arg2>
+        <arg3 type="int">0</arg3>
+    </instruction>
+    <instruction order="18" opcode="CONCAT">
+        <arg1 type="var">GF@result</arg1>
+        <arg2 type="var">GF@result</arg2>
+        <arg3 type="var">GF@char</arg3>
+    </instruction>
+    <instruction order="19" opcode="LABEL">
+        <arg1 type="label">skip</arg1>
+    </instruction>
+    <instruction order="20" opcode="ADD">
+        <arg1 type="var">GF@i</arg1>
+        <arg2 type="var">GF@i</arg2>
+        <arg3 type="int">1</arg3>
+    </instruction>
+    <instruction order="21" opcode="JUMP">
+        <arg1 type="label">loop</arg1>
+    </instruction>
+    <instruction order="22" opcode="LABEL">
+        <arg1 type="label">end</arg1>
+    </instruction>
+    <instruction order="23" opcode="WRITE">
+        <arg1 type="string">Vysledek\032je\032</arg1>
+    </instruction>
+    <instruction order="24" opcode="WRITE">
+        <arg1 type="var">GF@result</arg1>
+    </instruction>
+</program>

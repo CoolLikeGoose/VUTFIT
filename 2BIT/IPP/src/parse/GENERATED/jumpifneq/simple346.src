@@ -1,0 +1,2 @@
+.IPPcode24
+JUMPIFNEQ string@a string@a label

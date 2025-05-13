@@ -1,0 +1,10 @@
+# No header in first line
+.IPPcode24 # Comment
+# ggg
+### ggg
+
+DEFVAR GF@a # Comment
+PUSHS GF@a # Comment # Comment # Comment
+PUSHS GF@a ##### Comment
+
+# PUSHS GF@a

@@ -1,0 +1,2 @@
+.IPPcode24
+JUMPIFEQ label nil@nil GF@var

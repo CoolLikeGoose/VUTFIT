@@ -1,0 +1,73 @@
+C202 - Stack Implemented Using an Array, Basic Tests
+====================================================
+
+[test_init] Initialization
+STACK: BOTTOM [ ] TOP
+
+
+[test_push_empty] Stack push after initialization
+STACK: BOTTOM [ ] TOP
+STACK: BOTTOM [ a ] TOP
+
+
+[test_push_multiple] Multiple stack pushes
+STACK: BOTTOM [ ] TOP
+STACK: BOTTOM [ a b c ] TOP
+
+
+[test_pop] Stack pop
+STACK: BOTTOM [ a ] TOP
+STACK: BOTTOM [ ] TOP
+
+
+[test_pop_multiple] Multiple stack pops
+STACK: BOTTOM [ a b c d e ] TOP
+STACK: BOTTOM [ a b ] TOP
+
+
+[test_top] Stack top
+STACK: BOTTOM [ a ] TOP
+Char on the top: a
+STACK: BOTTOM [ a ] TOP
+
+
+[test_top_full] Stack top of full stack
+STACK: BOTTOM [ 0 1 2 3 4 5 6 7 ] TOP
+Char on the top: 7
+STACK: BOTTOM [ 0 1 2 3 4 5 6 7 ] TOP
+
+
+[test_empty] Stack is empty after initialization
+STACK: BOTTOM [ ] TOP
+Is stack empty? Yes
+
+
+[test_not_empty] Stack is not empty after pushing
+STACK: BOTTOM [ a ] TOP
+Is stack empty? No
+
+
+[test_not_empty_full] Stack is not empty after filling
+STACK: BOTTOM [ 0 1 2 3 4 5 6 7 ] TOP
+Is stack empty? No
+
+
+[test_not_full_init] Stack is not full after initialization
+STACK: BOTTOM [ ] TOP
+Is stack full? No
+
+
+[test_not_full] Stack is not full after pushing
+STACK: BOTTOM [ a ] TOP
+Is stack full? No
+
+
+[test_full] Stack is full after filling
+STACK: BOTTOM [ 0 1 2 3 4 5 6 7 ] TOP
+Is stack full? Yes
+
+
+[test_dispose] Dispose stack
+STACK: BOTTOM [ a b c d e f g h ] TOP
+STACK: NOT INITIALISED
+

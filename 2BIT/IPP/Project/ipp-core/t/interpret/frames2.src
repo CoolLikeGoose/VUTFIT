@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<program language="IPPcode24">
+  <instruction order="1" opcode="DEFVAR">
+    <arg1 type="var">GF@glob</arg1>
+  </instruction>
+  <instruction order="2" opcode="MOVE">
+    <arg1 type="var">GF@glob</arg1>
+    <arg2 type="int">42</arg2>
+  </instruction>
+  <instruction order="3" opcode="CREATEFRAME"/>
+  <instruction order="4" opcode="DEFVAR">
+    <arg1 type="var">TF@temp</arg1>
+  </instruction>
+  <instruction order="5" opcode="MOVE">
+    <arg1 type="var">TF@temp</arg1>
+    <arg2 type="string">hello</arg2>
+  </instruction>
+  <instruction order="6" opcode="PUSHFRAME"/>
+  <instruction order="7" opcode="DEFVAR">
+    <arg1 type="var">LF@local</arg1>
+  </instruction>
+  <instruction order="8" opcode="MOVE">
+    <arg1 type="var">LF@local</arg1>
+    <arg2 type="bool">true</arg2>
+  </instruction>
+  <instruction order="9" opcode="WRITE">
+    <arg1 type="var">GF@glob</arg1>
+  </instruction>
+  <instruction order="10" opcode="WRITE">
+    <arg1 type="var">LF@local</arg1>
+  </instruction>
+  <instruction order="11" opcode="ADD">
+    <arg1 type="var">GF@glob</arg1>
+    <arg2 type="var">GF@glob</arg2>
+    <arg3 type="int">8</arg3>
+  </instruction>
+  <instruction order="12" opcode="WRITE">
+    <arg1 type="var">GF@glob</arg1>
+  </instruction>
+  <instruction order="13" opcode="CREATEFRAME"/>
+  <instruction order="14" opcode="DEFVAR">
+    <arg1 type="var">TF@temp</arg1>
+  </instruction>
+  <instruction order="15" opcode="MOVE">
+    <arg1 type="var">TF@temp</arg1>
+    <arg2 type="string"/>
+  </instruction>
+  <instruction order="16" opcode="CONCAT">
+    <arg1 type="var">TF@temp</arg1>
+    <arg2 type="var">TF@temp</arg2>
+    <arg3 type="string">_world</arg3>
+  </instruction>
+  <instruction order="17" opcode="WRITE">
+    <arg1 type="var">TF@temp</arg1>
+  </instruction>
+  <instruction order="18" opcode="PUSHFRAME"/>
+  <instruction order="19" opcode="CREATEFRAME"/>
+  <instruction order="20" opcode="DEFVAR">
+    <arg1 type="var">TF@newTemp</arg1>
+  </instruction>
+  <instruction order="21" opcode="MOVE">
+    <arg1 type="var">TF@newTemp</arg1>
+    <arg2 type="int">100</arg2>
+  </instruction>
+  <instruction order="22" opcode="PUSHFRAME"/>
+  <instruction order="23" opcode="WRITE">
+    <arg1 type="var">LF@newTemp</arg1>
+  </instruction>
+  <instruction order="24" opcode="POPFRAME"/>
+  <instruction order="25" opcode="WRITE">
+    <arg1 type="var">TF@newTemp</arg1>
+  </instruction>
+  <instruction order="26" opcode="EXIT">
+    <arg1 type="int">0</arg1>
+  </instruction>
+</program>
+

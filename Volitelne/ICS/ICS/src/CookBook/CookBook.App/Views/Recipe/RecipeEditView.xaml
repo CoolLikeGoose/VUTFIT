@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:CookBook.App.Views"
+                       xmlns:viewModels="clr-namespace:CookBook.App.ViewModels"
+                       xmlns:t="clr-namespace:CookBook.App.Resources.Texts"
+                       xmlns:models="clr-namespace:CookBook.BL.Models;assembly=CookBook.BL"
+                       x:Class="CookBook.App.Views.Recipe.RecipeEditView"
+                       Title="{x:Static t:RecipeEditViewTexts.Page_Title}"
+                       x:DataType="viewModels:RecipeEditViewModel"
+                       Style="{StaticResource ContentPageStyle}">
+    <Grid RowDefinitions="Auto, *, Auto"
+          RowSpacing="40">
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*, 320"
+              ColumnSpacing="56">
+            <Grid Grid.Column="0"
+                  RowDefinitions="Auto, Auto, Auto"
+                  RowSpacing="20">
+                <VerticalStackLayout Grid.Row="0"
+                                     Spacing="10">
+                    <Label Text="{x:Static t:RecipeEditViewTexts.Name_Label_Text}" />
+
+                    <Entry HorizontalOptions="Fill"
+                           Text="{Binding Recipe.Name}" />
+                </VerticalStackLayout>
+
+                <Grid Grid.Row="1"
+                      RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="Auto, *"
+                      RowSpacing="10" ColumnSpacing="17">
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="{x:Static t:RecipeEditViewTexts.FoodType_Label_Text}" />
+                    <Picker Grid.Row="1"
+                            Grid.Column="0"
+                            HorizontalOptions="Fill"
+                            ItemsSource="{Binding FoodTypes}"
+                            ItemDisplayBinding="{Binding ., Converter={StaticResource FoodTypeToStringConverter}}"
+                            SelectedItem="{Binding Recipe.FoodType}" />
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Text="{x:Static t:RecipeEditViewTexts.Duration_Label_Text}" />
+                    <TimePicker Grid.Row="1" Grid.Column="1"
+                                Time="{Binding Recipe.Duration}"
+                                Format="HH:mm" />
+                </Grid>
+
+                <StackLayout Grid.Row="2"
+                             Orientation="Vertical"
+                             Spacing="10">
+                    <Label Text="{x:Static t:RecipeEditViewTexts.ImageUrl_Label_Text}" />
+
+                    <Entry Text="{Binding Recipe.ImageUrl}"/>
+                </StackLayout>
+            </Grid>
+
+            <Frame Grid.Column="1"
+                   HorizontalOptions="Fill" VerticalOptions="Fill"
+                   Style="{StaticResource ImageFrameStyle}">
+                <Image Source="{Binding Recipe.ImageUrl, TargetNullValue='recipe_placeholder.jpg'}"
+                       WidthRequest="320" HeightRequest="240"
+                       Aspect="AspectFill" />
+            </Frame>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*, *"
+              ColumnSpacing="40">
+
+            <Grid Grid.Column="0"
+                  RowDefinitions="Auto, *"
+                  RowSpacing="30">
+                <Label Grid.Row="0"
+                       Text="{x:Static t:RecipeEditViewTexts.Description_Label_Text}" />
+
+                <Editor Grid.Row="1"
+                        Text="{Binding Recipe.Description}"
+                        AutoSize="TextChanges"
+                        VerticalOptions="Fill" />
+            </Grid>
+
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1"
+                                 Spacing="30">
+                <Button Text="{x:Static t:RecipeEditViewTexts.EditIngredients_Button_Text}"
+                        Command="{Binding GoToRecipeIngredientEditCommand}"
+                        IsVisible="{Binding Recipe, Converter={StaticResource ModelIsNewToIsVisibleInvertedConverter}}"
+                        Style="{StaticResource PrimaryButtonStyle}" />
+                <Label Text="{x:Static t:RecipeEditViewTexts.ErrorUnsavedRecipe_Label_Text}"
+                       HorizontalOptions="End"
+                       IsVisible="{Binding Recipe, Converter={StaticResource ModelIsNewToIsVisibleConverter}}" />
+
+                <CollectionView ItemsSource="{Binding Recipe.Ingredients}"
+                                HorizontalOptions="End">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:IngredientAmountDetailModel">
+                            <HorizontalStackLayout>
+                                <Frame Margin="5, 5, 20, 5"
+                                       Style="{StaticResource ImageFrameStyle}">
+                                    <Image Source="{Binding IngredientImageUrl, TargetNullValue='ingredient_placeholder.jpg'}"
+                                           WidthRequest="60" HeightRequest="60"
+                                           Aspect="AspectFill" />
+                                </Frame>
+
+                                <Label VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Amount}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding Unit, Converter={StaticResource UnitToStringConverter}}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding IngredientName}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Button Grid.Row="2"
+                HorizontalOptions="End"
+                Text="{x:Static t:RecipeEditViewTexts.Save_Button_Text}"
+                Command="{Binding SaveCommand}"
+                Style="{StaticResource PrimaryButtonStyle}" />
+    </Grid>
+</views:ContentPageBase>

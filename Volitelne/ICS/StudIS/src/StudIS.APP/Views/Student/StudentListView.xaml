@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:StudIS.APP.Views"
+             xmlns:vm="clr-namespace:StudIS.APP.ViewModels.Student"
+             xmlns:m="clr-namespace:StudIS.BL.Models;assembly=StudIS.BL"
+             x:Class="StudIS.APP.Views.Student.StudentListView"
+             x:DataType="vm:StudentListViewModel"
+             x:Name="StudentListViewRoot">
+    <StackLayout>
+        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="1*, 5*, 1*" >
+            <Button 
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Add Student"
+                Margin="10"
+                Style="{StaticResource ActionButtonStyle}"
+                Command="{Binding GoToCreateCommand}"/>
+
+            <Button 
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Refresh"
+                Margin="10"
+                Style="{StaticResource ActionButtonStyle}"
+                Command="{Binding RefreshCommand}"/>
+
+            <Entry 
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10"
+                Placeholder="Enter search query" 
+                Text="{Binding SearchQuery}"
+                x:Name="SearchEntry" 
+                HorizontalOptions="FillAndExpand"/>
+            
+            <Button 
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Search" 
+                Margin="10"
+                Style="{StaticResource ActionButtonStyle}"
+                Command="{Binding SearchCommand}"/>
+
+            <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10">
+                <Label Text="Sort By:" VerticalOptions="Center"/>
+                <Picker 
+                    x:Name="SortPicker" 
+                    ItemsSource="{Binding SortOptions}"
+                    SelectedItem="{Binding SortOption}"
+                    HorizontalOptions="FillAndExpand"/>
+                
+            </StackLayout>
+            <Button 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                Text="Sort" 
+                Margin="10"
+                Style="{StaticResource ActionButtonStyle}"
+                Command="{Binding SortCommand}"/>
+        </Grid>
+        
+        
+        <!-- Students List -->
+        <CollectionView ItemsSource="{Binding Students}" 
+                        VerticalOptions="FillAndExpand" Margin="10">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 HorizontalItemSpacing="10" VerticalItemSpacing="10"
+                                 Span="3" />
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:StudentListModel">
+                    <Frame Padding="0"
+                           CornerRadius="10"
+                           WidthRequest="320" HeightRequest="140"
+                           IsClippedToBounds="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference StudentListViewRoot},
+                                Path= BindingContext.GoToDetailCommand}"
+                                CommandParameter="{Binding Id}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="10,10,10,10">
+                                <Label Text="{Binding FirstName}" FontSize="Medium"/>
+                                <Label Text="{Binding LastName}" FontSize="Medium"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</views:ContentPageBase>

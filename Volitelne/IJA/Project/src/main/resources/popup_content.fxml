@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<!--Author : Shaposhnik Bogdan : xshapo04. FXML description of Popup Window-->
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="ija.ija2024.xsmirn02.controller.PopupController"
+      alignment="CENTER" spacing="20" style="-fx-padding: 20; -fx-background-color: white;">
+    <Label text="Victory! Congratulations!"/>
+    <Button text="Back to menu" onAction="#onBackToMenuPopup"/>
+</VBox>

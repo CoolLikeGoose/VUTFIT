@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Author : Shaposhnik Bogdan : xshapo04. FXML description of Main Menu-->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ija.ija2024.xsmirn02.controller.MenuController">
+<left>
+    <VBox alignment="CENTER" spacing="10" styleClass="menu-controls">
+        <Region VBox.vgrow="ALWAYS"/>
+        <Button text="Play" fx:id="playButton" onAction="#onPlayClicked"/>
+        <VBox fx:id="difficultyBox" spacing="10" visible="false" managed="false" alignment="CENTER">
+            <Button text="Easy" onAction="#onEasyButtonClick" styleClass="diffButtonEasy"/>
+            <Button text="Medium" onAction="#onMediumButtonClick" styleClass="diffButtonMid"/>
+            <Button text="Hard" onAction="#onHardButtonClick" styleClass="diffButtonHard"/>
+        </VBox>
+        <Button text="Exit" onAction="#onExitClicked"/>
+        <Region VBox.vgrow="ALWAYS"/>
+    </VBox>
+</left>
+
+    <center>
+        <StackPane maxWidth="980" maxHeight="720" prefWidth="980" prefHeight="720" styleClass="mainImage">
+            <ImageView fx:id="screenshot" fitWidth="980" fitHeight="720" preserveRatio="true">
+                <image>
+                    <Image url="@/mainMenu.jpg" />
+                </image>
+            </ImageView>
+        </StackPane>
+    </center>
+</BorderPane>

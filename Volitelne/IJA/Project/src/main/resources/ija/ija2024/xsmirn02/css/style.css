@@ -1,0 +1,94 @@
+/*Author : Shaposhnik Bogdan : xshapo04. CSS styling for all windows*/
+.root {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-background-color: #f0f0f0;
+}
+
+.button {
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-background-color: linear-gradient(to bottom, #e6d81f, #a6a21b);
+    -fx-effect: dropshadow(gaussian, rgba(78, 76, 76, 0.3), 5, 0, 1, 2);
+    -fx-text-fill: black;
+    -fx-transition: all 0.3s ease;
+    -fx-background-radius: 5;
+    -fx-pref-width: 160;
+}
+
+.button:hover {
+    -fx-background-color: #9f9630;
+}
+
+.game-controls {
+    -fx-pref-width: 300px;
+    -fx-background-color: #2b2a2a;
+}
+
+.step-buttons .button{
+    -fx-pref-width: 75px;
+}
+
+.game-controls {
+    -fx-padding: 0 0 20 0; /* top right bottom left */
+}
+
+.game-content {
+    -fx-background-color: #878787;
+    -fx-alignment: center;
+}
+
+.menu-controls {
+    -fx-pref-width: 300px;
+    -fx-background-color: #3a3a3a;
+    -fx-padding: 40 0 0 0; /* top right bottom left */
+}
+
+.selector{
+    -fx-background-color: #d7cb41;
+}
+
+.button:disabled {
+    -fx-background-color: #777777;
+    -fx-text-fill: #cccccc;
+    -fx-opacity: 1;
+    -fx-cursor: default;
+}
+
+.button.active {
+    -fx-text-fill: black;
+    -fx-transition: all 0.3s ease;
+    -fx-background-color: linear-gradient(to bottom, #e6d81f, #d3c926);
+    -fx-effect: dropshadow(gaussian, rgba(78, 76, 76, 0.3), 5, 0, 2, 2);
+}
+
+
+.diffButtonEasy{
+    -fx-background-color: #87cd6a;
+}
+
+.diffButtonEasy:hover {
+    -fx-background-color: #557e42;
+}
+
+.diffButtonMid{
+    -fx-background-color: #ec9e34;
+}
+
+.diffButtonMid:hover{
+    -fx-background-color: #80561d;
+}
+
+.diffButtonHard{
+    -fx-background-color: #ef3030;
+}
+
+.diffButtonHard:hover{
+    -fx-background-color: #881b1b;
+}
+
+.mainImage {
+    -fx-max-width: 980;
+    -fx-max-height: 720;
+    -fx-background-color: #232323;
+}
+

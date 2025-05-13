@@ -1,0 +1,213 @@
+/**
+ * Styles for the booking page.
+ * Author: Nikita Smirnov (xsmirn02)
+ */
+
+.booking-page {
+    display: flex;
+}
+
+.booking-page .calendar-details {
+    flex: 1 ;
+    height: 500px;
+    border-radius: 16px 0px 0px 16px;
+    box-shadow: 4;
+    overflow: hidden;
+    padding: 0px;
+    border-color: black;
+    border: 2px solid #cccccc;
+    /* border-right: #cccccc; */
+}
+
+.booking-page .calendar {
+    flex: 2;
+    height: 500px;
+    border-radius: 0px 16px 16px 0px;
+    box-shadow: 4;
+    overflow: hidden;
+    padding: 0px;
+    border-color: black;
+    border: 2px solid #cccccc;
+    border-left: none;
+}
+
+.booking-page .calendar.hidden {
+    display: none;
+}
+
+.booking-page .form-section {
+    flex: 1;
+    height: 500px;
+    border-radius: 16px;
+    box-shadow: 4;
+    overflow: hidden;
+    justify-content: center;
+    padding: 16px;
+    align-items: center;
+    border: 2px solid #cccccc;
+    margin-left: 10px;
+}
+
+.booking-page .form-section.expanded {
+    flex: 3;
+    border-radius: 0px 16px 16px 0px;
+    margin-left: 0px;
+    border-left: none;
+}
+
+.booking-page .time-selector.hidden {
+    display: none;
+}
+
+.booking-page .form-input {
+    display: flex;
+}
+
+.booking-page .form-input.hidden {
+    display: none;
+}
+
+.book-form .form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-form .form-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.book-form .form-fields input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.book-form button {
+    color: white;
+    background-color: #3B82F6;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    display: 'flex';
+    padding: '10px';
+    line-height: 18px;
+}
+
+.description img {
+    width: 100%;
+}
+
+.description .field {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.description .label {
+    font-size: 13px;
+    color: #888;
+    display: block;
+}
+
+.description .value {
+    font-size: 15px;
+    font-weight: 'bold';
+    color: #000;
+}
+
+.description .select {
+    width: '100%';
+    font-size: '16px';
+    border: '1px solid #ccc';
+    border-radius: '5px';
+    background-color: '#f9f9f9';
+}
+
+.description .name {
+    font-size: 17px;
+}
+
+.time-slots {
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.time-slots .time-header {
+    margin: 10px;
+}
+
+.time-slots .scrollable-container {
+    width: 100%;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.time-slots .btn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.time-slots .btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+}
+
+.time-slots .btn-time {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: '20px solid';
+    border-color: #3B82F6;
+    color: #3B82F6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.time-slots .btn-expanded {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.time-slots .expanded-btn-time {
+    flex: 1;
+    background-color: #3B82F6;
+    color: #FFF;
+    border: '20px solid';
+    border-color: #3B82F6;
+    border-radius: 6px;
+}
+
+.time-slots .btn-confirm {
+    flex: 1;
+    background-color: #2c6dcd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.time-slots .btn-confirm:hover,
+.btn-time:hover {
+  background-color: #357ae8;
+  color: #FFF;
+}

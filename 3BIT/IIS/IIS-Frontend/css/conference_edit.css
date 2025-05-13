@@ -1,0 +1,22 @@
+/* reservations */
+.field-column {
+    margin-left: 20px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-clear-button {
+    display: none;
+}
+
+.blocked-checkbox {
+    pointer-events: none;
+}
+
+.presentation-time-selection {
+    margin-left: 0px;
+    gap: 30px;
+}

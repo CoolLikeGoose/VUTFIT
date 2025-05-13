@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Conference Details</title>
+</head>
+<body>
+<!-- Header Container -->
+<div id="header"></div>
+
+<div class="container mt-4">
+  <div id="conference-details" class="mb-5"></div>
+
+  <div class="nice-container">
+    <h3 class="mb-3">Presentations</h3>
+    <button class="btn btn-primary ml-3" id="apply-presentation-btn">Apply</button>
+  </div>
+  <div id="presentations-list" class="overflow-auto" style="max-height: 400px;">
+    <!-- Presentation cards will be appended here -->
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+  import { loadHeader } from '../js/loadHeader.js';
+  loadHeader();
+</script>
+<script type="module" src="../js/conference.js"></script>
+</body>
+</html>

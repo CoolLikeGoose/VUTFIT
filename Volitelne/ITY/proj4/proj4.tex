@@ -1,0 +1,59 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[left=2cm, top=3cm, text={17cm, 24cm}]{geometry}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{csquotes}
+
+% \usepackage[backend=bibtex,style=numeric]{biblatex}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+    \Huge \textsc{Vysoké učení technické v Brně}\\
+    \huge\textsc{Fakulta informačních technologií}\\
+    
+    \vspace{\stretch{0.382}}
+    
+    Typografie a publikování -- 4. projekt\\
+    \textbf{Bibliografické citace}\\
+    
+    \vspace{\stretch{0.618}}
+\end{center}
+
+{\LARGE 24. dubna 2025 \hfill Smirnov Nikita (xsmirn02)}
+\clearpage
+
+\setcounter{page}{1}
+
+\section{Úvod}
+V posledních letech kvantové počítače zaznamenaly výrazný pokrok a staly se jedním z nejdiskutovanějších témat v oblasti výpočetní techniky. Díky investicím velkých technologických společností, jako je Microsoft a IBM, se vývoj kvantových technologií rychle posouvá kupředu \cite{novinky2025qcvyvoj}.
+
+\section{Jak kvantové počítače fungují}
+Na rozdíl od klasických počítačů, které používají bity s hodnotami 0 nebo 1, kvantové počítače využívají \emph{qubity}, které mohou být současně v superpozici stavů 0 a 1. Tato vlastnost umožňuje paralelní zpracování informací a potenciálně exponenciální zrychlení některých výpočtů \cite{nielsen2000quantum}.
+
+Pro stabilní provoz qubitů je nutné dosáhnout extrémně nízkých teplot blízkých absolutní nule. Například supravodivé qubity vyžadují chlazení na teploty kolem 15 milikelvinů, aby se minimalizoval šum a dekoherence \cite{gruska2003quantum}.
+
+\section{Dopad kvantových počítačů}
+
+\subsection{Negativní aspekty}
+Jedním z hlavních obav spojených s kvantovými počítači je jejich schopnost prolomit současné kryptografické algoritmy, jako je RSA. Shorův algoritmus\cite{shor1994algo} umožňuje efektivní faktorizaci velkých čísel, což by mohlo ohrozit bezpečnost digitální komunikace.
+
+\subsection{Pozitivní přínosy}
+Na druhé straně kvantové počítače nabízejí obrovský potenciál v oblasti simulace přírodních procesů\cite{james2011sim}. Mohou například modelovat komplexní chemické reakce, což by mohlo urychlit vývoj nových léků a materiálů \cite{De_Wolf2017-ku}.
+
+\section{Současný vývoj a výzvy}
+Zvyšování počtu qubitů v kvantových počítačích je technicky náročné. Microsoft nedávno představil čip Majorana 1, který využívá nový stav hmoty zvaný topokonduktor. Tato technologie by mohla umožnit škálování kvantových počítačů na miliony qubitů \cite{microsoft2025break}.
+
+Kromě toho se zkoumají možnosti propojení více kvantových počítačů do distribuovaných systémů, což by mohlo překonat omezení jednotlivých zařízení \cite{carter2024qcUni}.
+
+\section{Závěr}
+Kvantové počítače představují revoluční technologii s potenciálem transformovat mnoho oblastí lidské činnosti. Ačkoli čelí mnoha výzvám, pokrok v této oblasti je slibný. Vývoj kvantových počítačů také otevírá nové odvětví programování, protože psaní algoritmů pro kvantové počítače se velmi liší od obvyklého přístupu v programování\cite{algo1999mosca}. Osobně jsem začal studovat kvantové programování prostřednictvím přístupného článku na Habr \cite{habr2020}.
+
+\bibliographystyle{czechiso}
+\bibliography{refs}
+\end{document}

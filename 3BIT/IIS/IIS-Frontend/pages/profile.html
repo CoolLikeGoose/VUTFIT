@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>User Profile</title>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">User Profile</h1>
+
+    <div class="row">
+        <!-- Update Profile Column -->
+        <div class="col-md-6">
+            <form id="profile-form">
+                <h2 class="h5 mb-3">Update Profile</h2>
+                <div class="text-center mb-4">
+                    <img id="current-picture" src="" alt="Profile Picture" class="img-thumbnail" width="120">
+                </div>
+                <div class="form-group">
+                    <label for="picture" class="form-label">Profile Picture URL</label>
+                    <input type="url" class="form-control" id="picture" placeholder="Enter profile picture URL">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Update Information</button>
+            </form>
+        </div>
+
+        <!-- Change Password Column -->
+        <div class="col-md-6">
+            <form id="password-form" class="mb-4">
+                <h2 class="h5 mb-3">Change Password</h2>
+                <div class="form-group">
+                    <label for="current-password" class="form-label">Current Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="current-password" placeholder="Enter your current password" required>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary toggle-password" data-target="current-password">Show</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="new-password" class="form-label">New Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="new-password" placeholder="Enter your new password" required>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary toggle-password" data-target="new-password">Show</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-new-password" class="form-label">Confirm New Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Confirm your new password" required>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary toggle-password" data-target="confirm-new-password">Show</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Account Section -->
+    <div class="text-center mt-5">
+        <h2 class="h5 mb-3 text-danger">Delete Account</h2>
+        <p class="text-danger">Warning: Deleting your account is permanent and cannot be undone.</p>
+        <button id="delete-account" class="btn btn-danger btn-block">Delete My Account</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/js/profile.js"></script>
+<script type="module">
+    import { loadHeader } from '../js/loadHeader.js';
+    loadHeader();
+</script>
+</body>
+</html>

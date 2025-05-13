@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/conference_edit.css">
+  <title>Edit Conference</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="container-fluid" id="conference-edit">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <nav class="sidebar-sticky pt-3">
+        <ul>
+          <li><a href="#" data-target="main-information">Main Information</a></li>
+          <li><a href="#" data-target="schedule" class="disabled" style="color: gray;">Schedule</a></li>
+          <li><a href="#" data-target="auditoriums" class="disabled" style="color: gray;">Auditoriums</a></li>
+          <li><a href="#" data-target="reservations" class="disabled" style="color: gray;">Reservations</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Main content -->
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <section id="main-information" class="my-4 section"></section>
+      <section id="schedule" class="my-4 section"></section>
+      <section id="auditoriums" class="my-4 section"></section>
+      <section id="reservations" class="my-4 section"></section>
+    </main>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="../js/edit_conferences/edit_conference.js"></script>
+</body>
+</html>

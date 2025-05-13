@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Konference</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Vladyslav Yeroma <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xyerom00@stud.fit.vutbr.cz">xyerom00@stud.fit.vutbr.cz</a> -
+		Capitan tymu, funkcni zakdlad backendu a frontendu, backend pro sve frontend interface - login/signup system, My Events, admin panel, main conference page
+	</dd>
+	<dd>Nikita Smirnov <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xsmirn02@stud.fit.vutbr.cz">xsmirn02@stud.fit.vutbr.cz</a> -
+		database schema, backend pro sve frontend interface - zprava conference/prezentace/rezervace
+	</dd>
+  <dd>Shaposhnik Bogdan <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xshapo04@stud.fit.vutbr.cz">xshapo04@stud.fit.vutbr.cz</a> - 
+		use case diagram, zprava profilu
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="https://iis-frontend.fly.dev/">https://iis-frontend.fly.dev/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Úloha specifikuje 3 hlavní role - správce, registrovaný uživatel a neregistrovaný uživatel.</p>
+<p>Další role, jako jsou pořadatel, přednášející a návštěvník, existují pouze v rámci jedné konference.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>dana.white@example.com</td><td>dana123</td><td>Administrátor</td></tr>
+<tr><td>alice.johnson@example.com</td><td>alice123</td><td>Registrovaný uživatel(pořadatel konference)</td></tr>
+<tr><td>bob.smith@example.com</td><td>bob123</td><td>Registrovaný uživatel(přednášející)</td></tr>
+<tr><td>charlie.brown@example.com</td><td>charlie123</td><td>Registrovaný uživatel(návštěvník)</td></tr>
+</table>
+
+<h3>Use-Case Diagram</h3>
+
+<img src="https://fly.storage.tigris.dev/frosty-surf-5195/drawio_1.png" style="max-height: 400px;"/>
+
+<h3>Video</h3>
+
+<a href="https://www.loom.com/share/a5d7f72bdc874a83aae65e7ff68d6580">Link</a>
+
+<h2>Implementace</h2>
+<h4>Backend</h4>
+Backend je rozdělen do tří částí:
+<ul>
+	<li><strong>db</strong> - definuje databázové modely a vytváří vztahy v rámci databáze.</li>
+	<li><strong>routes</strong> - je zodpovědný za koncové body rozhraní api, zpracovává data přijatá z api dotazů a předává je ke zpracování službám.</li>
+	<li><strong>services</strong> - odpovídá za logiku zpracování dotazů, provádí dotazy do databáze, vytváří, maže a upravuje data.</li>
+</ul>
+Každý soubor v rámci každé části je zodpovědný za logiku podle svého názvu (například routes/user_routes.py je zodpovědný za koncové body api ve vztahu k modelu uživatele).
+
+<h4>Frontend</h4>
+Souborová struktura frontendu je rozdělena do tří hlavních složek:
+<ul>
+	<li><strong>pages</strong> - Obsahuje html stránky (jejich obsah je popsán nadpisem), jejichž obsah je z větší části vyplněn js.</li>
+	<li><strong>js</strong> - Obsahuje js skripty, které jsou připojeny k příslušným html souborům a upravují a doplňují jejich obsah. Výjimkou je složka <strong>edit_conferences</strong>, která obsahuje logiku příslušné stránky. Kód této stránky byl vzhledem k její velikosti rozdělen do několika souborů, které jsou inicializovány v souboru edit_conference.js</li>
+	<li><strong>css</strong> - Obsahuje css pro stránky aplikace. Mnoho prvků také používá bootstrap pro zjednodušení a sjednocení stylu aplikace.</li>
+</ul>
+
+<h4>Use Cases Implementace</h4>
+<p>Implementace byla rozdělena podle jednotlivých případů užití, aby zajistila efektivní a přehlednou správu konferencí, přednášek a účastníků.</p>
+
+<h5>Administrátor</h5>
+<ul>
+	<li><strong>Správa uživatelů:</strong> Administrátor může vytvářet, upravovat a mazat uživatele. Tato funkcionalita je implementována pomocí koncových bodů <code>/api/users</code>, které zpracovávají dotazy pro správu uživatelských účtů. Každý uživatelský účet je spravován přes definované služby v <code>user_services.py</code> a všechny změny jsou ukládány do databáze prostřednictvím modelů v <code>user_model.py</code>.</li>
+	</ul>
+
+<h5>Registrovaný uživatel</h5>
+<ul>
+	<li><strong>Zakládání a správa konferencí:</strong> Registrovaní uživatelé mohou vytvářet konference pomocí <code>/api/conferences</code>. Spravují místnosti a časové rozpisy přednášek. Kód v rámci <code>conference_routes.py</code> a <code>conference_services.py</code> zajišťuje všechny CRUD operace. Každá konference má atributy, jako jsou čas konání, kapacita a další detaily, které jsou uloženy pomocí databázových modelů definovaných v <code>conference_model.py</code>.</li>
+	<li><strong>Schvalování přednášejících:</strong> Pořadatelé konferencí mohou schvalovat návrhy přednášek pomocí rozhraní implementovaného v <code>presentation_routes.py</code> a <code>presentation_services.py</code>. Tyto služby kontrolují časové kolize, aby se zajistilo, že žádné dvě přednášky nejsou naplánovány ve stejné místnosti ve stejném čase.</li>
+	<li><strong>Správa rezervací:</strong> Rezervace jsou spravovány pomocí koncových bodů <code>/api/reservations</code>. Pořadatel může potvrzovat platby a vydávat vstupenky. Každá rezervace je uložena a spravována pomocí databázových modelů v <code>reservation_model.py</code>. Správa zahrnuje validaci, aby se zajistilo, že kapacita místnosti nebo konference není překročena.</li>
+	<li><strong>Prezentace a přednášení:</strong> Uživatelé mohou registrovat své příspěvky pomocí <code>/api/presentations</code> a stát se tak přednášejícími. V rámci rozhraní My Events mají přístup ke správě svých prezentací a mohou vidět uživatelsky přívětivý rozpis svých přednášek a jinych aktivit. Každá prezentace je kontrolována, aby se zabránilo časovým kolizím (tj. více přednášek ve stejné místnosti ve stejný čas).</li>
+	<li><strong>Rezervace vstupenek:</strong> Uživatelé mohou rezervovat vstupenky na konference. Koncové body pro rezervace zajišťují validaci dostupných míst, aby nedocházelo k překročení kapacity. Tato validace probíhá v rámci <code>reservation_services.py</code>.</li>
+</ul>
+
+<h5>Neregistrovaný uživatel</h5>
+<ul>
+	<li><strong>Prohlížení konferencí:</strong> Neregistrovaní uživatelé mohou vidět dostupné konference a jejich obsah. Informace o dostupných konferencích jsou načítány pomocí <code>/api/conferences</code>, které poskytuje přehled veřejných konferencí. Tento přístup nevyžaduje žádnou autentizaci a slouží jako vstupní bod pro získání informací o nabízených konferencích.</li>
+	<li><strong>Rezervace vstupenek bez registrace:</strong> Neregistrovaní uživatelé mohou rezervovat vstupenky na konferenci a případně dokončit registraci po rezervaci, což jim umožní spravovat své rezervace v budoucnosti. Tato funkcionalita je implementována pomocí validace vstupních dat v <code>reservation_routes.py</code>, kde se také zajišťuje, že neregistrovaní uživatelé poskytnou potřebné informace.</li>
+</ul>
+
+<h5>Kontrola časových kolizí</h5>
+<p>Jedním z klíčových aspektů implementace bylo zajistit, aby nedocházelo k časovým kolizím, a to zejména u místností (auditorií) a prezentací.</p>
+
+<ul>
+	<li><strong>Časové kolize místností:</strong> Každá místnost (auditorium) může být rezervována pouze pro jednu přednášku nebo událost v daném čase. Při přidávání místnosti ke konferenci nebo při vytváření časového rozpisu přednášek se kontroluje, zda není místnost již obsazena pro jinou konferenci nebo prezentaci ve stejném časovém intervalu. Tato kontrola je realizována v rámci služby <code>conference_auditorium_service.py</code>, kde se pomocí dotazů do databáze kontrolují existující rezervace místností.</li>
+	<li><strong>Časové kolize uvnitř konference:</strong> Uvnitř jedné konference se kontrolují také kolize mezi jednotlivými přednáškami, které se mají konat ve stejné místnosti. Každá nová prezentace nebo změna časového plánu přednášek je ověřována pomocí služby <code>presentation_services.py</code>, aby bylo zajištěno, že nedochází k překrývání časů.</li>
+</ul>
+
+<h5>Uživatelsky přívětivé rozvrhy</h5>
+<p>Každý registrovaný uživatel, který je přednášejícím nebo účastníkem, má přístup k uživatelsky přívětivému rozvrhu svých událostí. Rozvrhy jsou generovány pomocí kombinace dat z databáze a JavaScriptu na straně frontendu, což zajišťuje, že uživatelé vidí všechny nadcházející události v přehledném formátu.</p>
+
+<p>Například <code>my_events.js</code> zajišťuje dynamické vykreslení událostí uživatele, kdy jsou data načítána z backendu a následně zobrazena v časově seřazeném rozvrhu. Tento skript umožňuje snadnou navigaci mezi jednotlivými stránkami rozvrhu a vyhledávání událostí podle různých parametrů (typ události, časový interval, apod.).</p>
+
+<h3>Databáze</h3>
+
+<img src="https://fly.storage.tigris.dev/frosty-surf-5195/iis3.png" style="max-height: 800px;"/>
+
+<h2>Instalace</h2>
+
+<ul>
+	<li><b>Jak rozbalit, konfigurovat, inicializovat databázi:</b>
+		<ol>
+			<li>Po rozbaleni, vytvořte a spusťte databázi PostgreSQL pomocí příkazu nize.</li>
+			<li>Spusťte backend aplikaci, která provede migraci databáze a inicializuje ukazkove data.</li>
+			<li>Spusťte frontend aplikaci</li>
+		</ol>
+	</li>
+	<li><b>Příkazy pro lokalni spusteni pres Docker</b>
+		<ol>
+			<li>Spusťte databázi PostgreSQL:
+				<pre><code>docker run -d --name iis-db -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 postgres:13</code></pre>
+			</li>
+			<li>Vytvořte backend obraz:
+				<pre><code>cd IIS-Backend
+docker build -t iis-backend-app .</code></pre>
+			</li>
+			<li>Spusťte backend kontejner:
+				<pre><code>docker run -d --name iis-backend --link iis-db:db -p 7070:7070 iis-backend-app</code></pre>
+			</li>
+			<li>Vytvořte frontend obraz:
+				<pre><code>cd ../IIS-FrontEnd
+docker build -t iis-frontend-app .</code></pre>
+			</li>
+			<li>Spusťte frontend kontejner:
+				<pre><code>docker run -d --name iis-frontend -p 8080:8080 iis-frontend-app</code></pre>
+			</li>
+		</ol>
+	</li>
+
+	<li><b>Softwarové požadavky:</b>
+		<ul>
+			<li>Python 3.12</li>
+			<li>PostgreSQL 13 nebo vyšší</li>
+			<li>Node.js 20 nebo vyšší</li>
+			<li>NPM (pro frontend)</li>
+			<li>Docker</li>
+		</ul>
+	</li>
+
+
+</ul>
+<h3>Alternativní postup bez Dockerfile</h3>
+
+Pokud nejde používat Dockerfile pro frontend and backend, můžete spustit jich manuálně následovně:
+
+<h4>PostgreSQL:
+	<pre><code>docker run -d --name iis-db -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 postgres:13</code></pre>
+</h4>
+
+<h4>Backend:</h4>
+<ol>
+	<li>Otevřete terminál a přejděte do adresáře <code>IIS-Backend</code>.</li>
+	<li>Aktivujte virtuální prostředí a nainstalujte závislosti:
+		<pre><code>python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+.venv\Scripts\activate     # Windows
+pip install -r requirements.txt</code></pre>
+	</li>
+	<li>Aktualizujte SQLALCHEMY_DATABASE_URI v souboru <code>config.py</code>:
+		<pre><code>DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydatabase</code></pre>
+	</li>
+	<li>Proveďte migrace databáze, vyplnte daty a spusťte aplikaci:
+		<pre><code>flask db upgrade
+flask populate_data
+flask run --host=0.0.0.0 --port=7070</code></pre>
+	</li>
+</ol>
+
+<h4>Frontend:</h4>
+<ol>
+	<li>Otevřete terminál a přejděte do adresáře <code>IIS-FrontEnd</code>.</li>
+	<li>Nainstalujte závislosti:
+		<pre><code>npm install</code></pre>
+	</li>
+	<li>Spusťte server:
+		<pre><code>npm run start</code></pre>
+	</li>
+</ol>
+<h2>Deployment na Fly.io</h2>
+
+<h3>Co je Fly.io a jak funguje?</h3>
+<p><a href="https://fly.io" target="_blank">Fly.io</a> je platforma pro nasazování aplikací a databází přímo na edge servery po celém světě. Umožňuje snadné a rychlé škálování aplikací do různých regionů a poskytuje flexibilní nástroje pro správu a údržbu. Fly.io využívá koncept kontejnerizace (podobně jako Docker) a umisťuje vaše aplikace blíže ke koncovým uživatelům, což zajišťuje lepší výkon a nižší latenci.</p>
+
+<h3>Vysvětlení příkazů:</h3>
+<ul>
+	<li><code>fly postgres create</code>: Vytvoří novou databázi PostgreSQL v dané lokalitě (např. Amsterdam - ams).</li>
+	<li><code>fly proxy</code>: Zprostředkuje lokální připojení k vzdálené databázi na Fly.io.</li>
+	<li><code>fly launch</code>: Vytvoří novou aplikaci na Fly.io.</li>
+	<li><code>flyctl deploy</code>: Nasadí aplikaci na Fly.io.</li>
+	<li><code>fly postgres attach</code>: Připojí databázi k backendové aplikaci, což umožní použití databáze v nasazené aplikaci.</li>
+</ul>
+
+<h3>Úpravy před nasazením</h3>
+<p>Před nasazením aplikací na Fly.io je třeba provést následující úpravy:</p>
+
+<ul>
+	<li><b>Frontend:</b> Před nasazením je třeba upravit soubor <code>config.js</code>, kde najdete řádek s definicí základní URL:</li>
+	<pre><code>export const baseUrl = 'http://127.0.0.1:7070';
+// export const baseUrl = 'https://iis-backend.fly.dev';</code></pre>
+	<li>Pro nasazení odkomentujte řádek s produkční URL (<code>https://iis-backend.fly.dev</code> nebo podobny) a zakomentujte URL pro lokální vývoj.</li>
+
+	<li><b>Backend:</b> Před nasazením je také třeba upravit soubor <code>config.py</code>, kde najdete definici <code>SQLALCHEMY_DATABASE_URI</code>:</li>
+	<pre><code>SQLALCHEMY_DATABASE_URI = 'postgresql://myuser:mypassword@localhost:5432/mydatabase'
+</code></pre>
+	<li>Pro nasazení aktualizujte <code>SQLALCHEMY_DATABASE_URI</code> na hodnotu odpovídající připojení k databázi na Fly.io, napriklad:</li>
+	<pre><code>SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:0MSq59TxFP4KNpO@iis-backend-db.flycast:5432'</code></pre>
+</ul>
+
+<ul>
+	<li><b>Postup nasazení na Fly.io:</b>
+		<ol>
+			<li>Nejdříve musíte vytvořit databázi PostgreSQL na Fly.io. Pro tuto akci můžete použít následující příkaz:
+				<pre><code>fly postgres create --name iis-backend-db --region ams</code></pre>
+			</li>
+			<li>Pro připojení k nově vytvořené databázi a provedení migrace, použijte následující příkaz pro zprostředkování připojení:
+				<pre><code>fly proxy 5432 -a iis-backend-db</code></pre>
+			</li>
+			<li>Aktualizujte ve IIS-Backend konfigurační soubor <code>config.py</code> s odkazem na připojení k databázi. Tento odkaz můžete získat po vytvoření databáze:
+				<pre><code>SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:[HESLO]@127.0.0.1:5432'</code></pre>
+			</li>
+			<li>Provádějte migraci databáze lokálně:
+				<pre><code>flask db upgrade</code></pre>
+			</li>
+			<li>Aktualizujte ve IIS-Backend konfigurační soubor <code>config.py</code> s odkazem na připojení k databázi zpatky na predchozi, napriklad:
+				<pre><code>SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:[HESLO]@iis-backend-db.flycast:5432'</code></pre>
+			</li>
+			<li>Vytvořte aplikace na Fly.io pro backend i frontend. Nejprve nastavte Fly.io pro backend:
+				<pre><code>fly launch --name iis-backend --region ams</code></pre>
+			</li>
+			<li>Nasazení backendu:
+				<pre><code>flyctl deploy</code></pre>
+			</li>
+			<li>Podobně vytvořte aplikaci pro frontend ve složce IIS-FrontEnd:
+				<pre><code>fly launch --name iis-frontend --region ams</code></pre>
+			</li>
+			<li>Nasazení frontend aplikace:
+				<pre><code>flyctl deploy</code></pre>
+			</li>
+		</ol>
+	</li>
+</ul>
+
+<h2>Známé problémy</h2>
+<ul>
+	<li>
+		Naše aplikace předpokládá, že se konference uskuteční pouze v jednom dni. To je nejběžnější praxe u malých místních konferencí. 
+		Backend však nemá striktní omezení na délku trvání konference, takže v případě rozšíření funkčnosti aplikace již backend tuto funkčnost podporuje.
+	</li>
+
+</ul>
+<h4>Teoreticky problematické oblasti</h4>
+<ul>
+	<li>
+		Úkol specifikuje bod - "vidí uživatelsky přívětivý rozpis přednášek konference, může si vytvářet osobní rozvrh".<br/>
+		Tuto funkci jsme implementovali na kartě Moje akce. Kde si uživatel může pohodlně třídit jak budoucí, tak minulé aktivity. 
+		Třídí je podle typu aktivity a může také pomocí vyhledávání najít podrobnější informace.<br/>
+		Pokud jde o vytváření osobního rozvrhu, nejsme si jisti, zda je myšleno samotné plánování aktivit a možnost je měnit.
+	</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for iis-backend on 2024-11-25T17:30:44+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'iis-backend'
+primary_region = 'ams'
+
+[build]
+  dockerfile = './Dockerfile-fly'
+
+[env]
+  FLASK_APP = 'app.py'
+  FLASK_ENV = 'production'
+  FLASK_RUN_PORT = '7070'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 7070
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

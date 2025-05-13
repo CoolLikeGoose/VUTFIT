@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for iis-frontend on 2024-11-25T18:06:28+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'iis-frontend'
+primary_region = 'ams'
+
+[build]
+  dockerfile = './Dockerfile'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 8080
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

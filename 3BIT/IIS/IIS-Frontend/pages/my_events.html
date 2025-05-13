@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>My Events Timetable</title>
+</head>
+<body>
+<!-- Header -->
+<div id="header"></div>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">My Events Timetable</h1>
+
+  <!-- Filters and Search -->
+  <div class="mb-4 d-flex flex-wrap justify-content-between align-items-center">
+    <button class="btn btn-primary mb-3" id="create-conference-btn">Create Conference</button>
+    <div class="form-group mr-3">
+      <input type="text" id="search-input" class="form-control" placeholder="Search events...">
+    </div>
+    <div class="form-group mr-3">
+      <select id="filter-type" class="form-control">
+        <option value="all">All Events</option>
+        <option value="conference">Conferences</option>
+        <option value="presentation">Presentations</option>
+        <option value="reservation">Reservations</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select id="filter-time" class="form-control">
+        <option value="upcoming">Upcoming Events</option>
+        <option value="past">Past Events</option>
+        <option value="all">All</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Timetable Display -->
+  <div id="data-container" class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>Details</th>
+      </tr>
+      </thead>
+      <tbody id="timetable-body">
+      <!-- Dynamic content will be injected here -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination and Page Number -->
+  <div class="pagination-buttons text-center">
+    <button class="btn btn-secondary" id="prev-page-btn">Previous Page</button>
+    <span id="current-page" class="mx-3">Page: 1</span>
+    <button class="btn btn-secondary" id="next-page-btn">Next Page</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+  import { loadHeader } from '../js/loadHeader.js';
+  loadHeader();
+</script>
+<script type="module" src="../js/my_events.js"></script>
+</body>
+</html>

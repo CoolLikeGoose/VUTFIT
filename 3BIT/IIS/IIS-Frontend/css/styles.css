@@ -1,0 +1,183 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: #343a40;
+}
+
+.important {
+  color: red;
+}
+
+.conference-card {
+  margin: 1rem 0;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.navbar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Adds a subtle shadow to make the navbar stand out */
+}
+
+#user-name {
+  font-weight: bold;  /* Makes the user's name bold */
+  color: white;
+}
+
+#navbarNav .nav-link {
+  color: #ffffff !important;  /* Ensures all links are white to match the dark navbar */
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: gray;
+}
+
+.modal #user-name {
+  color: black;
+  font-weight: normal;
+}
+
+.card-reservation {
+  border: 2px solid red;
+} 
+
+.card-presentation {
+  border: 2px solid blue;
+} 
+
+.card-conference {
+  border: 2px solid green;
+} 
+
+#conference-edit .section {
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#conference-edit .section.active {
+  display: block;
+  opacity: 1;
+}
+
+#conference-edit .sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#conference-edit .sidebar li {
+  margin: 10px 0;
+}
+
+#conference-edit .sidebar a {
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+#conference-edit .sidebar a:hover {
+  text-decoration: underline;
+}
+
+#cancel-reservation-btn {
+  margin-right: 31%;
+}
+
+#delete-apply-btn {
+  margin-right: 31%;
+}
+
+/* schedule */
+
+#unscheduled-presentations .presentation-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: move;
+}
+
+#schedule-table-container {
+  position: relative;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+#schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#schedule-table td, #schedule-table th {
+  border: 1px solid #ddd;
+  text-align: center;
+  vertical-align: top;
+  min-width: 150px;
+  min-height: 50px;
+}
+
+#schedule-table td.dropzone {
+  background-color: #f3f3f3;
+}
+
+#schedule-table td.dropzone.dragover {
+  background-color: #d1f7d1;
+}
+
+.status-approved {
+  color: green;
+  font-weight: bold;
+}
+
+.status-canceled {
+  color: red;
+  font-weight: bold;
+}
+
+.status-processing {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-unconfirmed {
+  color: gray;
+  font-weight: bold;
+}
+
+.status-confirmed {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Set a consistent size for conference images */
+.card-img-top-main {
+  height: 200px; /
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Add margin between conference list and pagination */
+#conference-list {
+  margin-bottom: 20px;
+}
+
+.user-picture {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;  /* Ensures the image maintains aspect ratio while filling the container */
+  max-width: 100%;    /* Makes sure it scales down if necessary */
+  border-radius: 50%; /* Makes the image rounded */
+}
+
+
+
+.nice-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,8 @@
+# System uptime
+1.3.6.1.2.1.1.3.0
+
+Formát mapping souboru (volitelný)
+
+{
+  "1.3.6.1.2.1.1.3.0": { "name": "snmp.sysUpTime", "unit": "ms", "type": "gauge" }
+}
